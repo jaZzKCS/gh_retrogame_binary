@@ -1,0 +1,113 @@
+
+        SceneNumber 305
+
+
+        Screen ..\wgp\c3_05.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\cave3\handle.mov
+           ..\cave3\cage.mov
+           ..\lab05\extra.mov
+           ..\cave3\lava.mov
+           ..\cave3\egg2.mov
+           ..\cave3\extra.mov
+        MoviesEnd
+
+
+	Box
+
+	   // Группа No. 1 - обозначает землю
+	   1 Enable (0,0) (0,0)
+
+	   GlobalMemory [173] != 3 -> 1 Disable (432,447) (620,500)
+	   GlobalMemory [173] == 3 -> 1 Enable (432,447) (620,500)
+
+//           1 Enable (183,447) (620,480)
+	   1 Enable (456,330) (1000,366)
+	   1 Enable (-1000,331) (379,369)
+	   1 Enable (101,218) (328,254)
+	   1 Enable (454,215) (1000,246)
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (268,105) (636,136)
+           1 Enable (320,0) (596,19)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (132,254) (294,376)
+	   2 Enable (0,370) (349,480)
+           2 Enable (511,365) (640,480)
+           2 Enable (540,250) (640,480)
+           2 Enable (353,16) (640,119)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+	   //                выводится без зеркального отображения
+           3 Enable (445,329) (469,364)
+           3 Enable (446,216) (469,247)
+           3 Enable (94,214) (118,251)
+           3 Enable (256,98) (280,132)
+           3 Enable (310,0) (334,24)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (364,330) (389,372)
+           4 Enable (310,218) (334,251)
+
+	   5 Enable (243,447) (432,500)
+	   GlobalMemory [173] == 3 -> 5 Disable (432,447) (620,500)
+	   GlobalMemory [173] != 3 -> 5 Enable (432,447) (620,500)
+
+	   // Группа No. 9 - обозначает перспективу
+	   9 Mix -1 0 0 (276,116) (640,131)
+	   9 Mix -1 0 0 (462,230) (640,245)
+	   9 Mix -1 0 0 (111,236) (322,249)
+
+	   // Группа No. 10 - обозначает перспективу
+	   10 Mix -1 192 64 (310,230) (349,259)
+	   10 Mix -1 192 64 (244,245) (324,336)
+	   10 Mix -1 192 64 (358,344) (400,373)
+           10 Mix -1 192 64 (302,374) (382,464)
+
+	   9 Mix -1 0 0 (306,472) (596,480)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+	Object: Handle
+           GlobalMemory [161] != 0 -> Cel 1 14
+           GlobalMemory [161] != 0 -> Coord (523, 284)
+        ObjectEnd
+        Object: Cage
+           GlobalMemory [161] != 0 -> Cel 1 19
+           GlobalMemory [161] != 0 -> Coord (453, 342)
+           GlobalMemory [173] == 3 -> Init NoInit
+        ObjectEnd
+
+        Object: Egg
+           GlobalMemory [173] == 1 -> Cel 2 5
+           GlobalMemory [173] == 1 -> Coord (449, 183)
+           GlobalMemory [173] == 2 -> Init NoInit
+           GlobalMemory [173] == 3 -> Cel 3 40
+           GlobalMemory [173] == 3 -> Coord (418, 455)
+	ObjectEnd
+
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 c3_04.scn
+           2 c3_06.scn
+           3 c3_01.scn
+        SceneEnd
+
+End

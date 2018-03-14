@@ -1,0 +1,2 @@
+cd SCN
+bermuda.exe

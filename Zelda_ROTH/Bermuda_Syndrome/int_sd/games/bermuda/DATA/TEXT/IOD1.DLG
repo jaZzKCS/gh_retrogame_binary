@@ -1,0 +1,29 @@
+//----------------------------
+// 2. DIALOG MIT TAURON (Szene vor dem Schwert)
+// lab09_07.scn
+
+
+J1 Goto T1 ..\ddd\j26.dad -> They say life in the jungle is nasty, brutish and short and you certainly fit that description. What now?
+
+J1 Goto T2 ..\ddd\j27.dad -> Did anyone ever tell you you've got an altitude problem?
+J1 Goto T5 ..\ddd\j28.dad -> Look, I'd love to stay and chat but I gotta get back to my unit.
+
+
+T1 Goto J2 ..\ddd\t1.dad -> I think perhaps you are not showing the right level of respect, but I will let that pass for now. Before I help you, you must help me...
+T2 Goto J2 ..\ddd\t2.dad -> You babble foolishly when there is much to be done. 
+
+J2 Goto T3 ..\ddd\j29.dad -> Sure, OK, I guess I'm stuck here now in dino-fantasy land? How do those teleporters work, by the way? A few of those would put the new York subway out of business.
+J2 Goto T5 ..\ddd\j30.dad -> Look, I'd love to stay and chat but I gotta get back to my unit.
+
+T3 Goto J3 ..\ddd\t3.dad -> You speak strangely and of things of which I know nothing. But listen. You have seen the ruined city of serpents and have met the Merians, the destroyers of our civilisation. Still, even now, many of our people are held as their slaves.  If you choose to help us I will help you in return. Imagine how it will be to wield a sword of unimaginable magic power. You must help us..
+
+J3 Goto T4 ..\ddd\j31.dad -> Did I just hand you a card saying "hero for hire"? Hmmm, OK, I'm along for the ride, short guy.
+J3 Goto T5 ..\ddd\j32.dad -> Magic sword?  Oh fantastic, a magic sword. Gee, I never had one of those 	before. Are you kidding? Reality check someone! I gotta get back to my unit.
+
+T4 End 2 ..\ddd\t4.dad -> Hmmm. I had hoped for someone a little less unstable.  Hysteria will not help you in the trials that lie ahead. But, it is said that foolishness and bravado may prevail over caution and clear thinking. But only for the very, very lucky. I will lead you to the place where I believe our people are held prisoner. Natalia will stay here, the journey is far too perilous and likely to end with your death. Still, I wish you luck...
+
+T5 End 1 ..\ddd\t5.dad -> I understand. Our battles are not your concern. But if you should change your mind I will be here.
+
+// End 2 Jack is teleporting to free another Jodas and after that teleport back
+
+// jaro???

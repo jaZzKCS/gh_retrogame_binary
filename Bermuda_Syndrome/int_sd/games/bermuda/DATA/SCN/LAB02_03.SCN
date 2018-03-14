@@ -1,0 +1,80 @@
+
+        Screen ..\wgp\lab02_03.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+//------------------
+          ..\alx\fly1.mov
+
+        MoviesEnd
+
+        Box
+           // Группа No. 1 - обозначает землю
+           1 Enable (    0,   0)  ( 79,  24)
+           1 Enable (    52, 110)  (  159, 138)
+           1 Enable ( -1000, 224)  (  266, 254)
+           1 Enable (    53, 337)  (  347, 366)
+           1 Enable ( -1000, 452)  ( 1000, 480)
+
+           // Группа No. 2 - обозначает препятствие
+           2 Enable (   79, 139)  ( 132, 232)
+           2 Enable ( 148 , 254)  (  241, 351)
+           2 Enable ( -100, 366)  (   51, 464)
+           2 Enable (  593,   0)  ( 1000, 457)
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable ( 42, 112) (  61, 137)
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+           4 Enable (  69,   0) (  88,  25)
+           4 Enable ( 150, 111) ( 169, 136)
+           4 Enable ( 257, 226) ( 276, 251)
+           4 Enable ( 339, 339) ( 358, 364)
+
+           // Группа No. 10 - выделение переднего плана
+           
+           10 Mix -1 192 64 (  0,  3) ( 89, 26)
+           10 Mix -1 192 64 ( 62,118) (168,139)
+           10 Mix -1 192 64 (108,138) (132,235)
+           10 Mix -1 192 64 (237,232) (275,253)
+           10 Mix -1 192 64 (222,255) (242,347)
+           10 Mix -1 192 64 ( 53,345) (355,363)
+           10 Mix -1 192 64 ( 30,368) ( 54,468)
+        BoxEnd
+
+        IfNewObject: Jack
+
+          Coord (0, 158)
+          
+        ObjectEnd
+
+//------------------------
+        Object: Fly_b
+          Coord (320, 50)
+        ObjectEnd
+        Object: Fly_b_
+          Coord (457, 173)
+        ObjectEnd
+        Object: Fly_m
+          Coord (466, 86)
+        ObjectEnd
+        Object: Fly_m_
+          Coord (416, 112)
+        ObjectEnd
+        Object: Fly_s
+          Coord (492, 64)
+        ObjectEnd
+        Object: Fly_s_
+          Coord (430, 55)
+        ObjectEnd
+
+        Scene
+          1 lab02_02.scn
+          3 lab02_04.scn
+        SceneEnd
+End

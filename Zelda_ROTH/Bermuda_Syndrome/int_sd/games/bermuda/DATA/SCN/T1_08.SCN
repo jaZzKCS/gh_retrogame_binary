@@ -1,0 +1,65 @@
+
+        SceneNumber 52
+
+        Screen ..\wgp\t1_08.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\town1\ird.mov
+           ..\town1\wall1.mov
+
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,437) (1000,480)
+           1 Enable (0,201) (151,241)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (27, 373)
+	ObjectEnd
+
+	Object: Ird01
+
+	  Memory [9] 1
+	  Memory [2] 0
+	  Coord (34,71)
+          Mirror No
+	  Init Simple
+          Cel  1 1
+	  GlobalMemory [103] == 2 -> LoadStatus [46]
+	ObjectEnd
+
+	Object: Ird02
+	  Init NoInit
+	ObjectEnd
+
+	Object: Stone1
+	  Init NoInit
+	ObjectEnd
+	Object: Stone2
+	  Init NoInit
+	ObjectEnd
+	Object: Stone3
+	  Init NoInit
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 t1_07.scn
+           2 t1_09.scn
+        SceneEnd
+
+End

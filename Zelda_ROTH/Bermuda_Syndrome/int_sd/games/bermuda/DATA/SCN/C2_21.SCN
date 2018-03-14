@@ -1,0 +1,100 @@
+	SceneNumber 181
+
+        Screen ..\wgp\c2_21.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\jack\extra.mov
+           ..\cave2\raft2.mov
+           ..\cave2\extra.mov
+//-------------------------
+           ..\lab03\hidra.mov
+	MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (0,0) (0,0)
+           1 Enable (-1000,445) (1000,480)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,0) (0,0)
+           2 Enable (0,0) (106,116)
+           2 Enable (0,113) (30,291)
+           2 Enable (0,286) (55,480)
+           2 Enable (0,445) (640,480)
+           2 Enable (457,0) (640,120)
+           2 Enable (564,116) (640,192)
+
+           5 Enable (-1000,-1000) (1000,1000)
+
+	BoxEnd
+
+	IfNewObject: Jack
+	   Coord (270, 158)
+	ObjectEnd
+
+	Object: Raft__
+           Init Simple
+	   GlobalMemory [149] != 0 -> LoadStatus [73]
+	   GlobalMemory [149] == 180 -> AddCoordY -456
+	   GlobalMemory [149] == 194 -> AddCoordY -912
+	ObjectEnd
+
+	Object: Line1
+	   Init Simple
+	   GlobalMemory [145] != 0 -> Cel 2 29
+	   GlobalMemory [145] != 0 -> Coord (290, 359)
+	ObjectEnd
+
+	Object: Line2
+	   Init Simple
+	   GlobalMemory [146] != 0 -> Cel 3 29
+	   GlobalMemory [146] != 0 -> Coord (362, 369)
+	ObjectEnd
+
+	Object: Line3
+	   Init Simple
+	   GlobalMemory [145] != 0 GlobalMemory [146] != 0 -> Coord (409,5)
+	   GlobalMemory [145] != 0 GlobalMemory [146] != 0 -> Cel 4 29
+           GlobalMemory [147] == 2 -> Cel 6 32
+           GlobalMemory [147] == 2 -> Coord (386, 289)
+	ObjectEnd
+
+	Object: Line4
+	   Init Simple
+	   GlobalMemory [145] != 0 GlobalMemory [146] != 0 -> Coord (340,2)
+	   GlobalMemory [145] != 0 GlobalMemory [146] != 0 -> Cel 5 29
+	   GlobalMemory [147] == 2 -> Coord (341,0)
+	   GlobalMemory [147] == 2 -> Cel 7 32
+           GlobalMemory [148] == 3 -> Init NoInit 
+	ObjectEnd
+	Object: Line5
+	   GlobalMemory [148] == 2 -> Init Simple
+	   GlobalMemory [148] == 2 -> LoadStatus [74]
+	   GlobalMemory [148] == 2 GlobalMemory [236] == 180 -> AddCoordY -456
+	ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+//----------------------
+	Object: Hidra_b
+            Coord (85, 250)
+	ObjectEnd
+	Object: Hidra_s
+            Init NoInit
+	ObjectEnd
+         
+        Scene
+           2 c2_22.scn
+           3 c2_20.scn
+        SceneEnd
+
+End

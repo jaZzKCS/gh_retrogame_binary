@@ -1,0 +1,104 @@
+
+        SceneNumber 405
+
+
+        Screen ..\wgp\t2_05.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\jack\extra.mov
+	   ..\town2\wat05.mov
+	   ..\town2\fon1.mov
+	   ..\town2\cage.mov
+	MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (0,0) (0,0)
+           1 Enable (75,333) (217,365)
+           1 Enable (325,338) (460,367)
+           1 Enable (362,445) (541,480)
+           1 Enable (242,218) (406,254)
+           1 Enable (-1000,106) (81,137)
+           1 Enable (158,104) (353,138)
+           1 Enable (-1000,0) (1000,24)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,444) (406,480)
+           2 Enable (81,345) (213,370)
+           2 Enable (345,358) (408,480)
+           2 Enable (292,141) (353,252)
+           2 Enable (596,23) (740,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (148,104) (172,134)
+           3 Enable (310,332) (334,363)
+           3 Enable (67,333) (90,365)
+           3 Enable (229,214) (253,252)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (67,102) (91,136)
+           4 Enable (337,101) (361,134)
+           4 Enable (446,332) (469,371)
+           4 Enable (526,447) (549,480)
+           4 Enable (202,331) (226,364)
+           4 Enable (391,215) (415,248)
+
+	   // Группа No. 5 - обозначает перспективу
+           5 Enable (0,340) (67,480)
+           5 Enable (223,340) (328,480)
+           5 Enable (35,370) (283,480)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (0,0) (640,24)
+           9 Mix -1 0 0 (0,122) (105,136)
+           9 Mix -1 0 0 (185,124) (342,136)
+           9 Mix -1 0 0 (306,233) (415,251)
+           9 Mix -1 0 0 (342,349) (469,364)
+
+	   // Группа No. 10 - обозначает перспективу
+           8 Mix -1 192 64 (74,361) (224,480)
+           8 Mix -1 192 64 (359,366) (406,480)
+           8 Mix -1 192 64 (519,458) (551,480)
+           8 Mix -1 192 64 (421,344) (470,367)
+           10 Mix -1 192 64 (376,230) (417,252)
+           10 Mix -1 192 64 (317,116) (362,137)
+           10 Mix -1 192 64 (60,116) (107,138)
+           10 Mix -1 192 64 (84,344) (224,385)
+           10 Mix -1 192 64 (325,137) (343,253)
+           10 Mix -1 192 64 (277,132) (343,162)
+           10 Mix -1 192 64 (295,160) (344,173)
+           10 Mix -1 192 64 (306,171) (343,188)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        Object: Cage
+           GlobalMemory [165] == 0  -> Cel 1 19
+           GlobalMemory [165] == 0  -> Coord (162, 112)
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 t2_04.scn
+           2 t2_06.scn
+           3 t2_02.scn
+           4 t2_09.scn
+        SceneEnd
+
+End

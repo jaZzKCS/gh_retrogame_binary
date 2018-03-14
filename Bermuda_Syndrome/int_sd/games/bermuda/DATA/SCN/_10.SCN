@@ -1,0 +1,106 @@
+
+        SceneNumber 10 
+
+        Screen ..\WGP\_10.bmp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+//          GlobalMemory [10] == 8 -> 
+..\girl\girl.mov
+          ..\10\liana.mov
+          ..\10\extra.mov
+          ..\10\croc.mov
+//          GlobalMemory [10] != 8 ->
+ ..\10\girl.mov
+          ..\10\view.mov
+        MoviesEnd
+
+        Box
+
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 436) (186, 480)
+           1 Disable (  318, 436) (1000, 480)
+           1 Enable ( 403, 436) (1000, 480)
+
+           // Группа No. 2 - обозначает препятствие
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+
+           // Группа No. 5 - обозначает воду
+           5 Enable (  186, 436) (403, 520)
+
+           // Группа No. 10 - обозначает перспективу
+           10 Mix -10 133 100 (  284, 221) (308, 225)
+           10 Mix -10 133 100 (  306, 219) (310, 223)
+
+        BoxEnd
+
+        IfNewObject: Jack
+          Coord (27, 373)
+        ObjectEnd
+
+        Object: Dino
+          GlobalMemory [21] == 1 -> Init Simple
+          GlobalMemory [21] == 1 -> Coord (200, 380)
+        ObjectEnd
+
+        Object: Crocodile
+          GlobalMemory [21] == 2 GlobalMemory [10] == 7 -> Memory [5] 1
+        ObjectEnd
+
+        Object: Liana1
+          GlobalMemory [21] == 2 -> Coord (109, 235)
+          GlobalMemory [21] == 2 -> Cel 1 32
+        ObjectEnd
+
+        Object: Liana2
+	  GlobalMemory [21] == 2 -> Coord (299, 202)
+	  GlobalMemory [21] == 2 -> Cel 2 20
+	  GlobalMemory [21] == 2 -> Mirror Y
+
+	  GlobalMemory [21] == 2 GlobalMemory [10] == 6 -> Cel 3 31
+	  GlobalMemory [21] == 2 GlobalMemory [10] == 6 -> Init Simple
+	  GlobalMemory [21] == 2 GlobalMemory [10] == 6 -> Coord (279, 201)
+	  GlobalMemory [21] == 2 GlobalMemory [10] == 6 -> Mirror No
+
+	  GlobalMemory [21] == 2 GlobalMemory [10] == 7 -> Cel 3 31
+	  GlobalMemory [21] == 2 GlobalMemory [10] == 7 -> Init Simple
+	  GlobalMemory [21] == 2 GlobalMemory [10] == 7 -> Coord (316, 201)
+	  GlobalMemory [21] == 2 GlobalMemory [10] == 7 -> Mirror Y
+	ObjectEnd
+
+
+   Object: Girl_
+      GlobalMemory [10] != 5 -> Init NoInit
+      GlobalMemory [10] == 6 -> Cel 4 7
+      GlobalMemory [10] == 6 -> Init Simple
+      GlobalMemory [10] == 6 -> Coord (102, 407)
+
+      GlobalMemory [21] == 2 GlobalMemory [10] == 6 -> Init Simple
+      GlobalMemory [21] == 2 GlobalMemory [10] == 6 -> Cel 2 1
+      GlobalMemory [21] == 2 GlobalMemory [10] == 6 -> Coord (105, 375)
+      GlobalMemory [21] == 2 GlobalMemory [10] == 6 -> Mirror No
+      GlobalMemory [21] == 2 GlobalMemory [10] == 7 -> Init Simple
+      GlobalMemory [21] == 2 GlobalMemory [10] == 7 -> Cel 2 1
+      GlobalMemory [21] == 2 GlobalMemory [10] == 7 -> Coord (488, 372)
+      GlobalMemory [21] == 2 GlobalMemory [10] == 7 -> Mirror Y
+
+    ObjectEnd
+        
+
+        Scene
+
+           1 _09a.scn
+           2 _11.scn
+
+        SceneEnd
+       
+
+End

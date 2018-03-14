@@ -1,0 +1,67 @@
+
+        SceneNumber 56
+
+
+        Screen ..\wgp\t1_12.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (456,89) (1000,127)
+           1 Enable (47,83) (378,120)
+           1 Enable (291,203) (536,237)
+           1 Enable (261,318) (321,346)
+           1 Enable (535,316) (596,347)
+           1 Enable (13,425) (1000,480)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (7,122) (189,480)
+           2 Enable (100,122) (378,316)
+           2 Enable (452,122) (600,316)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (446,88) (469,120)
+           3 Enable (284,196) (307,230)
+           3 Enable (257,317) (279,346)
+           3 Enable (527,315) (549,345)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (364,89) (388,117)
+           4 Enable (526,203) (550,232)
+           4 Enable (310,316) (333,345)
+           4 Enable (581,314) (603,347)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (0,0) (234,106)
+           9 Mix -1 0 0 (0,107) (234,221)
+           9 Mix -1 0 0 (0,222) (234,335)
+           9 Mix -1 0 0 (0,336) (234,470)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 31)
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+         102 lab06_06.scn
+           2 t1_13.scn
+        SceneEnd
+
+End

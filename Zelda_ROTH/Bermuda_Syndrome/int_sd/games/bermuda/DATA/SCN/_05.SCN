@@ -1,0 +1,86 @@
+
+        SceneNumber 5
+
+        Screen ..\WGP\_05.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\girl\girl.mov
+          ..\05\cry.mov
+          ..\05\lift.mov
+          ..\05\scr.mov
+          ..\05\view.mov
+        MoviesEnd
+
+        Box
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 436) (1000, 480)
+           1 Enable (  134, 212) ( 241, 228)
+           1 Enable (  163, 325) ( 290, 347)
+           
+
+           // Группа No. 2 - обозначает препятствие
+           2 Enable (184, 351) ( 297, 440)
+           2 Enable (591, 232) ( 640, 480)
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (121, 212) (145, 228)
+           3 Enable (149, 325) (170, 347)
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+           4 Enable (230, 212) (250, 228)
+           4 Enable (284, 325) ( 305, 347)
+
+           // Группа No. 9 - обозначает вертикальные бревна
+           // Правое
+           9 Mix -1 0 0 (223,  90) (229, 117)
+           9 Mix -1 0 0 (224, 118) (229, 162)
+           9 Mix -1 0 0 (225, 163) (231, 187)
+           9 Mix -1 0 0 (226, 188) (231, 208)
+           9 Mix -1 0 0 (227, 209) (232, 216)
+           // Левое
+           9 Mix -1 0 0 (160, 91)  (165,  156)
+           9 Mix -1 0 0 (159, 157) (164, 192)
+           9 Mix -1 0 0 (160, 193) (164, 199)
+           9 Mix -1 0 0 (161, 200) (166, 216)
+
+           // Группа No. 10 - обозначает горизонтальные бревна
+           10 Mix -1 0 0     (132,  112) (235, 118)
+           10 Mix -1 105 10  (141,  216) (247, 225)
+           10 Mix -1 0 132   (148,  225) (168, 232)
+           10 Mix -1 0 132   (217,  225) (237, 232)
+
+           10 Mix 0 0 0      (283, 332) (301, 348)
+           
+           
+
+        BoxEnd
+
+        IfNewObject: Jack
+          Coord (27, 373)
+        ObjectEnd
+
+        Object: Crystal_
+          GlobalMemory [15] != 0 -> Init NoInit
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+
+           1 _04.scn
+           2 _06.scn
+           5 tele01.scn
+
+        SceneEnd
+
+
+End

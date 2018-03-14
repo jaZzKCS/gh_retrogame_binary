@@ -1,0 +1,7 @@
+title=OpenMSX
+description=MSX Emulator
+icon=skin:icons/openmsx.png
+exec=/usr/local/bin/openmsx-start.sh
+clock=600
+volume=1
+wrapper=true

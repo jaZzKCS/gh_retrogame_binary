@@ -1,0 +1,64 @@
+
+        SceneNumber 403
+
+
+        Screen ..\wgp\t2_03.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+
+//------------------
+           ..\alx\pter5.mov
+           ..\alx\pter7.mov
+
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,444) (241,478)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (229,450) (253,480)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (0,444) (179,460)
+           10 Mix -1 192 64 (230,458) (254,480)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+//-----------------------
+        Object: Pter5
+           Init Random 300
+           Coord (640, 300)
+        ObjectEnd    
+     
+        Object: Pter7
+           Coord (400, 156)
+        ObjectEnd       
+
+        Object: Pter7_
+           Coord (300, 156)
+        ObjectEnd         
+//----------------------
+        Scene
+           1 t2_02.scn
+           4 t2_06.scn
+        SceneEnd
+
+End

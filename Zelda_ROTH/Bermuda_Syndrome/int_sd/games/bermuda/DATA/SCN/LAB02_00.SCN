@@ -1,0 +1,65 @@
+
+        Screen ..\wgp\lab02_00.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+// --------------------
+          ..\alx\fly1.mov
+        MoviesEnd
+
+        Box
+           // Группа No. 1 - обозначает землю
+           1 Enable (  430, 109)  ( 640, 139)
+           1 Enable (  267, 224)  ( 640, 253)
+           1 Enable (    0, 336)  (1000, 367)
+
+           // Группа No. 2 - обозначает препятствие
+           2 Enable (    0,   0)  ( 104, 366)
+           2 Enable (  587,   0)  ( 640, 122)
+           2 Enable (  431, 139)  ( 640, 234)
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable ( 419, 109) ( 440, 136)
+           3 Enable ( 258, 223) ( 279, 251)
+           
+           // Группа No.10 - выделение переднего плана
+           //
+           10 Mix -1 192 64 (0, 0) (104,366)
+
+        BoxEnd
+
+        IfNewObject: Jack
+
+          Coord (567, 44)
+
+        ObjectEnd
+// ------------------------
+        Object: Fly_b
+          Coord (177, 59)
+        ObjectEnd
+        Object: Fly_b_
+          Coord (140, 23)
+        ObjectEnd
+        Object: Fly_m
+          Coord (205, 41)
+        ObjectEnd
+        Object: Fly_m_
+          Coord (306, 31)
+        ObjectEnd
+        Object: Fly_s
+          Coord (206, 95)
+        ObjectEnd
+        Object: Fly_s_
+          Coord (160, 125)
+        ObjectEnd
+        
+       Scene
+          2 lab02_01.scn
+       SceneEnd    
+       
+
+End

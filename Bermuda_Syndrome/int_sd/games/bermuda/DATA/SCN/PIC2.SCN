@@ -1,0 +1,16 @@
+
+        SceneNumber    -1000
+        
+        Screen ..\WGP\pic2.wgp
+
+        Movies
+          ..\alx\scr.mov
+        MoviesEnd
+
+        Scene
+
+           2 pic3.scn
+
+        SceneEnd
+
+End

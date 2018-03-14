@@ -1,0 +1,121 @@
+
+	SceneNumber 80
+
+        Screen ..\wgp\lab05_20.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\lab05\cage.mov
+           ..\lab05\brd1.mov
+           ..\lab05\extra.mov
+           ..\lab05\bhand.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+	GlobalMemory [72] == 0 GlobalMemory [82] == 0 ->     1 Enable  (272,453) (346,480)
+	GlobalMemory [72] == 1 GlobalMemory [82] == 0 ->     1 Disable (272,453) (346,480)
+	GlobalMemory [74] == 0 GlobalMemory [82] != 0 ->     1 Enable  (272,453) (346,480)
+	GlobalMemory [74] == 1 GlobalMemory [82] != 0 ->     1 Disable (272,453) (346,480)
+
+           1 Enable (432,338) (508,367)
+
+	   1 Enable (454,107) (1000,144)
+           1 Enable (-1000,339) (432,368)
+           1 Enable (508,338) (1000,367)
+	   1 Enable (346,452) (1000,480)
+           1 Enable (10,453) (272,480)
+           1 Enable (561,223) (640,256)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (561,148) (640,258)
+           2 Enable (594,372) (740,480)
+           2 Enable (-20,368) (27,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+	GlobalMemory [72] == 0 GlobalMemory [82] == 0 -> 3 Disable (337,448) (360,480)
+	GlobalMemory [72] == 1 GlobalMemory [82] == 0 -> 3 Enable  (337,448) (360,480)
+	GlobalMemory [74] == 0 GlobalMemory [82] != 0 -> 3 Disable (337,448) (360,480)
+	GlobalMemory [74] == 1 GlobalMemory [82] != 0 -> 3 Enable  (337,448) (360,480)
+	   3 Enable (445,108) (469,142)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+	GlobalMemory [72] == 0 GlobalMemory [82] == 0 ->    4 Disable (256,452) (280,480)
+	GlobalMemory [72] == 1 GlobalMemory [82] == 0 ->    4 Enable (256,452) (280,480)
+	GlobalMemory [74] == 0 GlobalMemory [82] != 0 ->    4 Disable (256,452) (280,480)
+	GlobalMemory [74] == 1 GlobalMemory [82] != 0 ->    4 Enable (256,452) (280,480)
+	   4 Enable (418,337) (441,369)
+
+	   // Группа No. 9 - обозначает перспективу
+	   9 Mix -1 0 0 (577,219) (640,257)
+	   9 Mix -1 0 0 (0,365) (26,480)
+           9 Mix -1 0 0 (37,350) (439,367)
+           9 Mix -1 0 0 (521,349) (640,367)
+           9 Mix -1 0 0 (468,124) (602,146)
+
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (407,343) (441,367)
+           10 Mix -1 192 64 (237,457) (280,480)
+
+	BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+	ObjectEnd
+
+	Object: Cage
+           Memory [9] 1
+	   Coord (263, 452)
+	   Memory [2] 2
+	   GlobalMemory [72] == 1 GlobalMemory [82] == 0 -> Coord (336, 452)
+	   GlobalMemory [72] == 1 GlobalMemory [82] == 0 -> Cel 1 19
+	   GlobalMemory [72] == 1 GlobalMemory [82] == 0 -> Memory [1] 0
+	   GlobalMemory [72] == 0 GlobalMemory [82] == 0 -> Memory [1] 1
+
+	   GlobalMemory [74] == 1 GlobalMemory [82] != 0 -> Coord (336, 452)
+	   GlobalMemory [74] == 1 GlobalMemory [82] != 0 -> Cel 1 19
+	   GlobalMemory [74] == 1 GlobalMemory [82] != 0 -> Memory [1] 0
+	   GlobalMemory [74] == 0 GlobalMemory [82] != 0 -> Memory [1] 1
+	ObjectEnd
+
+	Object: BridgeH
+           Coord (28, 385)
+	   GlobalMemory [84] != 0 -> Coord (33, 402)
+	   GlobalMemory [84] != 0 -> Cel 1 14
+	ObjectEnd
+
+	Object: Bridge
+	   GlobalMemory [84] == 1 GlobalMemory [82] == 0 -> Coord (418, 145)
+	   GlobalMemory [84] == 1 GlobalMemory [82] == 0 -> Cel 1 16
+	   GlobalMemory [84] == 1 GlobalMemory [82] == 0 -> Memory [1] 0
+	   GlobalMemory [84] == 0 GlobalMemory [82] == 0 -> Memory [1] 1
+
+	   GlobalMemory [83] == 1 GlobalMemory [82] != 0 -> Coord (418, 145)
+	   GlobalMemory [83] == 1 GlobalMemory [82] != 0 -> Cel 1 16
+	   GlobalMemory [83] == 1 GlobalMemory [82] != 0 -> Memory [1] 0
+	   GlobalMemory [83] == 0 GlobalMemory [82] != 0 -> Memory [1] 1
+	ObjectEnd
+
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 lab05_19.scn
+           2 lab05_21.scn
+           3 lab05_14.scn
+           4 lab05_25.scn
+        SceneEnd
+
+End

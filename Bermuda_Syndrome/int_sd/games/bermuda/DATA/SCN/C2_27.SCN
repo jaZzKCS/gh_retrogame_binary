@@ -1,0 +1,67 @@
+        SceneNumber 187
+
+        Screen ..\wgp\c2_27.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\jack\extra.mov
+           ..\cave2\sw08.mov
+           ..\cave2\tele.mov
+           ..\cave2\teleg.mov
+           ..\cave2\telep.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (295,222) (1000,246)
+           1 Enable (564,334) (1000,358)
+           1 Enable (483,447) (1000,480)
+           1 Enable (-1000,447) (188,477)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,0) (80,480)
+           2 Enable (84,0) (190,303)
+           2 Enable (340,100) (403,304)
+           2 Enable (592,342) (640,480)
+           2 Enable (508,459) (640,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (554,334) (576,361)
+           3 Enable (473,445) (496,477)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (175,447) (198,478)
+
+	   // Группа No. 5 - обозначает перспективу
+           5 Enable (196,450) (476,479)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 190 64 (365,169) (519,245)
+           10 Mix -1 192 64 (602,236) (617,345)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           2 c2_28.scn
+           4 c2_26.scn
+           5 tele09.scn
+        SceneEnd
+
+End

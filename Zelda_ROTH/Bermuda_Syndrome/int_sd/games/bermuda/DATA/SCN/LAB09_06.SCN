@@ -1,0 +1,71 @@
+
+        SceneNumber 155
+
+
+        Screen ..\wgp\lab09_06.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\lab09\door.mov
+           ..\lab09\sword.mov
+           ..\lab09\extra.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,439) (1000,480)
+           1 Enable (0,332) (640,365)
+           1 Enable (98,217) (294,256)
+           1 Enable (483,214) (1000,253)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,253) (269,479)
+           2 Enable (159,119) (214,228)
+           2 Enable (620,252) (740,480)
+           2 Enable (321,366) (375,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (472,220) (496,250)
+//           3 Enable (310,332) (334,364)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (283,218) (307,248)
+           4 Enable (364,333) (387,360)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (342,367) (373,480)
+           9 Mix -1 0 0 (212,253) (271,480)
+           9 Mix -1 0 0 (495,234) (640,252)
+           9 Mix -1 0 0 (109,236) (309,251)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (277,230) (308,252)
+           10 Mix -1 192 64 (358,344) (382,368)
+           10 Mix -1 192 64 (179,119) (238,236)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 lab09_08.scn
+           2 lab09_07.scn
+           3 lab09_02.scn
+        SceneEnd
+
+End

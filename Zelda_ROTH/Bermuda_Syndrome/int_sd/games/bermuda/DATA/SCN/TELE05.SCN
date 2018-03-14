@@ -1,0 +1,78 @@
+
+        Screen ..\wgp\lab03_01.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\jack\extra.mov
+           ..\lab03\wat01.mov
+           ..\lab03\lift.mov
+           ..\lab01\view.mov
+           ..\lab02\fly.mov
+        MoviesEnd
+
+	Midi ..\midi\waterdiv.mid 0
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (66,223) (319,252)
+           1 Enable (457,110) (1000,138)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (454,140) (640,480)
+           2 Enable (0,2) (108,231)
+           2 Enable (0,238) (325,480)
+           2 Enable (107,109) (216,231)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (446,107) (468,130)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (312,225) (332,245)
+
+	   // Группа No. 5 - обозначает воду
+           5 Enable (325,337) (455,479)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (301,231) (334,253)
+           10 Mix -1 192 64 (270,254) (328,480)
+           10 Mix -1 192 64 (127,118) (229,222)
+
+        BoxEnd
+
+        Object: Jack
+           Coord (227, 228)
+           Move 49
+	ObjectEnd
+
+	Object: Fly_b
+	   Coord (400, 70)
+	ObjectEnd
+
+	Object: Fly_b_
+	   Coord (190, 70)
+	   Cel 2 70
+	   Mirror Y
+	ObjectEnd
+
+	Object: Fly_s
+	   Coord (420, 300)
+	ObjectEnd
+
+	Object: Fly_s_
+	   Coord (400, 270)
+	   Mirror Y
+	ObjectEnd
+
+        Scene
+           2 lab03_04.scn
+           4 lab03_02.scn
+           5 tele06.scn
+        SceneEnd
+
+End

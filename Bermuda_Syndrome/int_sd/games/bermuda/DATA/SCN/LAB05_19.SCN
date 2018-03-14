@@ -1,0 +1,99 @@
+
+	SceneNumber 79
+
+        Screen ..\wgp\lab05_19.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\lab05\eng19.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,340) (188,368)
+           1 Enable (1,449) (268,480)
+           1 Enable (562,338) (1000,373)
+           1 Enable (482,451) (1000,480)
+           1 Enable (-1000,111) (27,144)
+           1 Enable (0,222) (166,252)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (568,371) (640,480)
+           2 Enable (3,369) (186,480)
+           2 Enable (0,256) (106,361)
+           2 Enable (-100,140) (27,228)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (554,335) (577,366)
+           3 Enable (472,452) (496,479)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (176,338) (198,368)
+           4 Enable (256,447) (280,480)
+           4 Enable (15,111) (35,144)
+       //    4 Enable (149,220) (171,250)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (152,373) (185,455)
+           9 Mix -1 0 0 (155,350) (197,367)
+           9 Mix -1 0 0 (77,235) (173,253)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (317,395) (363,480)
+           10 Mix -1 192 64 (361,390) (568,420)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (567,393) (640,414)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (148,233) (175,254)
+           10 Mix -1 192 64 (168,343) (199,368)
+           10 Mix -1 192 64 (245,457) (281,480)
+
+	BoxEnd
+
+	IfNewObject: Jack
+	   Coord (270, 158)
+	ObjectEnd
+
+	Object: Eng1
+	   GlobalMemory [82] != 0 -> Init Put
+	ObjectEnd
+
+	Object: Eng2
+	   GlobalMemory [82] != 0 -> Init Put
+	ObjectEnd
+
+	Object: Eng3
+	   GlobalMemory [82] != 0 -> Init Put
+	ObjectEnd
+
+	Object: Eng4
+	   GlobalMemory [82] != 0 -> Init Put
+	ObjectEnd
+
+	Object: Eng5
+	   GlobalMemory [82] != 0 -> Init Put
+	ObjectEnd
+
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 lab05_18.scn
+           2 lab05_20.scn
+           4 lab05_24.scn
+        SceneEnd
+
+End

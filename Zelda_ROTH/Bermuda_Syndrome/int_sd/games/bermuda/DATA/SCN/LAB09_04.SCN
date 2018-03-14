@@ -1,0 +1,73 @@
+
+        SceneNumber 153
+
+
+        Screen ..\wgp\lab09_04.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+	   ..\lab05\ird.mov
+	MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,439) (635,480)
+           1 Enable (240,329) (633,367)
+           1 Enable (319,217) (621,252)
+           1 Enable (-1000,100) (322,135)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,20) (160,271)
+           2 Enable (295,368) (640,480)
+           2 Enable (322,254) (640,345)
+           2 Enable (511,0) (640,309)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (229,329) (253,360)
+           3 Enable (310,216) (334,246)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (310,106) (334,131)
+           4 Enable (202,0) (226,26)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (85,21) (164,212)
+           9 Mix -1 0 0 (152,121) (335,139)
+           9 Mix -1 0 0 (251,349) (385,368)
+           9 Mix -1 0 0 (330,234) (367,254)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (306,116) (335,139)
+           10 Mix -1 192 64 (197,2) (226,24)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+	ObjectEnd
+
+	Object: Irod
+	   Memory [9] 14
+	   Coord (420, 180)
+	   GlobalMemory [214] != 0 -> LoadStatus [114]
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 lab09_03.scn
+           3 lab09_05.scn
+        SceneEnd
+
+End

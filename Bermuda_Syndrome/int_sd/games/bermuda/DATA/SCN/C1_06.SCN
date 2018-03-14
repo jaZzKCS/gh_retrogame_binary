@@ -1,0 +1,68 @@
+
+	SceneNumber 36
+
+	Screen ..\wgp\c1_06.wgp
+
+	Movies
+	   ..\jack\jack.mov
+	   ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+	   ..\jack\fire.mov
+	   ..\girl\girl.mov
+	   ..\cave1\gol.mov
+	MoviesEnd
+
+
+	Box
+
+	   // Группа No. 1 - обозначает землю
+	   1 Enable (-100,202) (317,233)
+	   1 Enable (-1000,334) (351,368)
+	   1 Enable (334,447) (456,480)
+
+	   // Группа No. 2 - обозначает препятствие
+	   2 Enable (0,350) (351,480)
+	   2 Enable (617,376) (640,480)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+	   //                выводится c зеркальным отображением по оси Y
+	   4 Enable (338,333) (359,365)
+	   4 Enable (445,449) (468,480)
+
+	BoxEnd
+
+	IfNewObject: Jack
+	   Coord (270, 272)
+	ObjectEnd
+
+	Object: Gol
+	   Init   Simple
+	   Coord  (-602, 156)
+	   Mirror No
+	   Move   8
+	   Memory [9] 0
+	   Init Simple
+	   GlobalMemory [107] != 0  -> LoadStatus [51]
+	   GlobalMemory [106] == 35 -> AddCoordX -648
+	ObjectEnd
+	Object: Gol_
+	   Init   Simple
+	   Coord  (-629, 158)
+	   Mirror No
+	   Move   1
+	   Init Simple
+	   GlobalMemory [107] != 0  -> LoadStatus [52]
+	   GlobalMemory [106] == 35 -> AddCoordX -648
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 c1_05.scn
+           4 c1_10.scn
+        SceneEnd
+
+End

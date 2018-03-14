@@ -1,0 +1,68 @@
+        SceneNumber 162
+
+        Screen ..\wgp\c2_03.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+//-----------------------
+           ..\alx\spider2.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (347,448) (1000,480)
+           1 Enable (360,278) (431,303)
+           1 Enable (482,247) (548,280)
+           1 Enable (226,218) (317,249)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (13,373) (215,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (338,448) (360,478)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+	ObjectEnd
+
+	Object: Spider1
+           Cel 15 1
+           Mirror No
+           Coord (263, 538) 
+	   GlobalMemory [232] <= 2 -> Init Simple
+	   GlobalMemory [232] >= 3 -> Init NoInit
+	ObjectEnd
+
+	Object: Spider2
+           Cel 1 1
+           Mirror No
+           Coord (120, 180) 
+	   GlobalMemory [233] <= 1 -> Init Simple
+	   GlobalMemory [233] >= 2 -> Init NoInit
+        ObjectEnd
+
+	Object: Net
+	   Init Simple
+	   GlobalMemory [233] >= 2 -> Init Put
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           2 c2_02.scn
+           4 c2_04.scn
+        SceneEnd
+
+End

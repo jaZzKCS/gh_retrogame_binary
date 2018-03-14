@@ -1,0 +1,6 @@
+#!/bin/sh
+dir=`dirname $0`
+cd $dir
+./xplus4 >vice_log.txt 2>&1
+sync
+

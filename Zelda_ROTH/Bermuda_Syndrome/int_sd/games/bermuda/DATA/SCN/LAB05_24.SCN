@@ -1,0 +1,123 @@
+
+	SceneNumber 84
+
+        Screen ..\wgp\lab05_24.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\lab05\varan.mov
+           ..\lab05\rhand.mov
+           ..\lab05\extra.mov
+           ..\lab05\bogen.mov
+           ..\lab05\whand.mov
+           ..\lab05\refl.mov
+          
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (9,108) (637,138)
+           1 Enable (481,224) (1000,254)
+           1 Enable (-1000,330) (639,375)
+           1 Enable (483,0) (1000,27)
+           1 Enable (4,0) (272,26)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (567,253) (640,366)
+           2 Enable (566,20) (639,123)
+           2 Enable (0,25) (158,117)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (472,0) (496,26)
+           3 Enable (472,226) (496,251)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (257,0) (280,29)
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (78,216) (241,252)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (52,140) (241,253)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (496,9) (631,30)
+           9 Mix -1 0 0 (152,10) (280,26)
+           9 Mix -1 0 0 (111,27) (156,135)
+           9 Mix -1 0 0 (238,123) (640,140)
+           9 Mix -1 0 0 (498,236) (616,253)
+           9 Mix -1 0 0 (208,140) (241,253)
+           9 Mix -1 0 0 (78,228) (241,253)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (155,65) (273,95)
+           10 Mix -1 192 64 (270,37) (341,95)
+           10 Mix -1 192 64 (309,0) (344,39)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (239,1) (280,28)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        Object: Refl
+           Coord (234, 27)
+	   GlobalMemory [82] != 0 -> Init NoInit
+	   GlobalMemory [93] != 0 -> Init NoInit
+	ObjectEnd
+
+	Object: RightH
+	   GlobalMemory [82] != 0 -> Coord (168, 52)
+	   GlobalMemory [82] != 0 -> Cel 1 14
+	ObjectEnd
+
+	Object: Bogen
+	   GlobalMemory [87] != 0 -> Coord (459, 315)
+	   GlobalMemory [87] != 0 -> Cel 5 16
+	ObjectEnd
+
+	Object: Varan01
+	   GlobalMemory [88] != 0  -> LoadStatus [30]
+	   GlobalMemory [91] == 83 -> AddCoordX -648
+	ObjectEnd
+	Object: Varan02
+	   GlobalMemory [89] != 0 -> LoadStatus [31]
+	   GlobalMemory [91] == 83 -> AddCoordX -648
+	ObjectEnd
+	Object: Varan03
+	   GlobalMemory [90] != 0 -> LoadStatus [32]
+	   GlobalMemory [91] == 83 -> AddCoordX -648
+	ObjectEnd
+
+	Object: WallH
+           Memory [9] 1 
+	   Coord (557, 37)
+	   Mirror No
+	   GlobalMemory [93] == 1 -> Coord (552, 54)
+  	   GlobalMemory [93] == 1 -> Cel 1 14
+	ObjectEnd
+
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 lab05_23.scn
+           2 lab05_25.scn
+           3 lab05_19.scn
+        SceneEnd
+
+End

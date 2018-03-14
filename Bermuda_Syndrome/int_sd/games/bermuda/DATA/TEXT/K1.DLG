@@ -1,0 +1,8 @@
+
+//END DIALOG MIT DEM KÖNIG
+
+
+K1 Goto J1 ..\ddd\k1.dad -> Who are you, Stranger? Are you the Prince of Persia?
+
+J1 End 1 ..\ddd\j92.dad -> No, I come from another world...
+

@@ -1,0 +1,53 @@
+
+        SceneNumber 15 
+
+        Screen ..\WGP\_15.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+	  ..\girl\girl.mov
+	  ..\15\penta.mov
+          ..\15\scr.mov
+	MoviesEnd
+
+	Midi ..\midi\jungle2.mid 0
+
+        Box
+
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 436) (1000, 480)
+           1 Enable (-1000, 209) (212, 232)
+
+           // Группа No. 2 - обозначает препятствие
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+           4 Enable (202, 208) (224, 233)
+
+        BoxEnd
+
+        IfNewObject: Jack
+          Coord (27, 373)
+        ObjectEnd
+
+        Object: Penta
+             GlobalMemory [25] == 1   -> LoadStatus [9]
+             GlobalMemory [25] == 1   -> Init Put
+             GlobalMemory [25] != 1 GlobalMemory [31] == 16 -> Init NoInit
+        ObjectEnd
+
+        Scene
+
+           1 _14.scn
+           2 _16.scn
+
+        SceneEnd
+
+
+End

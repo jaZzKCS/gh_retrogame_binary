@@ -1,0 +1,15 @@
+//6.	STANDARD DIALOGE ZWISCHEN JACK UND NATALIA
+//Starts on every place
+
+//1. VARIANTE
+
+J1 Goto N1 ..\ddd\j52.dad -> So, Princess, any ideas?
+
+N1 Goto J2 ..\ddd\n12a.dad -> Wisdom, Jack may be found in many places.
+
+J2 Goto N2 ..\ddd\j53.dad -> You have any idea as to where? Like maybe you got a map?
+
+N2 Goto J3 ..\ddd\n13.dad -> A map Jack? What is a map?
+
+J3 End 100 ..\ddd\j54.dad -> Well I guess you've got nowhere to hide one anyway.
+// End 2 J kisses princesse

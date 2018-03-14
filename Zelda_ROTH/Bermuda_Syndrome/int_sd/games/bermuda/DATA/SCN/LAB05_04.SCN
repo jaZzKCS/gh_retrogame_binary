@@ -1,0 +1,71 @@
+
+	SceneNumber 64
+
+        Screen ..\wgp\lab05_04.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (269,223) (515,253)
+           1 Enable (347,338) (542,368)
+           1 Enable (593,224) (1000,256)
+           1 Enable (296,453) (1000,480)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (595,0) (640,139)
+           2 Enable (596,259) (640,367)
+           2 Enable (374,368) (482,456)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (257,218) (280,247)
+           3 Enable (580,223) (604,255)
+           3 Enable (337,333) (361,366)
+           3 Enable (283,445) (307,480)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (527,337) (550,369)
+           4 Enable (499,219) (522,252)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (284,235) (524,253)
+           9 Mix -1 0 0 (360,350) (556,367)
+           9 Mix -1 0 0 (412,367) (473,464)
+           9 Mix -1 0 0 (620,327) (640,368)
+           9 Mix -1 0 0 (620,107) (640,139)
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (618,338) (1000,368)
+           1 Enable (621,103) (1000,138)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (490,229) (524,253)
+           10 Mix -1 192 64 (517,343) (556,366)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           2 lab05_05.scn
+           4 lab05_10.scn
+        SceneEnd
+
+End

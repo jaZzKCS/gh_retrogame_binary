@@ -1,0 +1,67 @@
+
+        SceneNumber 14
+
+        Screen ..\WGP\_14.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+	  ..\girl\girl.mov
+	  ..\14\t_rex.mov
+;          ..\09a\dipl.mov
+          ..\14\lift.mov
+          ..\14\scr.mov
+          ..\14\penta.mov
+        MoviesEnd
+
+        Box
+
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 436) (1000, 480)
+           1 Enable (388, 209) (1000, 235)
+
+           // Группа No. 2 - обозначает препятствие
+           2 Enable (394, 117) (482, 222)
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+
+        BoxEnd
+
+        IfNewObject: Jack
+          Coord (27, 373)
+        ObjectEnd
+
+        Object: T_rex
+          GlobalMemory [24] == 1 -> LoadStatus [8]
+          GlobalMemory [24] == 1 -> Init Put
+          GlobalMemory [24] == 2 -> Coord (20, 319)
+          GlobalMemory [24] == 2 -> Mirror No
+        ObjectEnd
+
+        Object: Penta
+          Init NoInit
+          GlobalMemory [25] == 1 -> LoadStatus [9]
+          GlobalMemory [25] == 1 -> Init Put
+          GlobalMemory [25] == 1 -> Cel 1 1
+          GlobalMemory [25] == 1 -> AddCoordX 648
+        ObjectEnd
+
+        Object: Dipl
+          Coord (230, 245)
+        ObjectEnd
+
+        Scene
+
+           1 _13.scn
+           2 _15.scn
+
+        SceneEnd
+
+
+End

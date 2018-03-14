@@ -1,0 +1,54 @@
+        SceneNumber 168
+
+        Screen ..\wgp\c2_09.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+//----------------------
+           ..\alx\ant2.mov
+           ..\alx\scorp1.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,335) (1000,360)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        Object: Ant01
+           GlobalMemory [275] != 0 -> LoadStatus [175]
+        ObjectEnd
+
+        Object: Ant02
+           GlobalMemory [276] != 0 -> LoadStatus [176]
+        ObjectEnd
+
+        Object: Scorpio1
+           GlobalMemory [277] != 0 -> LoadStatus [177]
+        ObjectEnd
+
+        Object: Scorpio2
+           GlobalMemory [278] != 0 -> LoadStatus [178]
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 c2_10.scn
+           2 c2_08.scn
+        SceneEnd
+
+End

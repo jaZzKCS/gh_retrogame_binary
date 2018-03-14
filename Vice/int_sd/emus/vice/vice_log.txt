@@ -1,0 +1,140 @@
+Reading configuration file `/mnt/int_sd/emus/vice/sdl-vicerc'.
+Error - Unknown resource `RomsetArchiveName'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 9.
+Error - Unknown resource `RomsetArchiveActive'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 10.
+Error - Unknown resource `RomsetFileName'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 11.
+Error - Unknown resource `RomsetSourceFile'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 12.
+Error - Unknown resource `ColorSaturation'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 59.
+Error - Unknown resource `ColorContrast'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 60.
+Error - Unknown resource `ColorBrightness'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 61.
+Error - Unknown resource `ColorGamma'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 62.
+Error - Unknown resource `ColorTint'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 63.
+Error - Unknown resource `PALEmulation'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 64.
+Error - Unknown resource `PALScanLineShade'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 65.
+Error - Unknown resource `PALBlur'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 66.
+Error - Unknown resource `PALOddLinePhase'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 67.
+Error - Unknown resource `PALOddLineOffset'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 68.
+Error - Unknown resource `RomsetChargenName'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 81.
+Error - Unknown resource `RomsetKernalName'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 82.
+Error - Unknown resource `RomsetBasicName'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 83.
+Error - Unknown resource `EmuID'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 84.
+Error - Unknown resource `REUfirstUnusedRegister'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 90.
+Error - Unknown resource `Isepic'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 98.
+Error - Unknown resource `VICIIScale2x'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 128.
+Error - Unknown resource `Acia1Dev'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 158.
+Error - Unknown resource `Acia1Irq'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 159.
+Error - Unknown resource `Acia1Mode'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 160.
+Error - Unknown resource `RomsetDosName1541'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 227.
+Error - Unknown resource `RomsetDosName1541ii'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 228.
+Error - Unknown resource `RomsetDosName1570'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 229.
+Error - Unknown resource `RomsetDosName1571'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 230.
+Error - Unknown resource `RomsetDosName1581'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 231.
+Error - Unknown resource `RomsetDosName2031'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 246.
+Error - Unknown resource `RomsetDosName2040'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 247.
+Error - Unknown resource `RomsetDosName3040'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 248.
+Error - Unknown resource `RomsetDosName4040'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 249.
+Error - Unknown resource `RomsetDosName1001'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 250.
+Error - Unknown resource `IDE64Cylinders'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 260.
+Error - Unknown resource `IDE64Heads'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 261.
+Error - Unknown resource `IDE64Sectors'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 262.
+Error - Unknown resource `IDE64AutodetectSize'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 263.
+Error - Unknown resource `ExtraJoy'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 289.
+Error - Unknown resource `ExtraJoyType'.
+Warning - /mnt/int_sd/emus/vice/sdl-vicerc: Unknown resource specification at line 290.
+ 
+*** VICE Version 2.4.6 ***
+OS compiled for: Linux uClibc 1.0.22
+GUI compiled for: SDL
+CPU compiled for: MIPS (little endian)
+Compiler used: GCC-5.4.0
+Current OS: Linux 2.6.31.3 (glibc 2.x)
+Current CPU: Unknown CPU
+ 
+Welcome to x64, the free portable C64 Emulator.
+ 
+Current VICE team members:
+D. Lem, A. Matthies, M. Pottendorfer, S. Trikaliotis, M. van den Heuvel,
+C. Vogelgsang, F. Gennari, D. Kahlin, A. Lankila, Groepaz, I. Korb,
+E. Smith, O. Seibert, M. Sutton, U. Schulz, S. Haubenthal, T. Giesel,
+K. Zsolt.
+ 
+This is free software with ABSOLUTELY NO WARRANTY.
+See the "About VICE" command for more info.
+ 
+Loading system file `/mnt/int_sd/emus/vice/C64/kernal'.
+C64MEM: Kernal rev #3.
+Loading system file `/mnt/int_sd/emus/vice/C64/basic'.
+Loading system file `/mnt/int_sd/emus/vice/C64/chargen'.
+MPS-803: Error - Could not load MPS-803 charset 'mps803'.
+MPS-803: Error - Cannot load palette file `mps803.vpl'.
+NL10: Error - Could not load NL-10 ROM file 'nl10-cbm'.
+plot1520: Error - Cannot load palette file `1520.vpl'.
+Loading system file `/mnt/int_sd/emus/vice/DRIVES/dos1541'.
+Loading system file `/mnt/int_sd/emus/vice/DRIVES/d1541II'.
+Loading system file `/mnt/int_sd/emus/vice/DRIVES/dos1570'.
+Loading system file `/mnt/int_sd/emus/vice/DRIVES/dos1571'.
+Loading system file `/mnt/int_sd/emus/vice/DRIVES/dos1581'.
+IECDriveROM: Error - 2000 ROM image not found.  Hardware-level 2000 emulation is not available.
+IECDriveROM: Error - 4000 ROM image not found.  Hardware-level 4000 emulation is not available.
+Loading system file `/mnt/int_sd/emus/vice/DRIVES/dos2031'.
+Loading system file `/mnt/int_sd/emus/vice/DRIVES/dos2040'.
+Loading system file `/mnt/int_sd/emus/vice/DRIVES/dos3040'.
+Loading system file `/mnt/int_sd/emus/vice/DRIVES/dos4040'.
+Loading system file `/mnt/int_sd/emus/vice/DRIVES/dos1001'.
+Drive: Finished loading ROM images.
+Sound: Available sound devices: sdl pulse uss dummy fs dump wav voc iff aiff soundmovie
+SDLKeyboard: Warning - Failed to open `./sdl-hotkey-C64.vkm'.
+Keyboard: Loading keymap `/mnt/int_sd/emus/vice/C64/sdl_sym.vkm'.
+SDLJoystick: No joysticks found
+SDLVideo: VICII (active) 320x240 16bpp (fullscreen)
+Main CPU: starting at ($FFFC).
+Main CPU: RESET.
+Sound: Opened device `uss', speed 22050Hz, fragment size 2.9ms, buffer size 101ms
+reSID: MOS6581, filter on, sampling rate 22050Hz - fast
+Drive 8: RESET.
+SNDCTL_DSP_POST failed
+SNDCTL_DSP_POST failed
+SNDCTL_DSP_POST failed
+SNDCTL_DSP_POST failed
+
+Exiting...
+Sound: Closing device `uss'
+

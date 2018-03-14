@@ -1,0 +1,88 @@
+
+        SceneNumber 408
+
+
+        Screen ..\wgp\t2_08.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+//------------------
+           ..\alx\pter0.mov
+           ..\alx\ptr11.mov
+
+        MoviesEnd
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,329) (216,366)
+           1 Enable (-1000,446) (291,480)
+           1 Enable (402,329) (1000,361)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (429,357) (640,480)
+           2 Enable (0,363) (214,480)
+           2 Enable (429,105) (640,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (391,332) (415,362)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (201,331) (227,364)
+           4 Enable (282,436) (308,480)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (0,361) (209,480)
+           9 Mix 300 0 0 (287, 77) (306, 93)
+           9 Mix 20 0 0 (133, 103) (175, 123)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (267,458) (308,480)
+           10 Mix -1 192 64 (176,344) (228,367)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+//-----------------------
+        Object: Pter0
+           Coord (81, 209)
+        ObjectEnd         
+        Object: Pter0_
+           Coord (371, 170)
+           Cel 1 40
+        ObjectEnd       
+
+        Object: Ptr11
+           Coord (125, 100)
+        ObjectEnd         
+        Object: Ptr11_
+           Coord (330, 81)
+           Cel 1 40
+        ObjectEnd       
+        Object: Ptr11__
+           Coord (317, 125)
+           Cel 1 100
+        ObjectEnd       
+  
+//----------------------
+
+        Scene
+           1 t2_07.scn
+           4 t2_12.scn
+        SceneEnd
+
+End

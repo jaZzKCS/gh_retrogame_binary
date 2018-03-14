@@ -1,0 +1,71 @@
+
+	SceneNumber 76
+
+        Screen ..\wgp\lab05_16.wgp
+
+        Movies
+           ..\jack\jack.mov
+	   ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+	   ..\jack\fire.mov
+           ..\girl\girl.mov
+	   ..\lab05\ird.mov
+	MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,225) (217,254)
+           1 Enable (319,223) (407,253)
+	   1 Enable (509,224) (634,253)
+           1 Enable (426,337) (630,368)
+           1 Enable (-1000,449) (1000,480)
+           1 Enable (592,52) (1000,82)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (593,51) (640,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (310,223) (334,250)
+           3 Enable (499,221) (521,254)
+           3 Enable (418,335) (442,369)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+	   4 Enable (201,223) (226,254)
+           4 Enable (390,223) (415,254)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (0,237) (227,253)
+           9 Mix -1 0 0 (334,238) (415,253)
+           9 Mix -1 0 0 (522,237) (640,253)
+           9 Mix -1 0 0 (442,349) (640,366)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (187,231) (228,253)
+           10 Mix -1 192 64 (381,231) (414,253)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+	Object: Irod
+	   Memory [9] 3
+	   Coord (500, 410)
+	   GlobalMemory [97] != 0 -> LoadStatus [37]
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 lab05_15.scn
+        SceneEnd
+
+End

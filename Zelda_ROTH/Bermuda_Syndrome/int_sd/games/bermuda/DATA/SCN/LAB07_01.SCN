@@ -1,0 +1,91 @@
+
+        SceneNumber 110
+
+
+        Screen ..\wgp\lab07_01.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\lab07\bridge.mov
+           ..\lab07\extra.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,102) (377,136)
+           1 Enable (585,102) (1000,132)
+           1 Enable (212,333) (1000,368)
+           1 Enable (158,441) (1000,480)
+           1 Enable (323,215) (390,255)
+//           1 Enable (572,216) (640,255)
+           1 Enable (561,216) (640,255)
+           1 Enable (0,0) (0,0)
+           1 Enable (0,0) (0,0)
+           1 Enable (0,0) (0,0)
+           1 Enable (0,0) (0,0)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (271,363) (640,480)
+           2 Enable (0,148) (30,480)
+           2 Enable (323,132) (390,255)
+           2 Enable (572,132) (640,255)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (202,331) (225,368)
+           3 Enable (148,441) (171,480)
+           3 Enable (553,222) (576,249)
+           3 Enable (581,102) (605,129)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (341,241) (388,345)
+           9 Mix -1 0 0 (583,245) (634,346)
+           9 Mix -1 0 0 (0,238) (33,480)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (229,366) (242,462)
+           9 Mix -1 0 0 (222,452) (249,462)
+           9 Mix -1 0 0 (230,363) (252,371)
+           9 Mix -1 0 0 (223,347) (303,366)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 44)
+        ObjectEnd
+
+        Object: Deck_01
+           GlobalMemory [117] != 0 -> Coord (330, 331)
+           GlobalMemory [117] != 0 -> Cel 2 37
+        ObjectEnd
+        Object: Deck_02
+           GlobalMemory [118] != 0 -> Coord (381, 331)
+           GlobalMemory [118] != 0 -> Cel 2 37
+        ObjectEnd
+        Object: Deck_03
+           GlobalMemory [119] != 0 -> Coord (432, 331)
+           GlobalMemory [119] != 0 -> Cel 2 37
+        ObjectEnd
+        Object: Deck_04
+           GlobalMemory [120] != 0 -> Coord (483, 331)
+           GlobalMemory [120] != 0 -> Cel 2 37
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           2 lab07_02.scn
+           4 lab07_05.scn
+           105 t1_13.scn
+        SceneEnd
+
+End

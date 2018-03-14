@@ -1,0 +1,94 @@
+
+        Screen ..\wgp\lab01_05.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\jack\extra.mov
+          ..\lab01\wat05.mov
+          ..\lab02\fly.mov
+          ..\lab01\mkr.mov
+
+        MoviesEnd
+
+        Box
+           // Группа No. 1 - обозначает землю
+           1 Enable (    0, 114)  ( 245, 142)
+           1 Enable (  351, 115)  ( 640, 141)
+           1 Enable (  321, 223)  ( 484, 252)
+           1 Enable (-1000, 338)  ( 160, 367)
+           1 Enable (  562, 338)  ( 1000, 366)
+           1 Enable (  186, 453)  ( 385, 479)
+       //    1 Enable (  269, 338)  ( 373, 366)
+           1 Enable ( -220, 451)  ( -49, 479)
+
+           // Группа No. 2 - обозначает препятствие
+           2 Enable (    0,   0)  ( 270, 140)
+           2 Enable (  324,   0)  ( 640, 141)
+           2 Enable (  322, 250)  ( 481, 481)
+     //      2 Enable (  267, 350)  ( 341, 462)
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable ( 311, 224) ( 332, 249)
+           3 Enable ( 555, 338) ( 576, 365)
+           3 Enable ( 176, 453) ( 197, 478)
+           3 Enable ( 311,   0) ( 332,  24)
+     //    3 Enable ( 258, 338) ( 279, 360)
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+           4 Enable ( 256,   0) ( 277,  27)
+           4 Enable ( 149, 338) ( 170, 365)
+           4 Enable ( 473, 224) ( 494, 251)
+
+	   // Группа No. 5 - обозначает воду
+	   5 Enable (-100,460) (177, 479)
+	   5 Enable (482,454) (1000,479)
+
+	   // Группа No. 10 - обозначает передний план
+           10 Mix -1 192 64 (217,  0) (280,141)
+           10 Mix -1 192 64 (  0,345) (172,365)
+           10 Mix -1 192 64 (413,231) (493,338)
+           10 Mix -1 192 64 (435,256) (483,479)
+
+        BoxEnd
+
+        IfNewObject: Jack
+
+	  Coord (270, 158)
+
+	ObjectEnd
+
+	Object: Fly_b
+	   Coord (265, 50)
+	ObjectEnd
+
+	Object: Fly_b_
+	   Coord (60, 260)
+	ObjectEnd
+
+	Object: Fly_s
+	   Coord (580, 200)
+	ObjectEnd
+
+	Object: Fly_s_
+	   Init NoInit
+	ObjectEnd
+
+	Object: Mkr
+	   Mirror No
+           Coord (390, 133)
+	ObjectEnd
+
+       Scene
+	  1 lab01_03.scn
+          2 lab01_06.scn
+          3 lab01_04.scn
+          4 lab01_16.scn
+       SceneEnd    
+       
+
+End

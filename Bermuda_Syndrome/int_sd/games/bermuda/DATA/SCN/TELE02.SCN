@@ -1,0 +1,69 @@
+
+        SceneNumber 6
+
+        Screen ..\WGP\_06.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\girl\girl.mov
+          ..\06\liana.mov
+          ..\06\extra.mov
+          ..\06\croc.mov
+          ..\06\view.mov
+          ..\06\girl.mov
+	MoviesEnd
+
+	Midi ..\midi\jungle1.mid 0
+
+        Box
+
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 436) (1000, 480)
+
+           // Группа No. 2 - обозначает препятствие
+           2 Enable (-54, 232) (0, 480)
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+
+           // Группа No. 5 - обозначает воду
+           5 Enable (  318, 436) (1000, 520)
+
+
+        BoxEnd
+
+	Object: Jack
+	  Coord (38, 443)
+	  Move 49
+	  Mirror No
+        ObjectEnd
+
+        Object: Crocodile
+          GlobalMemory [16] >= 1 -> Init NoInit
+	ObjectEnd
+
+	Object: Girl
+
+  	    GlobalMemory [10] == 4 -> Init Simple
+  	    GlobalMemory [10] == 4 -> Mirror No
+  	    GlobalMemory [10] == 4 -> Memory [4] 1 
+  	    GlobalMemory [10] == 4 -> Coord (243, 376)
+
+          
+        ObjectEnd
+
+        Scene
+
+           1 _05.scn
+           2 _07.scn
+
+        SceneEnd
+
+
+End

@@ -1,0 +1,74 @@
+        SceneNumber 171
+
+        Screen ..\wgp\c2_12.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+	   ..\cave2\raft1.mov
+	MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (0,0) (0,0)
+           1 Enable (509,450) (1000,480)
+           1 Enable (204,67) (304,101)
+           1 Enable (-1000,334) (192,363)
+
+	   // Группа No. 2 - обозначает препятствие
+           1 Enable (0,0) (0,0)
+           2 Enable (0,350) (159,480)
+           2 Enable (0,0) (78,160)
+	   2 Enable (153,0) (318,105)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (0,0) (0,0)
+           3 Enable (0,0) (0,0)
+           3 Enable (501,449) (523,478)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (283,329) (306,360)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+	ObjectEnd
+
+	Object: Raft__
+	   GlobalMemory [140] != 0   -> LoadStatus [71]
+	   GlobalMemory [140] == 176 -> AddCoordY 456
+	   GlobalMemory [140] == 0   -> Init NoInit
+           GlobalMemory [141] == 2   -> Coord (176, 324)
+           GlobalMemory [141] == 3   -> Coord (176, 324)
+	ObjectEnd
+	Object: Line
+	   Init NoInit
+	ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        GlobalMemory [141] == 2  -> Object: Girl
+        GlobalMemory [141] == 2  -> Coord (216, 276)
+        GlobalMemory [141] == 2  -> Init Simple
+        GlobalMemory [141] == 2  -> Cel 3 1
+        GlobalMemory [141] == 2  -> Mirror No
+        GlobalMemory [141] == 2  -> ObjectEnd
+
+        Scene
+           1 c2_28.scn
+           2 c2_13.scn
+           4 c2_17.scn
+        SceneEnd
+
+End

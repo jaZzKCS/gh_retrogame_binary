@@ -1,0 +1,62 @@
+
+        SceneNumber 130
+
+
+        Screen ..\wgp\lab08_11.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\jack\extra.mov
+           ..\lab08\wat11.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (0,-20) (189,24)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (289,0) (639,160)
+        //   2 Enable (401,127) (640,199)
+           2 Enable (53,280) (640,480)
+           2 Enable (1,0) (168,348)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (175,0) (200,26)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (176,0) (202,23)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (107,22) (168,329)
+           //9 Mix -1 0 0 (310,205) (353,304)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (312,124) (639,160)
+
+	   // Группа No. 5 - обозначает перспективу
+           5 Enable (157,107) (640,400)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           2 lab08_12.scn
+           3 lab08_07.scn
+        SceneEnd
+
+End

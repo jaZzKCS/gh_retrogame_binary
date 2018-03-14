@@ -1,0 +1,13 @@
+//4 Dialog zwieschen Tauron und Jack am Ufer des Flusses
+// -26.scn Dialoque beginns if choose or try to give crystall to Joda
+
+J1 Goto T1 ..\ddd\j34.dad -> I don't suppose you know which way to the nearest interstate,  shorty?
+
+T1 Goto J2 ..\ddd\t6.dad -> You have much to learn young man.
+
+J2 Goto T2 ..\ddd\j35.dad -> Gee, it talks - what carnival did you escape from?
+
+T2 Goto J3 ..\ddd\t7.dad -> I am Tauron. And while much of what you say is unknown to me I cannot help but notice your tone is less than respectful...
+
+J3 End 1 ..\ddd\j36.dad -> You know this guy, Princess?
+

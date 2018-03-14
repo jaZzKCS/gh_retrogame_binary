@@ -1,0 +1,55 @@
+
+        Screen ..\wgp\lab03_06.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\jack\extra.mov
+           ..\lab03\hidra.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (190,0) (640,21)
+           2 Enable (0,0) (73,244)
+           2 Enable (591,224) (640,480)
+           2 Enable (1,449) (127,480)
+           2 Enable (58,110) (495,139)
+           2 Enable (177,338) (640,368)
+
+	   // Группа No. 5 - обозначает воду
+           5 Enable (-1000,-1000) (1000,1000)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 0 0 (0,0) (66,245)
+           10 Mix -1 0 0 (1,462) (126,480)
+           10 Mix -1 0 0 (198,349) (621,367)
+           10 Mix -1 0 0 (60,120) (495,138)
+           10 Mix -1 0 0 (208,1) (640,20)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        Object: Hidra_b
+           Coord (68, 395)
+        ObjectEnd
+
+        Object: Hidra_s
+           Coord (398, 302)
+           Init Simple
+        ObjectEnd
+
+        Scene
+           1 lab03_03.scn
+           2 lab03_07.scn
+           3 lab03_05.scn
+        SceneEnd
+
+End

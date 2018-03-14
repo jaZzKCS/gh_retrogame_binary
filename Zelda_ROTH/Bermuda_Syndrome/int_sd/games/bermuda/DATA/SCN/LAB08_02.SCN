@@ -1,0 +1,44 @@
+
+        SceneNumber 121
+
+
+        Screen ..\wgp\lab08_02.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,101) (1000,130)
+           1 Enable (-1000,331) (1000,371)
+           1 Enable (290,218) (388,249)
+
+           2 Enable (256,134) (412,246)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (298,225) (382,352)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 lab08_01.scn
+           2 lab08_03.scn
+        SceneEnd
+
+End

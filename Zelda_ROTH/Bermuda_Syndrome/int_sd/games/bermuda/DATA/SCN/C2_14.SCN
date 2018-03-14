@@ -1,0 +1,97 @@
+
+        SceneNumber 173
+
+        Screen ..\wgp\c2_14.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+	   ..\alx\aegg9.mov
+	   ..\alx\alean5.mov
+	MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+	   1 Enable (-1000,220) (1000,251)
+	   1 Enable (-1000,220) (1000,251)
+
+	BoxEnd
+
+	IfNewObject: Jack
+	   Coord (270, 158)
+	ObjectEnd
+//----------------------------
+	Object: Aln01
+	   Init NoInit
+	ObjectEnd
+
+	Object: Aln02
+	   Coord (163,197)
+	   Mirror No
+	   GlobalMemory [282] != 0 -> LoadStatus [182]
+	ObjectEnd
+
+	Object: Aln03
+	   Coord (125,197)
+	   Mirror No
+	   GlobalMemory [283] != 0 -> LoadStatus [183]
+	ObjectEnd
+
+	Object: Aln04
+	   Coord (80,197)
+	   Mirror No
+	   GlobalMemory [284] != 0 -> LoadStatus [184]
+	ObjectEnd
+
+	Object: Aln05
+	   Coord (40,197)
+	   Mirror No
+	   GlobalMemory [285] != 0 -> LoadStatus [185]
+	ObjectEnd
+
+	Object: Aegg1
+	   Coord (193,187)
+	   Mirror No
+	   GlobalMemory [291] != 0 -> LoadStatus [191]
+	ObjectEnd
+
+	Object: Aegg2
+	   Coord (157,188)
+	   Mirror No
+	   GlobalMemory [292] != 0 -> LoadStatus [192]
+	ObjectEnd
+
+	Object: Aegg3
+	   Coord (118,187)
+	   Mirror No
+	   GlobalMemory [293] != 0 -> LoadStatus [193]
+	ObjectEnd
+
+	Object: Aegg4
+	   Coord (74,184)
+	   Mirror No
+	   GlobalMemory [294] != 0 -> LoadStatus [194]
+	ObjectEnd
+
+	Object: Aegg5
+	   Coord (36,186)
+	   Mirror No
+	   GlobalMemory [295] != 0 -> LoadStatus [195]
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 c2_13.scn
+           2 c2_15.scn
+        SceneEnd
+
+End

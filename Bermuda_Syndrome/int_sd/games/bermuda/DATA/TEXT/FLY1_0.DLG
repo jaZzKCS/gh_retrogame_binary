@@ -1,0 +1,32 @@
+// DIALOG MIT OFFIZIER VOR DEN TOREN VON IJAGMARS HAUPTSTADT
+// fly01.scn
+// J coming to scene and C beginns conversation
+
+C1 Goto J1 ..\ddd\C1.dad -> Wait! Wait! Do not kill me !
+
+J1 Goto C2 ..\ddd\j46.dad -> You don't look too well, pal. Who are you?
+
+C2 Goto J2 ..\ddd\C2.dad -> Torkin... Commander of the guard. And friend of the king  - if he lives.
+
+J2 Goto C3 ..\ddd\j47.dad -> What happened to you?
+
+C3 Goto J3 ..\ddd\C3.dad -> It is... It's too late for me but I must tell you there's...
+
+J3 Goto C4 ..\ddd\j48.dad -> Take it easy man, just tell me what happened ?
+
+C4 Goto J4 ..\ddd\C4.dad -> The other guards  - the other guards aren't what they seem - they are all snake men... One of them died and I saw his true face...the face of a snake.
+
+J4 Goto C5 ..\ddd\j49.dad -> You manage to get a photo? Never mind, go on...
+
+C5 Goto J5 ..\ddd\C5.dad -> Uhh . .  When I saw the snake man I told Telquad, the king's advisor. Next 	thing I woke up in the dungeon. I escaped, but they are still after me...go... 	Go now, before they arrive. If they catch you, you are dead.
+
+J5 Goto C6 ..\ddd\j50.dad -> Hey man, don't worry, I got the attitude and I got the bullets to match.
+
+C6 Goto J6 ..\ddd\C6.dad -> Telquad... Telquad isn't human. I think... I think he's, he's, he's...... 
+
+J6 Goto C7 ..\ddd\j51.dad -> So Telquad's the bad guy.  That makes sense I guess.  Don't worry friend - you won't go unavenged..
+
+C7 End 2 ..\ddd\C7.dad -> Wait...wait! Use this key to gain entrance to the city. Take it!     I shan't be needing it again.
+
+// End 2 - Captain gives key to J then calls next dialogue
+	

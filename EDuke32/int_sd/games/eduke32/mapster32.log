@@ -1,0 +1,14 @@
+Mapster32 2.0.0devel 20100521
+Using /mnt/game/eduke32/ for game data
+Using /mnt/game/.eduke32/ for game data
+Using group file 'duke3d.grp'.
+Initializing SDL system interface (compiled against SDL version 1.2.15, found version 1.2.15)
+Using "fbcon" video driver
+Loading "m32help.hlp"
+Error initializing integrated help: file "m32help.hlp" not found.
+Failed to open NAMES.H
+0 joystick(s) found
+Initialized 16.0M cache
+Setting video mode 640x480 (16-bpp windowed)
+Loading sounds from 'game.con'
+Loaded 376 sound definitions.

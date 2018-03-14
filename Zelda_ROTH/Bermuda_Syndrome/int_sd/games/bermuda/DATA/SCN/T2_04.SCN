@@ -1,0 +1,92 @@
+
+        SceneNumber 404
+
+
+        Screen ..\wgp\t2_04.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+	   ..\jack\extra.mov
+	   ..\town2\wat04.mov
+	   ..\town2\handle.mov
+           ..\town2\extra.mov
+           ..\town2\brid1.mov
+	MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+	   GlobalMemory [164] == 0 -> 1 Enable (272,0) (348,24)
+	   1 Enable (-1000,332) (487,367)
+	   1 Enable (159,216) (317,251)
+	   1 Enable (243,106) (1000,135)
+	   1 Enable (348,0) (1000,24)
+	   1 Enable (-1000,0) (272,23)
+
+	   // Группа No. 2 - обозначает препятствие
+	   2 Enable (0,365) (457,480)
+	   2 Enable (402,447) (640,479)
+	   2 Enable (270,138) (326,251)
+	   2 Enable (322,134) (364,177)
+	   2 Enable (-54,0) (27,379)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+	   //                выводится без зеркального отображения
+	   GlobalMemory [164] != 0 -> 3 Enable (337,0) (361,27)
+	   3 Enable (148,219) (172,248)
+           3 Enable (228,103) (253,132)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (472,333) (497,364)
+
+	   // Группа No. 5 - обозначает перспективу
+	   5 Enable (504,340) (640,480)
+           5 Enable (378,363) (515,480)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (333,363) (458,480)
+           9 Mix -1 0 0 (173,235) (314,250)
+           9 Mix -1 0 0 (253,121) (640,134)
+           9 Mix -1 0 0 (0,0) (26,411)
+           9 Mix -1 0 0 (0,4) (274,24)
+           9 Mix -1 0 0 (357,5) (640,23)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (306,133) (368,255)
+           10 Mix -1 192 64 (425,344) (497,364)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+	ObjectEnd
+
+	Object: Handle
+	   Memory [9] 1
+	   Coord (263, 153)
+	   GlobalMemory [165] != 0 -> Cel 1 14
+	   GlobalMemory [165] != 0 -> Coord (258, 170)
+	ObjectEnd
+
+	Object: Bridge
+	   GlobalMemory [164] != 0 -> Cel 1 2
+	   AddCoordY -456
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           2 t2_05.scn
+           3 t2_01.scn
+        SceneEnd
+
+End

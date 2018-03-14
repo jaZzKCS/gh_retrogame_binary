@@ -1,0 +1,51 @@
+
+        SceneNumber 45
+
+        Screen ..\wgp\t1_01.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+	   ..\jack\fire.mov
+	   ..\girl\girl.mov
+	MoviesEnd
+
+        Midi ..\midi\merian1.mid 0
+
+	Box
+
+	   // Группа No. 1 - обозначает землю
+	   1 Enable (480,437) (1000,480)
+	   1 Enable (561,324) (1000,346)
+
+	   // Группа No. 2 - обозначает препятствие
+	   2 Enable (565,355) (640,480)
+	   2 Enable (406,375) (445,460)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+	   //                выводится без зеркального отображения
+	   3 Enable (555,314) (576,346)
+	   3 Enable (475,432) (496,480)
+
+	   // Группа No. 10 - обозначает перспективу
+	   10 Mix -10 0 0 (347,460) (496,480)
+	   10 Mix -10 0 0 (406,395) (445,460)
+
+	BoxEnd
+
+	IfNewObject: Jack
+	   Coord (270, 373)
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           2 t1_02.scn
+           24 c1_02.scn
+        SceneEnd
+
+End

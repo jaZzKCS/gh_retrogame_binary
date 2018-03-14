@@ -1,0 +1,34 @@
+//5. VARIANTE
+
+J1 Goto N1 ..\ddd\j66.dad -> And now? Any suggestions?
+
+N1 Goto J2 ..\ddd\n23.dad -> There is a plant that grows in the jungle which is said to give great wisdom. Perhaps you should try it Jack.
+
+J2 Goto N2 ..\ddd\j67.dad -> I don't need stuff like that.
+
+N2 Goto J3 ..\ddd\n24.dad -> Oh no Jack, you don't understand. As the plant swallows you, you are afforded a vision of the world that is quite unique.
+
+J3 Goto N3 ..\ddd\j68.dad -> You know, I'm getting to realise why you still have dinosaurs round here. The two of you kind of go together.
+
+N3 Goto J4 ..\ddd\n25.dad -> What's a dinosaur, Jack?
+
+J4 Goto N4 ..\ddd\j69.dad -> Presumably when you were a kid you had a pet dinosaur.
+
+N4 Goto J5 ..\ddd\n26.dad -> What is a dinosaur, Jack?
+
+J5 Goto N5 ..\ddd\j70.dad -> Does the word anthropology mean anything to you?
+
+N5 Goto J6 ..\ddd\n27.dad -> That sounded like an insult, Jack.
+
+J6 Goto N6 ..\ddd\j71.dad -> Never write a reality cheque, sweetheart. It might bounce. 
+
+N6 Goto J7 ..\ddd\n28.dad -> I don't believe in coincidences.
+
+J7 Goto N7 ..\ddd\j72.dad -> Can you see a plan to any of this?
+
+N7 Goto J8 ..\ddd\n29.dad -> Kiss me Jack Thompson.
+
+J8 End 100 ..\ddd\j73.dad -> I know what you mean about being watched. It's kinda spooky.
+// End 2 J kisses princesse
+
+

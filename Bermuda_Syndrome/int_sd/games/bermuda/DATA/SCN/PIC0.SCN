@@ -1,0 +1,18 @@
+
+        SceneNumber    -1000
+        
+        Screen ..\WGP\pic0.wgp
+
+        Movies
+          ..\alx\scr.mov
+        MoviesEnd
+
+        Midi ..\midi\complete.mid 0
+
+        Scene
+
+           2 pic1.scn
+
+        SceneEnd
+
+End

@@ -1,0 +1,58 @@
+
+        SceneNumber 115
+
+
+        Screen ..\wgp\lab07_06.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,441) (1000,480)
+           1 Enable (402,334) (1000,370)
+           1 Enable (482,221) (1000,256)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (538,251) (640,480)
+           2 Enable (487,368) (640,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (472,220) (495,253)
+           3 Enable (390,332) (415,372)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,0) (79,356)
+           2 Enable (-1000,0) (27,640)
+
+           10 Mix -1 192 64  (0,356) (27,640)
+
+
+        BoxEnd
+
+	Object: Jack
+           Coord (470, 342)
+           Move 49
+        ObjectEnd
+	Object: Girl
+           Init NoInit
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           2 lab07_07.scn
+        SceneEnd
+
+End

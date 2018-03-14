@@ -1,0 +1,86 @@
+
+        SceneNumber 91
+
+
+        Screen ..\wgp\t1_17.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+        MoviesEnd
+
+        Midi ..\midi\merian1.mid 0
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+//           1 Enable (-1000,93) (83,122)
+           1 Enable (-1000,207) (212,237)
+           1 Enable (-1000,320) (241,359)
+           1 Enable (-1000,436) (1000,480)
+           1 Enable (404,320) (1000,359)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,121) (80,222)
+           2 Enable (0,354) (239,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (393,323) (414,349)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (229,325) (253,353)
+           4 Enable (202,205) (226,234)
+//           4 Enable (69,97) (91,122)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (0,0) (15,127)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (441,341) (640,480)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (0,233) (203,260)
+           9 Mix -1 0 0 (164,259) (203,333)
+           9 Mix -1 0 0 (119,260) (147,334)
+           9 Mix -1 0 0 (74,260) (103,334)
+           9 Mix -1 0 0 (31,259) (60,335)
+           9 Mix -1 0 0 (0,259) (17,335)
+           9 Mix -1 0 0 (0,334) (202,344)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (414,341) (460,462)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 150)
+	ObjectEnd
+
+	Object: Axt01
+	   Memory [9] 5
+	   Init NoInit
+	   GlobalMemory [225] != 0 -> LoadStatus [125]
+	   GlobalMemory [225] != 0 -> AddCoordX 648
+	   GlobalMemory [225] != 0 -> Init Simple
+	ObjectEnd
+	Object: Axt02
+	   Init NoInit
+	ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           2 t1_18.scn
+          11 lab08_05.scn
+          110 lab09_01.scn
+        SceneEnd
+
+End

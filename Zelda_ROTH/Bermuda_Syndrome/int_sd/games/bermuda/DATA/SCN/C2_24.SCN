@@ -1,0 +1,44 @@
+        SceneNumber 184
+
+        Screen ..\wgp\c2_24.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\jack\extra.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,445) (1000,480)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,0) (133,480)
+           2 Enable (348,0) (640,180)
+           2 Enable (375,182) (640,240)
+           2 Enable (0,439) (640,480)
+
+           5 Enable (-1000,-1000) (1000,1000)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           2 c2_25.scn     
+           3 c2_23.scn
+        SceneEnd
+
+End

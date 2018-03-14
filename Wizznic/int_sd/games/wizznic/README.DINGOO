@@ -1,0 +1,16 @@
+This is a dynamically compiled port of Wizznic! to the Dingoo Linux.
+Source included.
+
+Installation:
+1) Copy the wizznic directory somewhere on your filesystem
+2) Set your menu launcher to execute ./wizznic.dge
+
+Controls:
+
+D-PAD		- move bricks
+X/B		- select a brick
+START		- menu screen
+
+________________________________________
+Compiled by Zear, release #1, 10/11/2009
+zeartul(at)gmail(dot)com

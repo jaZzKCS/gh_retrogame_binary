@@ -1,0 +1,70 @@
+
+        SceneNumber 12
+ 
+        Screen ..\WGP\_12.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\girl\girl.mov
+          ..\11\tar.mov
+          ..\12\igo.mov
+          ..\12\scr.mov
+        MoviesEnd
+
+        Box
+
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 436) (1000, 480)
+
+           // Группа No. 2 - обозначает препятствие
+           GlobalMemory [22] != 3 -> 2 Enable (540, 252) (640, 480)
+
+
+        BoxEnd
+
+        IfNewObject: Jack
+          Coord (27, 373)
+        ObjectEnd
+
+        Object: Tarbosaur
+
+          GlobalMemory [22] == 1 -> Init NoInit
+          GlobalMemory [22] == 0 -> Init NoInit
+          GlobalMemory [22] == 2 -> Coord (60, 342)
+          GlobalMemory [22] == 2 -> Cel 2 1
+          GlobalMemory [22] == 2 -> Init Simple
+          GlobalMemory [22] == 3 -> Init NoInit
+
+        ObjectEnd
+
+        Object: Igo1
+          GlobalMemory [22] == 2 -> Move 3
+          GlobalMemory [22] == 2 -> Coord (460, 376)
+          GlobalMemory [22] == 3 -> Init NoInit
+        ObjectEnd
+
+        Object: Igo2
+          GlobalMemory [22] == 2 -> Cel 3 10
+          GlobalMemory [22] == 2 -> Mirror Y
+          GlobalMemory [22] == 2 -> Coord (490, 336)
+          GlobalMemory [22] == 3 -> Init NoInit
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+
+        Scene
+
+           1 _11.scn
+           2 _13.scn
+
+        SceneEnd
+
+
+End

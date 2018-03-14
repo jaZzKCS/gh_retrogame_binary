@@ -1,0 +1,16 @@
+//3. VARIANTE
+
+J1 Goto N1 ..\ddd\j59.dad -> You wouldn't happen to have a map tattooed anywhere would you?
+
+N1 Goto J2 ..\ddd\n17.dad -> I am as you see me Jack.
+
+J2 Goto N2 ..\ddd\j60.dad -> No hidden extras? 
+
+N2 Goto J3 ..\ddd\n18.dad -> Jack, I'm not sure I like the way you're looking at me.
+
+J3 Goto N3 ..\ddd\j61.dad -> Can't a guy even squint?
+
+N3 End 100 ..\ddd\n19.dad -> Jack, I feel strange - almost as though we're being watched.
+// End 2 J kisses princesse
+
+

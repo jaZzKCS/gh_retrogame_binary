@@ -1,0 +1,76 @@
+        SceneNumber 176
+
+        Screen ..\wgp\c2_17.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\jack\extra.mov
+           ..\cave2\extras.mov
+           ..\cave2\stone.mov
+           ..\cave2\raft1.mov
+           ..\cave2\wat17.mov
+           ..\cave2\extra.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (0,0) (0,0)
+           1 Enable (295,220) (1000,247)
+//           1 Enable (-1000,442) (1000,480)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,0) (0,0)
+           2 Enable (-150,0) (27,480)
+           2 Enable (0,450) (640,480)
+           2 Enable (480,291) (640,342)
+           2 Enable (373,245) (465,302)
+           2 Enable (296,234) (406,276)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Disable (284,219) (306,246)
+           3 Enable  (176,219) (196,246)
+
+	   // Группа No. 5 - обозначает перспективу
+           5 Disable  (0,222) (290,480)
+           5 Enable  (0,222) (182,480)
+           5 Enable  (176,250) (640,480)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        Object: Raft__
+           GlobalMemory [140] != 0 -> LoadStatus [71]
+           GlobalMemory [140] == 171 -> AddCoordY -456
+        ObjectEnd
+        Object: Line
+           Init Simple
+           GlobalMemory [141] != 0 -> Init NoInit
+        ObjectEnd
+	Object: Stone_
+           Init Simple  
+	   GlobalMemory [143] == 1 -> LoadStatus [72]
+	   GlobalMemory [144] == 177 -> AddCoordX 648
+	   GlobalMemory [143] == 2 -> Init NoInit
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           2 c2_18.scn
+           3 c2_12.scn
+        SceneEnd
+
+End

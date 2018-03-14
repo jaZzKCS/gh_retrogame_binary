@@ -1,0 +1,84 @@
+
+	SceneNumber 68
+
+        Screen ..\wgp\lab05_08.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+         GlobalMemory [80] == 0 ->  ..\lab05\door.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,0) (188,27)
+           1 Enable (271,0) (1000,25)
+           1 Enable (-1000,109) (512,133)
+           1 Enable (-1000,336) (431,366)
+           1 Enable (103,453) (636,480)
+           1 Enable (0,221) (320,255)
+           1 Enable (320,115) (587, 138)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (274,30) (640,139)
+           2 Enable (0,143) (323,254)
+           2 Enable (0,375) (53,480)
+           2 Enable (568,139) (640,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (258,-3) (279,23)
+           3 Enable (94,451) (118,480)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (175,-3) (199,28)
+           4 Enable (419,337) (441,366)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (0,228) (322,254)
+           9 Mix -1 0 0 (295,145) (322,252)
+           9 Mix -1 0 0 (321,118) (611,140)
+           9 Mix -1 0 0 (4,374) (52,480)
+           9 Mix -1 0 0 (1,348) (430,367)
+           9 Mix -1 0 0 (0,8) (196,24)
+//           9 Mix -1 0 0 (320,115) (587, 138)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (163,1) (197,24)
+           10 Mix -1 192 64 (399,343) (442,367)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 276)
+        ObjectEnd
+
+        Object: Door
+           Coord (177, 254)
+        ObjectEnd
+        Object: Button
+           Coord (62, 338)
+        ObjectEnd
+        Object: Button_
+           Coord (251, 338)
+           Init Simple
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 lab05_07.scn
+           3 lab05_02.scn
+           4 lab05_12.scn
+        SceneEnd
+
+End

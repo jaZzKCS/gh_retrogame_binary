@@ -1,0 +1,91 @@
+
+        SceneNumber 118
+
+
+        Screen ..\wgp\lab07_09.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\lab07\ird.mov
+           ..\lab07\door.mov
+           ..\lab07\extrak.mov
+           ..\lab07\key.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,215) (1000,254)
+           1 Enable (185,104) (1000,140)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (352,148) (438,239)
+           2 Enable (292,24) (640,133)
+           2 Enable (0,0) (27,255)
+           2 Enable (618,137) (740,250)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (256,-10) (279,28)
+           3 Enable (175,101) (198,139)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+        //   4 Enable (174,-10) (198,28)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (0,10) (198,25)
+           9 Mix -1 0 0 (198,125) (275,139)
+           9 Mix -1 0 0 (223,123) (640,152)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (180,2) (198,24)
+           10 Mix -1 192 64 (372,146) (640,237)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (0,25) (20,255)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        Object: Irod
+           Memory [9] 1
+           GlobalMemory [127] != 0 -> LoadStatus [67]
+        ObjectEnd
+
+        Object: Door
+           Memory [9] 1
+           GlobalMemory [129] != 0 -> Cel 1 14
+           GlobalMemory [129] != 0 -> Coord (350,156)
+        ObjectEnd
+
+        Object: Key_
+           GlobalMemory [130] != 0 -> LoadStatus [68]
+           GlobalMemory [130] != 0 -> Init Simple
+	ObjectEnd
+
+	GlobalMemory [10] == 22 -> Object: Girl
+	   GlobalMemory [10] == 22 -> Init Simple
+	   GlobalMemory [10] == 22 -> Cel 1 1
+	   GlobalMemory [10] == 22 -> Mirror No
+	   GlobalMemory [10] == 22 -> Coord (540,162)
+	GlobalMemory [10] == 22 -> ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           3 lab07_03.scn
+        SceneEnd
+
+End

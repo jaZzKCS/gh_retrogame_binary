@@ -1,0 +1,68 @@
+
+        SceneNumber 22
+
+	Screen ..\wgp\_22.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+	  ..\girl\girl.mov
+	  ..\22\dim.mov
+          ..\22\far.mov
+          
+        MoviesEnd
+
+        Box
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 434) ( 106, 457)
+
+           // Группа No. 2 - обозначает препятствие
+           2 Enable ( 0, 441) (106, 479) 
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+           4 Enable ( 95, 436) (116, 459)
+
+           // Группа No. 10 - затирание т.к. находится впереди
+
+        BoxEnd
+
+        IfNewObject: Jack
+          Coord (49, 373)
+          Mirror Y
+        ObjectEnd
+
+        Object: Dim1
+
+          GlobalMemory [32] >= 3 -> Init NoInit
+
+        ObjectEnd
+
+        Object: Dim2
+
+          GlobalMemory [32] >= 2 -> Init NoInit
+
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        IfNewObject: Girl
+          GlobalMemory [10] == 9 -> Init Simple  
+        ObjectEnd 
+
+        Scene
+
+           1 _21.scn
+           4 _23.scn
+
+        SceneEnd
+
+End

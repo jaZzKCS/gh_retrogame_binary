@@ -1,0 +1,75 @@
+
+        SceneNumber 422
+
+
+        Screen ..\wgp\t3_02.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+	   ..\town2\guard.mov
+	   ..\town2\sneack.mov
+	   ..\town2\boom.mov
+//------------------------
+           ..\alx\pter0.mov
+
+	MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,432) (1000,480)
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix 20 0 0 (151,343) (183,406)
+           9 Mix 20 0 0 (249,343) (280,406)
+           9 Mix 20 0 0 (444,343) (475,406)
+
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+	ObjectEnd
+
+	Object: Guard
+	   Memory [9] 4
+           Cel 1 1
+	   Coord (323,378)
+	   GlobalMemory [187] <= 1 -> Init Simple
+	   GlobalMemory [187] > 1  -> Init NoInit
+	ObjectEnd
+	Object: Sneack
+	   Memory [9] 4
+	   Coord (323,384)
+           Cel 3 1
+	   GlobalMemory [187] <= 1 -> Init NoInit
+	   GlobalMemory [187] > 1  -> Init Simple
+	   GlobalMemory [187] == 3 -> LoadStatus [87]
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+//------------------------
+        Object: Pter0
+           Coord (470, 360)
+           Cel 1 80
+        ObjectEnd
+        Object: Pter0_
+           Coord (270, 365)
+           Cel 1 20
+        ObjectEnd
+//-------------------------
+        Scene
+           1 t3_01.scn
+           2 t3_03.scn
+         //  4 t3_09.scn
+        SceneEnd
+
+End

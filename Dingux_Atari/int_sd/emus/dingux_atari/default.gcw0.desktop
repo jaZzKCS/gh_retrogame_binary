@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Atari 800-5200
+Comment=A Atari 800-5200 emulator
+Exec=dingux-atari
+Terminal=false
+Type=Application
+StartupNotify=true
+Icon=atari
+Categories=emulators;

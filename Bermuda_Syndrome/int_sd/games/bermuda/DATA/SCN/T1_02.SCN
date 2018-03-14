@@ -1,0 +1,62 @@
+
+        SceneNumber 46
+
+        Screen ..\wgp\t1_02.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\town1\horn.mov
+           ..\town1\ptr.mov
+           ..\town1\stego.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,324) (82,346)
+           1 Enable (8,437) (1000,480)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,364) (80,480)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (68,314) (90,346)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 373)
+	ObjectEnd
+
+        Object: Horn
+           GlobalMemory [42] != 0 -> Coord (198, 432)
+           GlobalMemory [42] != 0 -> Cel 1 16
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Object: Stego
+           GlobalMemory [43] != 0  -> LoadStatus [28]
+           GlobalMemory [43] == 47 -> AddCoordX 648 
+	ObjectEnd
+
+        Object: Ptr
+           GlobalMemory [46] != 0  -> Init NoInit
+	ObjectEnd
+
+
+        Scene
+           1 t1_01.scn
+           2 t1_03.scn
+        SceneEnd
+
+End

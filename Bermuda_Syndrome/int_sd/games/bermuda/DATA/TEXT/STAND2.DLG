@@ -1,0 +1,17 @@
+//2. VARIANTE
+
+J1 Goto N1 ..\ddd\j55.dad -> Erm, Princess?
+
+N1 Goto J2 ..\ddd\n14.dad -> Yes, Jack Thompson?
+
+J2 Goto N2 ..\ddd\j56.dad -> We're stuck aren't we? I mean what are we meant to do now?
+
+N2 Goto J3 ..\ddd\n15.dad -> I believe in you Jack.
+
+J3 Goto N3 ..\ddd\j57.dad -> Jack. That's touching, but useless.
+
+N3 Goto J4 ..\ddd\n16.dad -> You could always try kissing me.
+
+J4 End 100 ..\ddd\j58.dad -> I wouldn't  know where to start and if I started I wouldn't know where to finish!
+// End 2 J kisses princesse
+

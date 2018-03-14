@@ -1,0 +1,11 @@
+//Fort. 06_1.dlg
+// Jack 80:	Did anyone ever use the word obtuse in connection with you?
+
+N1 Goto J1 ..\ddd\n36.dad -> You're a very easy man to fall out of love with, Jack Thompson.
+
+J1 Goto N2 ..\ddd\j81.dad -> Come here...
+
+N2 Goto J2 ..\ddd\n37.dad -> Where, exactly?
+
+J2 End 100 ..\ddd\j82.dad -> Here, right here.
+//End 2 -Jack kissing girl

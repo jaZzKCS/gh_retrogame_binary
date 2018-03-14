@@ -1,0 +1,83 @@
+
+        Screen ..\wgp\lab04_08.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\lab01\mkr.mov
+           ..\lab01\scp.mov
+           GlobalMemory [64] == 0 -> ..\lab04\hook.mov
+           GlobalMemory [64] == 0 -> ..\lab04\view.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (131,0) (383,26)
+           1 Enable (77,110) (373,138)
+           1 Enable (-1000,224) (109,255)
+           1 Enable (239,215) (463,255)
+           1 Enable (455,338) (1000,369)
+           1 Enable (568,224) (1000,255)
+           1 Enable (-1000,440) (1000,480)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (153,23) (371,137)
+           2 Enable (513,0) (621,368)
+           2 Enable (-100,1) (27,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (122,0) (144,25)
+           3 Enable (67,110) (90,139)
+           3 Enable (229,222) (252,253)
+           3 Enable (446,338) (468,366)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (364,0) (388,28)
+           4 Enable (94,222) (118,255)
+           4 Enable (445,224) (469,252)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (88,121) (373,138)
+           9 Mix -1 0 0 (342,26) (374,137)
+           9 Mix -1 0 0 (0,0) (31,480)
+           9 Mix -1 0 0 (6,235) (119,253)
+           9 Mix -1 0 0 (250,235) (472,254)
+           9 Mix -1 0 0 (469,349) (640,367)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (359,3) (393,27)
+           10 Mix -1 192 64 (425,230) (472,253)
+           10 Mix -1 192 64 (78,230) (119,254)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        Object: Mkr
+           Coord (314, 133)
+           Mirror Y
+        ObjectEnd
+
+        Object: Scorpio
+           Init NoInit
+        ObjectEnd
+
+        Object: Scorpio1
+           Init Simple
+           GlobalMemory [68] != 0 -> LoadStatus [24]
+        ObjectEnd
+
+        Scene
+           2 lab04_09.scn
+           3 lab04_04.scn
+        SceneEnd
+
+End

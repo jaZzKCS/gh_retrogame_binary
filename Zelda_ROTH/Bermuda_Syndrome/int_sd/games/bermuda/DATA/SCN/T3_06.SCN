@@ -1,0 +1,80 @@
+
+        SceneNumber 426
+
+
+        Screen ..\wgp\t3_06.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+	   ..\TOWN3\VIS.mov
+	   ..\TOWN2\boom.mov
+	   ..\alx\king.mov
+	MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,440) (1000,480)
+           1 Enable (540,216) (1000,254)
+           1 Enable (183,216) (377,250)
+           1 Enable (102,333) (271,365)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (618,253) (619,254)
+           2 Enable (620,248) (840,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (95,330) (117,360)
+           3 Enable (175,214) (199,248)
+           3 Enable (525,213) (550,249)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (364,219) (387,253)
+           4 Enable (257,330) (280,366)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (349,248) (380,478)
+           10 Mix -1 192 64 (341,455) (396,478)
+           10 Mix -1 192 64 (199,248) (226,337)
+           10 Mix -1 192 64 (213,336) (221,346)
+           10 Mix -1 192 64 (129,362) (141,479)
+           10 Mix -1 192 64 (117,344) (274,363)
+           10 Mix -1 192 64 (199,230) (388,249)
+           10 Mix -1 192 64 (254,363) (268,480)
+
+        BoxEnd
+
+	IfNewObject: Jack
+	   Coord (270, 158)
+	ObjectEnd
+
+	Object: Vizard
+           Memory [1] 0
+           Mirror No
+           Cel 1 1
+           Init Simple
+           GlobalMemory [200] == 0 -> Coord (450, 374)
+           GlobalMemory [200] == 1 -> LoadStatus [100]
+           GlobalMemory [200] == 2 -> LoadStatus [100]
+           GlobalMemory [200] == 1  -> Init Simple
+	   GlobalMemory [200] >  1  -> Init NoInit
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+	Scene
+	   1 t3_05.scn
+	   2 t3_07.scn
+	SceneEnd
+
+End

@@ -1,0 +1,143 @@
+
+        SceneNumber 207
+
+
+        Screen ..\wgp\fly07.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\cave2\raft2.mov
+           ..\cave2\stn.mov
+	   ..\cave2\gar.mov
+//----------------------
+           ..\alx\pter0.mov
+           ..\alx\pter8.mov
+
+	MoviesEnd
+
+
+        Box
+	   // Группа No. 1-2 - обозначает землю & препятствие для плота
+	   1 Enable (-1000,-1000) (-1000,-1000)
+	   2 Enable (-1000,-1000) (-1000,-1000)
+
+	   // Группа No. 6 - обозначает направление ветра налево
+           6 Enable (125,272) (640,480)
+
+	   // Группа No. 7 - обозначает направление ветра направо
+           7 Enable (160,1) (800,120)
+           7 Enable (125,119) (454,273)
+
+	   // Группа No. 8 - обозначает препятствие для плота
+           8 Enable (0,438) (640,480)
+           8 Enable (77,0) (322,130)
+           8 Enable (-1000,119) (268,480)
+           8 Enable (257,240) (304,478)
+           8 Enable (289,313) (335,480)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+	Object: Raft__
+	   LoadStatus [73]
+	   Init Simple
+	   GlobalMemory [7] == 1 -> AddCoordX 648
+	   GlobalMemory [7] == 2 -> AddCoordX -648
+	   GlobalMemory [7] == 3 -> AddCoordY 456
+	   GlobalMemory [7] == 4 -> AddCoordY -456
+	ObjectEnd
+
+	Object: Line1
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line2
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line3
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line4
+	   Init NoInit
+	ObjectEnd
+	Object: Line5
+	   Init NoInit
+	ObjectEnd
+
+	Object: Stone_0
+	   LoadStatus [75]
+	   Init Simple
+	   GlobalMemory [7] == 1 -> AddCoordX 648
+	   GlobalMemory [7] == 2 -> AddCoordX -648
+	   GlobalMemory [7] == 3 -> AddCoordY 456
+	   GlobalMemory [7] == 4 -> AddCoordY -456
+	ObjectEnd
+
+	Object: Stone_1
+	   LoadStatus [76]
+	   Init Simple
+	   GlobalMemory [7] == 1 -> AddCoordX 648
+	   GlobalMemory [7] == 2 -> AddCoordX -648
+	   GlobalMemory [7] == 3 -> AddCoordY 456
+	   GlobalMemory [7] == 4 -> AddCoordY -456
+	ObjectEnd
+
+	Object: Gar01
+	    GlobalMemory [180] == 1 -> LoadStatus [80]
+	    GlobalMemory [180] != 1 -> Init NoInit
+	    GlobalMemory [182] == 220 -> AddCoordY -456
+	    GlobalMemory [182] == 203 -> AddCoordY -456
+	    GlobalMemory [182] == 204 -> AddCoordY -456
+	    GlobalMemory [182] == 220 -> AddCoordX  648
+	    GlobalMemory [182] == 203 -> AddCoordX -648
+	ObjectEnd
+	Object: Gar02
+	    GlobalMemory [181] == 1 -> LoadStatus [81]
+	    GlobalMemory [181] != 1 -> Init NoInit
+	    GlobalMemory [182] == 220 -> AddCoordY -456
+	    GlobalMemory [182] == 203 -> AddCoordY -456
+	    GlobalMemory [182] == 204 -> AddCoordY -456
+	    GlobalMemory [182] == 220 -> AddCoordX  648
+	    GlobalMemory [182] == 203 -> AddCoordX -648
+	ObjectEnd
+
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+//---------------------------
+        Object: Pter0
+           Coord (353, 225)
+        ObjectEnd
+        Object: Pter0_
+           Coord (500, 200)
+           Cel 1 60
+        ObjectEnd
+
+        Object: Pter8
+           Coord (350, -20)
+        ObjectEnd
+        Object: Pter8_
+           Coord (620, -20)
+        ObjectEnd
+
+//--------------------
+        Scene
+           1 fly06.scn
+           2 fly08.scn
+           3 fly04.scn
+           4 fly16.scn
+        SceneEnd
+
+End

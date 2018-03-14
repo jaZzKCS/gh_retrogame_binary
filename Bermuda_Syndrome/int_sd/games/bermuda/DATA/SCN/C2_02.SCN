@@ -1,0 +1,46 @@
+        SceneNumber 161
+
+        Screen ..\wgp\c2_02.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+//-------------------------
+           ..\alx\spider1.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,449) (1000,480)
+           1 Enable (-1000,299) (382,328)
+           1 Enable (391,331) (1000,356)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        Object: Spider1
+           GlobalMemory [230] != 0 -> Init NoInit
+        ObjectEnd
+        Object: Spider2
+           GlobalMemory [231] != 0 -> Init NoInit
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 c2_03.scn
+           2 c2_01.scn
+        SceneEnd
+
+End

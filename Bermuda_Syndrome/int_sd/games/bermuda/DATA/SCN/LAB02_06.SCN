@@ -1,0 +1,63 @@
+
+        Screen ..\wgp\lab02_06.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\lab01\mkr.mov
+          ..\lab01\scp.mov
+        MoviesEnd
+
+        Box
+           // Группа No. 1 - обозначает землю
+           1 Enable (    0,  111)  ( 481,  141)
+           1 Enable (   268, 225)  (  348, 250)
+           1 Enable (   404, 225)  (  483, 251)
+           1 Enable (   577, 225)  (  640, 251)
+           1 Enable ( -1000, 329)  ( 1000, 364)
+
+           // Группа No. 2 - обозначает препятствие
+           2 Enable (   0 ,   0)  (  483, 138)
+           2 Enable (  565,   0)  (  640, 249)
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable ( 258, 225) ( 277, 250)
+           3 Enable ( 393, 225) ( 412, 250)
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+           4 Enable ( 339, 225) ( 358, 250)
+           4 Enable ( 474, 225) ( 493, 250)
+
+           // Группа No. 10 -выделение переднего плана
+           //
+           10 Mix -1 192 64 (278, 230) (355, 250)
+           10 Mix -1 192 64 (415, 231) (491, 252)
+           10 Mix -1 192 64 (441,   0) (482, 140)
+           
+
+        BoxEnd
+
+        IfNewObject: Jack
+
+          Coord (135, 272)
+
+        ObjectEnd
+
+        Object: Mkr
+          Coord (420, 249)
+          Mirror No 
+        ObjectEnd
+
+        Object: Scorpio
+          GlobalMemory [67] != 0 -> LoadStatus [23]
+        ObjectEnd
+
+       Scene
+         1 lab02_04.scn
+         2 lab02_07.scn      
+       SceneEnd
+End

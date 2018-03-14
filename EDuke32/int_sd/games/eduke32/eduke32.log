@@ -1,0 +1,41 @@
+EDuke32 2.0.0devel 20100727
+Using /mnt/int_sd/games/eduke32/ for game data
+Using /mnt/int_sd/.eduke32/ for game data
+Initializing SDL system interface (compiled against SDL version 1.2.15, found version 1.2.15)
+Using "fbcon" video driver
+Searching for game data...
+Using 'duke3d.grp' as main game data file.
+Compiling: GAME.CON (151190 bytes)
+Including: DEFS.CON (35992 bytes)
+Including: USER.CON (45482 bytes)
+GAME.CON: In actor `ORGANTIC':
+GAME.CON:3968: warning: found `else' with no `if'.
+GAME.CON: In state `pigshootenemystate':
+GAME.CON:5891: warning: found `else' with no `if'.
+Found 2 warning(s), 0 error(s).
+Resizing code buffer to 16187*4 bytes
+Script compiled in 196ms, 16179*4b, version 1.4+
+1918/11264 labels, 321/2048 variables
+125 quotes, 207 actors
+Initialized 24.0M cache
+RTS file DUKE.RTS was not found
+Initializing OSD...
+0 joystick(s) found
+Executing "settings.cfg"
+Setting video mode 320x240 (16-bpp windowed)
+Initializing music...
+Error: couldn't open any of the following files:
+/etc/timidity/freepats.cfg
+/etc/timidity/timidity.cfg
+/etc/timidity.cfg
+Error: couldn't open any of the following files:
+/etc/timidity/freepats.cfg
+/etc/timidity/timidity.cfg
+/etc/timidity.cfg
+S_MusicStartup(): failed initializing
+Initializing sound...
+Cache time: 1442ms
+E1L1: HOLLYWOOD HOLOCAUST
+ 
+Wrote eduke32.cfg
+Wrote settings.cfg

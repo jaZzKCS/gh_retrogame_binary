@@ -1,0 +1,39 @@
+
+T3 Goto J4 ..\ddd\t8.dad -> I am the Tauron of whom you speak. And yes, princess Natalia, I am 	privileged to be numbered among the wise.
+
+J4 Goto T4 ..\ddd\j37.dad -> I guess there ain't a lot of room for modesty in there. Okay short stuff, what's happening?
+
+J4 Goto T5 ..\ddd\j38.dad -> Hey, look, if I do need your help I'll send up a flare. Watch the treetops short guy. I'm outta here - I gotta get back to my unit.
+
+T4 Goto J5 ..\ddd\t9.dad -> I have waited many moons for you Jack Thompson.  Not everything in the world is a simple as you would like to believe. There are forces at work here which must be resolved and you, Jack Thompson are the man to do it.
+
+T5 End 1 ..\ddd\t10.dad -> For you, Jack Thompson, there is but one way forward. I will wait for you.
+
+
+J5 Goto T6 ..\ddd\j39.dad -> Well it can't get any weirder I guess. Keep talking... 
+
+T6 Goto J6 ..\ddd\t11.dad -> The fabric of your reality has been torn by the conflict raging there - this dimension is separate from but aligned to the reality you know as your home. 	This island is the island of Ijagmar in the Korial sea. In times past it was ruled by the snake-men who enslaved all those who fell through from your world. But the snake men grew crueler and more decadent until one day the men rose up and all but vanquished them.
+
+J6 Goto T7 ..\ddd\j41.dad -> We've had a few revolutions - not all of them good ones.
+
+T7 Goto J7 ..\ddd\t12.dad -> Your politics are no concern of mine. But if you stay in Ijagmar you would  be well advised to heed my counsel.
+
+J7 Goto T8 ..\ddd\j42.dad -> I'm not planning on staying but right now I can't see any exit signs.
+
+T8 Goto J8 ..\ddd\t13.dad -> If I understand you correctly you wish to leave us. But first you must understand that your fate, and the fate of the island of Ijagmar are inextricably intertwined.
+
+J8 Goto T9 ..\ddd\j43.dad -> Neat, Jack, that's great. You fell through a hole in reality and now all you gotta do is save the world.  Gee, Jack, you get all the good breaks. 'kay - where to now?
+
+T9 Goto J9 ..\ddd\t14.dad -> The king of Ijagmar is mortally ill. The island is now ruled by the iron fist and 	bloody hand of Telquad, formally the most trusted advisor of the king but now a man whose ambition will destroy all that has been built.  Only one 	person stands between Telquad and victory and that person, Jack Thompson, is you.
+
+J9 Goto T10 ..\ddd\j44.dad -> Right. Okay. So if I help you, you'll help me get back to... Uh.. My dimension. 
+
+T10 Goto J10 ..\ddd\t15.dad -> I cannot help you. But the king, if he lives, may be able to assist you.
+
+J10 Goto T11 ..\ddd\j45.dad -> Somebody explain to me why I don't feel overjoyed by all this.  Okay princess, shall we hit the trail?
+
+T11 End 2 ..\ddd\t16.dad -> One last thing, Jack Thompson.  A word of advice. A gift given freely to one of the wise may reap a great reward.
+
+//End 1 Nothing happend if J trying again dialoque begins from J4
+//End 2 Jack give crystall...Joda gives ball and com back to fire
+// If after dialoque J trying speack Joda just waving his hand

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Atari 2600
+Comment=Atari 2600 emulator
+Exec=dingux-2600
+Terminal=false
+Type=Application
+StartupNotify=true
+Icon=icon
+Categories=emulators;

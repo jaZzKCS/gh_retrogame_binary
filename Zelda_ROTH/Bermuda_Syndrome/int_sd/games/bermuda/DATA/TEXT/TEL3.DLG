@@ -1,0 +1,8 @@
+//Dialogue when J return after water
+
+E1 Goto J1 ..\ddd\te4.dad -> You have reserves of strength, Jack Thompson, but you are still staring at defeat.
+
+J1 End 1 ..\ddd\j91.dad -> Time to check out, asshole...
+
+//End 1 Nothing happend
+

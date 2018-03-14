@@ -1,0 +1,72 @@
+
+        SceneNumber 426
+
+
+        Screen ..\wgp\t3_06.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\girl\girl.mov
+	   ..\alx\king.mov
+	MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,440) (1000,480)
+           1 Enable (540,216) (1000,254)
+           1 Enable (183,216) (377,250)
+           1 Enable (102,333) (271,365)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (618,253) (619,254)
+           2 Enable (620,248) (840,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (95,330) (117,360)
+           3 Enable (175,214) (199,248)
+           3 Enable (525,213) (550,249)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (364,219) (387,253)
+           4 Enable (257,330) (280,366)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (349,248) (380,478)
+           10 Mix -1 192 64 (341,455) (396,478)
+           10 Mix -1 192 64 (199,248) (226,337)
+           10 Mix -1 192 64 (213,336) (221,346)
+           10 Mix -1 192 64 (129,362) (141,479)
+           10 Mix -1 192 64 (117,344) (274,363)
+           10 Mix -1 192 64 (199,230) (388,249)
+           10 Mix -1 192 64 (254,363) (268,480)
+
+        BoxEnd
+
+	Object: Jack
+	   Coord (540, 386)
+	ObjectEnd
+
+	Object: Girl
+	   Coord (530, 389)
+           Init Simple
+           Mirror No
+	ObjectEnd
+
+	Object: King
+           Memory [1] 1
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+	Scene
+	   2 pic0.scn
+	SceneEnd
+
+End

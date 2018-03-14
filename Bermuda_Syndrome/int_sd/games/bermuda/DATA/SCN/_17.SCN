@@ -1,0 +1,125 @@
+
+	SceneNumber 17
+
+	Screen ..\WGP\_17.wgp
+
+	Movies
+	  ..\jack\jack.mov
+	  ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+	  ..\jack\fire.mov
+	  ..\girl\girl.mov
+	  ..\18\hup.mov
+        MoviesEnd
+
+        Box
+
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 436) (1000, 480)
+           1 Enable (401, 321) (512, 344)
+           1 Enable (621, 322) (1000, 344)
+
+           // Группа No. 2 - обозначает препятствие
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (392, 321) (413, 339)
+           3 Enable (608, 320) (629, 340)
+
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+           4 Enable (500, 320) (521, 341)
+
+
+           // Группа No. 6 - обозначает горизонтальные бревна перспективы
+           6 Mix 0 0 0 (402, 226) (507, 231)
+           6 Mix 0 0 0 (411, 330) (516, 339)
+           6 Mix 0 0 0 (628, 331) (640, 339)
+           6 Mix 0 0 0 (617, 226) (640, 232)
+
+           // Группа No. 7 - обозначает вертикальные бревна перспективы
+           7 Mix 0 0 0 (490, 210) (499, 227)
+           7 Mix 0 0 0 (495, 229) (500, 236)
+           7 Mix 0 0 0 (494, 237) (499, 239)
+           7 Mix 0 0 0 (495, 240) (499, 246)
+           7 Mix 0 0 0 (495, 247) (500, 277)
+           7 Mix 0 0 0 (495, 278) (501, 282)
+           7 Mix 0 0 0 (496, 283) (501, 284)
+           7 Mix 0 0 0 (496, 285) (502, 302)
+           7 Mix 0 0 0 (497, 303) (502, 312)
+           7 Mix 0 0 0 (498, 313) (502, 323)
+
+           8 Mix 0 0 0 (499, 324) (503, 336)
+           8 Mix 0 0 0 (498, 339) (508, 345)
+           8 Mix 0 0 0 (503, 346) (508, 346)
+           8 Mix 0 0 0 (504, 347) (508, 347)
+
+
+           // Группа No. 9 - обозначает вертикальные бревна перспективы
+           9 Mix 0 0 0 (431, 205) (435, 219)
+           9 Mix 0 0 0 (430, 219) (435, 227)
+           9 Mix 0 0 0 (430, 231) (437, 244)
+           9 Mix 0 0 0 (430, 245) (436, 249)
+           9 Mix 0 0 0 (431, 250) (436, 271)
+           9 Mix 0 0 0 (431, 272) (435, 277)
+           9 Mix 0 0 0 (430, 278) (435, 286)
+           9 Mix 0 0 0 (430, 287) (434, 300)
+           9 Mix 0 0 0 (430, 288) (435, 306)
+           9 Mix 0 0 0 (431, 307) (435, 312)
+
+           10 Mix 0 0 0 (431, 313) (436, 314)
+           10 Mix 0 0 0 (432, 315) (436, 319)
+           10 Mix 0 0 0 (433, 320) (436, 324)
+           10 Mix 0 0 0 (433, 324) (437, 326)
+           10 Mix 0 0 0 (432, 327) (437, 334)
+           10 Mix 0 0 0 (433, 338) (439, 346)
+
+
+        BoxEnd
+
+        IfNewObject: Jack
+          Coord (27, 373)
+        ObjectEnd
+
+        Object: Hup1
+          Coord (1040, 395)
+          Memory [10] 1
+          Memory [3]  1
+          Memory [5]  1
+          GlobalMemory [27] == 1 -> LoadStatus [10]
+          GlobalMemory [31] == 18 -> AddCoordX 640
+        ObjectEnd
+
+        Object: Hup2
+          Coord (536, 395)
+          GlobalMemory [27] == 1 -> LoadStatus [11]
+          GlobalMemory [31] == 18 -> AddCoordX 640
+        ObjectEnd
+
+        IfNewObject: Girl
+          GlobalMemory [10] == 8 -> Coord (486, 262)
+          GlobalMemory [10] == 8 -> Init Simple
+          GlobalMemory [10] == 8 -> Mirror No
+          GlobalMemory [10] == 8 -> Memory [4] 1
+          GlobalMemory [10] == 9 -> Coord (486, 262)
+          GlobalMemory [10] == 9 -> Init Simple
+          GlobalMemory [10] == 9 -> Mirror No
+          GlobalMemory [10] == 9 -> Memory [4] 1
+        ObjectEnd
+     
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+
+           1 _16.scn
+           2 _18.scn
+
+        SceneEnd
+
+
+End

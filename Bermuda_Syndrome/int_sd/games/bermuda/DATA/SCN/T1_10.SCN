@@ -1,0 +1,61 @@
+
+        SceneNumber 54
+
+        Screen ..\wgp\t1_10.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,200) (55,234)
+           1 Enable (3,314) (190,348)
+           1 Enable (449,319) (1000,352)
+	   1 Enable (-1000,425) (1000,480)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,238) (54,335)
+	   2 Enable (0,358) (162,467)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+	   //                выводится без зеркального отображения
+	   3 Enable (445,324) (469,355)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+	   //                выводится c зеркальным отображением по оси Y
+	   4 Enable (40,203) (64,230)
+	   4 Enable (175,316) (198,347)
+
+	   // Группа No. 10 - обозначает перспективу
+	   10 Mix -1 0 0 (123,358) (172,467)
+	   10 Mix -1 0 0 (454,345) (470,465)
+           10 Mix -1 0 0 (437,332) (464,345)
+           10 Mix -1 0 0 (450,344) (470,352)
+           10 Mix -1 0 0 (533,349) (550,460)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 373)
+	ObjectEnd
+
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+
+        Scene
+           1 t1_09.scn
+           2 t1_11.scn
+	SceneEnd
+
+End

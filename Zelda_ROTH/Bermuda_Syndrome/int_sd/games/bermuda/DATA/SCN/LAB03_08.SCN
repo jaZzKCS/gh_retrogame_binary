@@ -1,0 +1,49 @@
+
+        Screen ..\wgp\lab03_08.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\jack\extra.mov
+           ..\lab03\wat08.mov
+           ..\lab03\ball.mov
+           ..\lab03\extra_.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (290,227) (640,254)
+           1 Enable (216,339) (640,366)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (-100,0) (28,480)
+           2 Enable (190,367) (640,480)
+           2 Enable (595,0) (640,255)
+           2 Enable (371,254) (640,343)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (284,224) (306,252)
+           3 Enable (203,340) (225,367)
+
+	   // Группа No. 5 - обозначает препятствие
+           5 Enable (26,345) (197,479)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (0,0) (27,480)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        Scene
+           4 lab03_07.scn
+        SceneEnd
+
+End

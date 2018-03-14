@@ -1,0 +1,78 @@
+
+        SceneNumber 114
+
+
+        Screen ..\wgp\lab07_05.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\lab07\ird.mov
+           ..\lab07\door.mov
+           ..\lab07\extrak.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (373,440) (1000,480)
+           1 Enable (1,218) (1000,257)
+           1 Enable (75,107) (1000,147)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (352,147)  (458,235)
+           2 Enable (-30,0) (25,249)
+           2 Enable (619,351) (740,480)
+           2 Enable (622,134) (740,260)
+           2 Enable (185,19)  (740,139)
+
+           3 Enable (68,100)  (89,130)
+           3 Enable (147,0)  (172,26)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (0,0) (20,241)
+           9 Mix -1 0 0 (90,120) (137,138)
+           9 Mix -1 0 0 (118,134) (640,149)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (372,148) (640,233)
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,327) (1000,366)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        Object: Irod
+           GlobalMemory [126] != 0 -> LoadStatus [66]
+        ObjectEnd
+        Object: Door
+           GlobalMemory [128] != 0 -> Cel 1 14
+           GlobalMemory [128] != 0 -> Coord (350,156)
+        ObjectEnd
+
+        GlobalMemory [10] == 20 -> Object: Girl
+           GlobalMemory [10] == 20 -> Init Simple
+           GlobalMemory [10] == 20 -> Mirror No
+           GlobalMemory [10] == 20 -> Cel 1 1
+           GlobalMemory [10] == 20 -> Coord (540,162)
+        GlobalMemory [10] == 20 -> ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+
+        Scene
+           3 lab07_01.scn
+        SceneEnd
+
+End

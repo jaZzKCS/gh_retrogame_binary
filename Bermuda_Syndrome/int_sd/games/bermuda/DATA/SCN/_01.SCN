@@ -1,0 +1,84 @@
+
+        SceneNumber    1
+        
+        Screen ..\WGP\_01.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\01\priest.mov
+          ..\01\girl.mov
+          ..\01\pter.mov
+          ..\01\extra.mov
+          ..\01\view.mov
+        MoviesEnd
+
+        Midi ..\midi\jungle1.mid 0
+
+        Box
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 436) (1000, 480)
+           1 Enable (   75, 327) ( 265, 343)
+
+           // Группа No. 2 - обозначает препятствие
+           2 Enable (79, 343) (267, 440) 
+           2 Enable (-100, 0) (0, 480) 
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (66, 327) (88, 343)
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+           4 Enable (255, 327) (276, 343)
+
+           // Группа No. 10 - затирание т.к. находится впереди
+           10 Mix 5 84 6     (78,  98)  (189, 127)
+           10 Mix 5 84 6     (544, 98)  (586,  127)
+           10 Mix 0 0 0      (500, 302) (639, 450)
+           
+           
+
+        BoxEnd
+
+        IfNewObject: Jack
+          Coord (346, 373)
+          Mirror Y
+          Init NoInit
+        ObjectEnd
+
+        Object: Girl_
+           GlobalMemory [10] != 0  -> Init NoInit
+           GlobalMemory [11] >= 1   -> Memory [4] 1
+        ObjectEnd
+
+        Object: Rope
+           GlobalMemory [10] != 0  -> Init Put
+        ObjectEnd
+
+        Object: Pilot
+           GlobalMemory [11] >= 1  -> Init NoInit
+        ObjectEnd
+
+        Object: Priest
+           GlobalMemory [11] >= 1  -> Init Put
+           GlobalMemory [11] >= 1  -> Coord (245, 437)
+           GlobalMemory [11] >= 1  -> Cel 2 64
+        ObjectEnd
+
+        Bag 16 17
+
+         Knife ..\01\knife.spr
+
+        BagEnd
+
+        Scene
+
+;          1 __1.scn
+           2 _02.scn
+
+        SceneEnd
+
+End

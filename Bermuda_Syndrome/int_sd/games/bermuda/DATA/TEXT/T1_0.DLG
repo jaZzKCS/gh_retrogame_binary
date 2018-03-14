@@ -1,0 +1,12 @@
+//3. Dialog mit Prinzessin vor der verlassenen Stadt
+//Princesse warning J when they come to scn t1_04
+N1 Goto J1 ..\ddd\n10.dad -> Soon we arrive at the city of the snake-men. My people conquered them years before I was born, but this, their greatest city remains a trap for the foolish and unwary.  To enter will almost certainly result in your death. I think... I think you are very brave, Jack Thompson.
+
+J1 Goto N2 ..\ddd\j32a.dad -> Great! So, what am I supposed to do?
+J1 End 1 ..\ddd\j33.dad -> Quiet! I'm trying to concentrate.
+
+N2 End 1 ..\ddd\n11.dad -> The cliffs that surround the city are fatal to anyone attempting to scale them. The ruins are still inhabited by Merians - they may appear primitive by your standards but they fight like demons - you will need the use of that magic noisemaker to defeat them. Oh, Jack Thompson, you are so brave... and death is almost certain.
+
+//End 1- Princesse don't even try to speak on this scene any more
+
+

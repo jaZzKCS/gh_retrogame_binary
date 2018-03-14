@@ -1,0 +1,66 @@
+
+        SceneNumber 131
+
+
+        Screen ..\wgp\lab08_12.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\jack\extra.mov
+           ..\lab08\wat12.mov
+        MoviesEnd
+
+
+        Box
+
+           1 Enable (244, 106) (405, 137)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (534,26) (640,480)
+           2 Enable (0,280) (640,480)
+           2 Enable (0,118) (412,160)
+           2 Enable (0,26) (321,135)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (419,0) (442,26)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (310,0) (335,29)
+           4 Enable (390,107) (416,135)
+
+	   // Группа No. 5 - обозначает перспективу
+           5 Enable (413,111) (555,306)
+           5 Enable (0,150) (553,301)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (0,130) (415,160)
+           9 Mix -1 0 0 (236,28) (322,123)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (305,1) (335,27)
+           10 Mix -1 192 64 (386,115) (417,140)
+;           10 Mix -1 192 64 (32,165) (289,235)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 lab08_11.scn
+           3 lab08_08.scn
+        SceneEnd
+
+End

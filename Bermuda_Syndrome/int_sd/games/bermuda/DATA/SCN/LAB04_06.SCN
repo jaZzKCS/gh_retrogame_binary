@@ -1,0 +1,92 @@
+
+        Screen ..\wgp\lab04_06.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\lab04\blk03.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (536,0) (1000,26)
+           1 Enable (211,109) (350,141)
+           1 Enable (508,109) (1000,140)
+           1 Enable (49,226) (162,257)
+           1 Enable (589,338) (1000,368)
+           1 Enable (508,453) (1000,480)
+           1 Enable (-1000,452) (266,480)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (55,256) (158,456)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (527,0) (550,26)
+           3 Enable (498,108) (522,141)
+           3 Enable (202,108) (224,138)
+           3 Enable (580,337) (602,366)
+           3 Enable (499,454) (522,480)
+           3 Enable (40,224) (61,253)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (337,107) (361,140)
+           4 Enable (147,225) (172,256)
+           4 Enable (256,451) (279,480)
+
+	   // Группа No. 5 - обозначает лаву
+           5 Enable (304,933) (640,1640)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (119,257) (159,477)
+           9 Mix -1 0 0 (223,121) (360,139)
+           9 Mix -1 0 0 (521,120) (640,137)
+           9 Mix -1 0 0 (545,5) (640,25)
+           9 Mix -1 0 0 (602,349) (640,368)
+           9 Mix -1 0 0 (521,463) (640,480)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (326,116) (362,139)
+           10 Mix -1 192 64 (132,230) (174,255)
+           10 Mix -1 192 64 (236,459) (279,480)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        Object: Block
+
+           Init NoInit
+           GlobalMemory [60] == 1 -> LoadStatus [22]
+           GlobalMemory [60] == 1 -> Init Simple
+           GlobalMemory [60] == 1 -> AddCoordY -456
+
+        ObjectEnd
+
+        Object: Lava1
+           Init NoInit
+        ObjectEnd
+
+        Object: Lava2
+           Init NoInit
+        ObjectEnd
+
+        Object: Lava3
+           Init NoInit
+        ObjectEnd
+
+        Scene
+           1 lab04_05.scn
+           2 lab04_07.scn
+           3 lab04_03.scn
+           4 lab04_10.scn
+        SceneEnd
+
+End

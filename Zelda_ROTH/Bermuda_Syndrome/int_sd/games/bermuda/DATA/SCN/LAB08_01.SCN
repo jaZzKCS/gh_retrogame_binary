@@ -1,0 +1,71 @@
+
+        SceneNumber 120
+
+
+        Screen ..\wgp\lab08_01.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+	   ..\lab08\irod.mov
+	MoviesEnd
+
+        Midi ..\midi\caves.mid 0
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,325) (215,370)
+           1 Enable (319,330) (1000,370)
+           1 Enable (479,215) (632,251)
+           1 Enable (560,104) (1000,143)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (566,143) (640,253)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (310,331) (334,364)
+           3 Enable (472,214) (497,249)
+           3 Enable (553,100) (576,132)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (202,329) (226,360)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (575,252) (625,350)
+           9 Mix -1 0 0 (498,233) (578,252)
+           9 Mix -1 0 0 (520,251) (541,260)
+           9 Mix -1 0 0 (519,245) (532,350)
+           9 Mix -1 0 0 (527,343) (540,352)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (203,343) (230,369)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (27, 158)
+	ObjectEnd
+
+	Object: Irod
+	   GlobalMemory [10] == 21 GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [10] == 21 GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init NoInit
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+         101 t1_16.scn
+           2 lab08_02.scn
+           4 lab08_06.scn
+        SceneEnd
+
+End

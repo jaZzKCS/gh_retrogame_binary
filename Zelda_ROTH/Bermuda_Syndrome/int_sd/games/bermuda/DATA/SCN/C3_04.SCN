@@ -1,0 +1,99 @@
+
+        SceneNumber 304
+
+
+        Screen ..\wgp\c3_04.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\cave3\lava.mov
+           ..\cave3\egg1.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           GlobalMemory [171] != 0 -> 1 Enable  (-1000,444) (324,500)
+           GlobalMemory [171] == 0 -> 1 Disable (-1000,444) (324,500)
+
+           GlobalMemory [170] != 0 -> 1 Enable  (324,444) (1000,500)
+           GlobalMemory [170] == 0 -> 1 Disable (324,444) (1000,500)
+
+           1 Enable (217,174) (392,204)
+           1 Enable (403,332) (1000,368)
+           1 Enable (-1000,326) (218,366)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,366) (160,480)
+           2 Enable (455,366) (640,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (391,328) (416,362)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением
+           4 Enable (202,330) (227,365)
+
+
+           GlobalMemory [171] == 0 -> 5 Enable  (129,458) (324,500)
+           GlobalMemory [171] != 0 -> 5 Disable (129,458) (324,500)
+           GlobalMemory [170] == 0 -> 5 Enable (324,458) (522,500)
+           GlobalMemory [170] != 0 -> 5 Disable (324,458) (522,500)
+
+	   // Группа No. 9 - обозначает перспективу
+//           9 Mix -1 0 0 (169,179) (448,195)
+
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (137,364) (207,458)
+           10 Mix -1 192 64 (120,455) (145,480)
+           10 Mix -1 192 64 (157,343) (217,367)
+           9 Mix -1 0 0 (132,473) (527,480)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (27, 158)
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Object: Egg1
+           GlobalMemory [170] != 0 -> Cel 1 37
+           GlobalMemory [170] != 0 -> Coord (321, 154)
+        ObjectEnd
+        Object: Egg2
+           GlobalMemory [170] != 0 -> Cel 2 37
+           GlobalMemory [170] != 0 -> Coord (353, 180)
+        ObjectEnd
+        Object: Egg3
+           GlobalMemory [170] != 0 -> Cel 3 37
+           GlobalMemory [170] != 0 -> Coord (311, 448)
+        ObjectEnd
+        Object: Egg4
+           GlobalMemory [171] != 0 -> Cel 4 37
+           GlobalMemory [171] != 0 -> Coord (236, 156)
+        ObjectEnd
+        Object: Egg5
+           GlobalMemory [171] != 0 -> Init NoInit
+        ObjectEnd
+        Object: Egg6
+           GlobalMemory [171] != 0 -> Cel 6 37
+           GlobalMemory [171] != 0 -> Coord (144, 448)
+        ObjectEnd
+
+        Scene
+           1 c3_03.scn
+           2 c3_05.scn
+        SceneEnd
+
+End

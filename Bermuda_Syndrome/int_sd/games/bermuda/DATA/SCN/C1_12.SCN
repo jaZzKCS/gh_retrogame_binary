@@ -1,0 +1,90 @@
+
+        SceneNumber 42
+
+        GlobalMemory [36] <  2 -> Screen ..\wgp\c1_12d1.wgp
+        GlobalMemory [36] == 2 -> Screen ..\wgp\c1_12d2.wgp
+        GlobalMemory [36] >  2 -> Screen ..\wgp\c1_12.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\cave1\gol.mov
+           ..\cave1\bat1.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,105) (138,131)
+           1 Enable (210,31) (580,57)
+           1 Enable (2,217) (380,244)
+           1 Enable (504,233) (1000,253)
+           1 Enable (-1000,333) (1000,364)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (3,117) (135,224)
+           2 Enable (509,6) (640,252)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (121,107) (144,135)
+           4 Enable (365,222) (388,252)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (128,230) (376,256)
+           10 Mix -1 192 64 (530,230) (640,253)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Object: Bat01
+          GlobalMemory [39] >= 1 -> Init NoInit
+        ObjectEnd
+        Object: Bat02
+          GlobalMemory [39] >= 2 -> Init NoInit
+        ObjectEnd
+        Object: Bat03
+          GlobalMemory [39] >= 3 -> Init NoInit
+        ObjectEnd
+        Object: Bat04
+          GlobalMemory [39] >= 4 -> Init NoInit
+	ObjectEnd
+	Object: Bat05
+	  GlobalMemory [39] >= 5 -> Init NoInit
+	ObjectEnd
+	Object: Bat06
+	  GlobalMemory [39] >= 6 -> Init NoInit
+	ObjectEnd
+
+	Object: Gol
+	   Memory [9] 1
+	   Coord  (318,156)
+	   Move   8
+	   GlobalMemory [108] != 0  -> LoadStatus [53]
+	   GlobalMemory [106] == 43 -> AddCoordX 648
+	ObjectEnd
+	Object: Gol_
+	   Coord  (278, 158)
+	   Move   1
+	   GlobalMemory [108] != 0  -> LoadStatus [54]
+	   GlobalMemory [106] == 43 -> AddCoordX 648
+	ObjectEnd
+
+        Scene
+           1 c1_11.scn
+           2 c1_13.scn
+        SceneEnd
+
+End

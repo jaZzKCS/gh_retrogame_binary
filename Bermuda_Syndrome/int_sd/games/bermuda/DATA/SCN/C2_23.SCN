@@ -1,0 +1,50 @@
+        SceneNumber 183
+
+        Screen ..\wgp\c2_23.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\jack\extra.mov
+           ..\cave2\sw04.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,220) (134,245)
+           1 Enable (-1000,0) (126,25)
+           1 Enable (155,31) (348,60)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,233) (131,480)
+           2 Enable (345,106) (640,480)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (121,215) (144,247)
+
+	   // Группа No. 5 - обозначает перспективу
+           5 Enable (143,222) (352,480)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 c2_22.scn
+           4 c2_24.scn
+        SceneEnd
+
+End

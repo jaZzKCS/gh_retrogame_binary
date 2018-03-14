@@ -1,0 +1,114 @@
+
+        SceneNumber 220
+
+
+        Screen ..\wgp\fly16.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\cave2\raft2.mov
+           ..\cave2\stn.mov
+	   ..\cave2\gar.mov
+//------------------------
+           ..\alx\pter4.mov
+	MoviesEnd
+
+
+        Box
+	   // Группа No. 1-2 - обозначает землю & препятствие для плота
+	   1 Enable (-1000,-1000) (-1000,-1000)
+	   2 Enable (-1000,-1000) (-1000,-1000)
+
+	   // Группа No. 8 - обозначает препятствие для плота
+           8 Enable (0,0) (640,120)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+	Object: Raft__
+	   LoadStatus [73]
+	   Init Simple
+	   GlobalMemory [7] == 1 -> AddCoordX 648
+	   GlobalMemory [7] == 2 -> AddCoordX -648
+	   GlobalMemory [7] == 3 -> AddCoordY 456
+	   GlobalMemory [7] == 4 -> AddCoordY -456
+	ObjectEnd
+
+	Object: Line1
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line2
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line3
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line4
+	   Init NoInit
+	ObjectEnd
+	Object: Line5
+	   Init NoInit
+	ObjectEnd
+
+	Object: Stone_0
+	   LoadStatus [75]
+	   Init Simple
+	   GlobalMemory [7] == 1 -> AddCoordX 648
+	   GlobalMemory [7] == 2 -> AddCoordX -648
+	   GlobalMemory [7] == 3 -> AddCoordY 456
+	   GlobalMemory [7] == 4 -> AddCoordY -456
+	ObjectEnd
+
+	Object: Stone_1
+	   LoadStatus [76]
+	   Init Simple
+	   GlobalMemory [7] == 1 -> AddCoordX 648
+	   GlobalMemory [7] == 2 -> AddCoordX -648
+	   GlobalMemory [7] == 3 -> AddCoordY 456
+	   GlobalMemory [7] == 4 -> AddCoordY -456
+	ObjectEnd
+
+	Object: Gar01
+	    GlobalMemory [180] == 1 -> LoadStatus [81]
+	    GlobalMemory [180] != 1 -> Init NoInit
+	    GlobalMemory [182] == 203 -> AddCoordX -1296
+	    GlobalMemory [182] == 204 -> AddCoordX -648
+	    GlobalMemory [182] == 207 -> AddCoordY 456
+	    GlobalMemory [182] == 207 -> AddCoordX -648
+	ObjectEnd
+	Object: Gar02
+	    GlobalMemory [181] == 1 -> LoadStatus [80]
+	    GlobalMemory [181] != 1 -> Init NoInit
+	    GlobalMemory [182] == 203 -> AddCoordX -1296
+	    GlobalMemory [182] == 204 -> AddCoordX -648
+            GlobalMemory [182] == 207 -> AddCoordY 456
+	    GlobalMemory [182] == 207 -> AddCoordX -648
+        ObjectEnd
+
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+//------------------
+        Object: Pter4
+           Coord (-40, 200)
+           Mirror Y
+        ObjectEnd
+        Scene
+           1 fly04.scn
+           2 fly21.scn
+           4 fly08.scn
+        SceneEnd
+
+End

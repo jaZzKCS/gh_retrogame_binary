@@ -1,0 +1,89 @@
+
+        SceneNumber 38
+
+        GlobalMemory [36] <= 2 -> Screen ..\wgp\c1_08d.wgp
+        GlobalMemory [36] >  2 -> Screen ..\wgp\c1_08.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\cave1\block.mov
+           ..\cave1\scr08.mov
+           ..\cave1\switch.mov
+           ..\cave1\bat2.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Disable (0,0) (0,0)
+           1 Enable (508,221) (1000,254)
+           1 Enable (-1000,333) (460,366)
+           1 Enable (561,333) (1000,366)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (617,238) (740,356)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (500,221) (522,252)
+
+           6 Enable (431,423) (596,500)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+	ObjectEnd
+
+        Object: Block
+           Coord (458, 342)
+           GlobalMemory [38] == SceneNumber -> Memory [1] 1
+	ObjectEnd
+
+        Object: Switch
+           Coord (314, 311)
+           GlobalMemory [38] == SceneNumber -> Cel 1 2
+           GlobalMemory [38] == SceneNumber -> Init Simple
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Object: Bat01
+           GlobalMemory [40] >= 1 -> Init NoInit
+	ObjectEnd
+        Object: Bat02
+           GlobalMemory [40] >= 2 -> Init NoInit
+	ObjectEnd
+        Object: Bat03
+           GlobalMemory [40] >= 3 -> Init NoInit
+	ObjectEnd
+        Object: Bat04
+           GlobalMemory [40] >= 4 -> Init NoInit
+	ObjectEnd
+        Object: Bat05
+           GlobalMemory [40] >= 5 -> Init NoInit
+	ObjectEnd
+        Object: Bat06
+           GlobalMemory [40] >= 6 -> Init NoInit
+	ObjectEnd
+        Object: Bat07
+           GlobalMemory [40] >= 7 -> Init NoInit
+	ObjectEnd
+        Object: Bat08
+           GlobalMemory [40] >= 8 -> Init NoInit
+	ObjectEnd
+
+        Scene
+           1 c1_07.scn
+           2 c1_09.scn
+        SceneEnd
+
+End

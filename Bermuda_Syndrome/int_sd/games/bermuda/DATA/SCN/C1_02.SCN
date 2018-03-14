@@ -1,0 +1,64 @@
+
+        SceneNumber 32
+
+        Screen ..\wgp\c1_02d.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+	   ..\girl\girl.mov
+           ..\cave1\switch.mov
+           ..\cave1\door.mov
+	MoviesEnd
+
+        Midi ..\midi\darkcave.mid 0
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+	   1 Enable (350,109) (549,139)
+           1 Enable (-1000,218) (596,251)
+           1 Enable (480,-20) (1000,20)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (487,0) (640,121)
+           2 Enable (427,135) (640,255)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+	   3 Enable (339,104) (360,134)
+           3 Enable (475,-20) (496,24)
+
+
+	BoxEnd
+
+	IfNewObject: Jack
+	   Coord (270, 158)
+	ObjectEnd
+
+	Object: Switch
+	   Coord (368, 197)
+	   GlobalMemory [38] == SceneNumber -> Cel 1 2
+	   GlobalMemory [38] == SceneNumber -> Init Simple
+	ObjectEnd
+
+	Object: Block
+	   GlobalMemory [38] == SceneNumber -> Coord (415,0)
+	   GlobalMemory [38] == SceneNumber -> Memory [1] 1
+	   GlobalMemory [38] == SceneNumber -> Cel 1 8
+	ObjectEnd
+
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 c1_01.scn
+           23 t1_01.scn
+        SceneEnd
+
+End

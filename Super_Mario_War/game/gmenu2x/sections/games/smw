@@ -1,0 +1,7 @@
+title=SMW
+description=Super Mario War Game
+icon=skin:icons/smw.png
+exec=/mnt/int_sd/games/smw/run.dge
+clock=600
+volume=1
+wrapper=true

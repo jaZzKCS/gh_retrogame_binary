@@ -1,0 +1,18 @@
+//DIALOG 2: NATALIA HILFT JACK
+//Dialogue beginns if J has not small dinosaur and "use girl""
+
+
+J1 Goto N1 ..\ddd\j94.dad -> It's getting a little cramped. You got any bright ideas about that crocodile?
+
+N1 Goto J2 ..\ddd\n43.dad -> Crocodiles are always hungry, Jack. Maybe if you tied some food onto this vine...
+
+J2 Goto N2 ..\ddd\j95.dad -> Good thinking. Except what do we use for bait? My leg perhaps?
+
+N2 Goto J3 ..\ddd\n44.dad -> No Jack, you'll need your leg later I'm sure. How about a little lizard?
+
+J3 Goto N3 ..\ddd\j96.dad -> Now that sounds workable. I'll go shoot one.
+
+N3 End 1 ..\ddd\n45.dad -> Use the thunderstick, Jack.
+//End 1 Nothing happend and this dialogue can be repeated
+//____________________________________________
+

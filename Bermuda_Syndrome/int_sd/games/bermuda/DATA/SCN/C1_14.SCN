@@ -1,0 +1,84 @@
+
+        SceneNumber  44
+
+        GlobalMemory [36] <  2 -> Screen ..\wgp\c1_14d1.wgp
+        GlobalMemory [36] == 2 -> Screen ..\wgp\c1_14d2.wgp
+        GlobalMemory [36] >  2 -> Screen ..\wgp\c1_14.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\cave1\block.mov
+           ..\cave1\scr14.mov
+           ..\cave1\lamp.mov
+           ..\cave1\switch.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Disable (0,0) (0,0)
+           1 Enable (-1000,0) (535,13)
+           1 Enable (-1000,107) (295,134)
+           1 Enable (481,107) (1000,131)
+//           1 Enable (193,335) (601,362)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (619,1) (740,119)
+           2 Enable (267,134) (323,450)
+           2 Enable (483,134) (640,460)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           //3 Enable (473,109) (495,135)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (527,0) (549,24)
+           //4 Enable (284,111) (306,140)
+
+           6 Enable (282,221) (505, 480)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix 100 0 1 (288,112) (302,125)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (243, 44)
+	ObjectEnd
+
+        Object: Lamp
+           GlobalMemory [36] <= 2 -> Init NoInit
+           Coord (556, 17)
+	ObjectEnd
+
+        Object: Block_
+           Init Simple
+	ObjectEnd
+
+        Object: Block
+           GlobalMemory [38] == SceneNumber -> Memory [1] 1
+	ObjectEnd
+
+        Object: Switch
+           Coord (152, 83)
+           GlobalMemory [38] == SceneNumber -> Cel 1 2
+           GlobalMemory [38] == SceneNumber -> Init Simple 
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 c1_13.scn
+           3 c1_10.scn
+        SceneEnd
+
+End

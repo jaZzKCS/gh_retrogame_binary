@@ -1,0 +1,112 @@
+
+        SceneNumber 7
+
+        Screen ..\WGP\_07.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\girl\girl.mov
+          ..\07\eup.mov
+          ..\07\liana.mov
+          ..\07\extra.mov
+          ..\07\view.mov
+        MoviesEnd
+
+        Box
+
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 436) (1000, 480)
+           1 Enable (  85, 327) ( 184, 343)
+           1 Enable ( 405, 327) ( 509, 343)
+
+           // Группа No. 2 - обозначает препятствие
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable ( 67, 327) ( 90, 343)
+           3 Enable (393, 327) (414, 343)
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+           4 Enable (176, 327) (197, 343)
+           4 Enable (499, 327) (521, 343)
+
+           // Группа No. 6 - обозначает вертикальные палки левого навеса
+           6 Mix 0 0 0 (105, 210) (110, 232)
+           6 Mix 0 0 0 (105, 233) (112, 255)
+           6 Mix 0 0 0 (106, 256) (111, 277)
+           6 Mix 0 0 0 (106, 278) (110, 291)
+           6 Mix 0 0 0 (105, 292) (110, 323)
+           6 Mix 0 0 0 (105, 324) (109, 333)
+           ;------------------------------ 
+           6 Mix 0 0 0 (169, 216) (174, 234)
+           6 Mix 0 0 0 (170, 235) (175, 288)
+           6 Mix 0 0 0 (171, 289) (178, 308)
+           6 Mix 0 0 0 (172, 309) (177, 333)
+
+           // Группа No. 7 - обозначает вертикальные палки правого навеса
+           7 Mix 0 0 0 (433, 209) (439, 271)
+           7 Mix 0 0 0 (434, 272) (438, 285)
+           7 Mix 0 0 0 (433, 286) (437, 306)
+           7 Mix 0 0 0 (434, 307) (439, 333)
+           ;------------------------------ 
+           7 Mix 0 0 0 (497, 210) (502, 227)
+           7 Mix 0 0 0 (498, 230) (503, 282)
+           7 Mix 0 0 0 (499, 278) (505, 302)
+           7 Mix 0 0 0 (500, 303) (505, 333)
+
+           // Группа No. 8 - обозначает горизонтальные палки левого навеса
+           8 Mix 0 105 10 ( 94, 338) (198, 344)
+           8 Mix 0 0 0    ( 78, 232) (181, 238)
+
+           // Группа No. 9 - обозначает горизонтальные палки правого навеса
+           9 Mix 0 105 10 (419, 338) (522, 343)
+           9 Mix 0 0 0    (406, 226) (509, 232)
+
+           9 Mix 0 0 0    (501, 342) (511, 345)
+           9 Mix 0 0 0    (507, 346) (511, 347)
+           9 Mix 0 0 0    (433, 343) (442, 346)
+
+        BoxEnd
+
+        IfNewObject: Jack
+          Coord (27, 373)
+        ObjectEnd
+
+        Object: Eup
+          GlobalMemory [17] >= 1 -> LoadStatus [3]
+          GlobalMemory [17] == 1 -> Init Simple
+        ObjectEnd
+
+        Object: Liana1
+          GlobalMemory [17] == 1 -> Cel 1 32
+          GlobalMemory [17] == 2 -> Cel 1 32
+        ObjectEnd
+
+        Object: Liana2
+          GlobalMemory [17] == 1 -> Cel 2 20
+          GlobalMemory [17] == 1 -> Coord (289,86)
+          GlobalMemory [17] == 1 -> Mirror Y
+	  GlobalMemory [17] == 2 -> Cel 2 20
+	  GlobalMemory [17] == 2 -> Coord (289,86)
+	  GlobalMemory [17] == 2 -> Mirror Y
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+	Scene
+
+	   1 _06.scn
+	   GlobalMemory [20] == 1 -> 2 _08a.scn
+	   GlobalMemory [20] != 1 -> 2 _08.scn
+
+        SceneEnd
+
+
+End

@@ -1,0 +1,94 @@
+
+        SceneNumber 3
+
+        Screen ..\WGP\_03.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\girl\girl.mov
+          ..\02\monster.mov
+          ..\03\food.mov
+          ..\03\acro.mov
+        MoviesEnd
+
+        Box
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 436) (1000, 480)
+           1 Enable (   54, 327) ( 161, 343)
+
+           // Группа No. 2 - обозначает препятствие
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (41, 327) (65, 343)
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+           4 Enable (150, 327) (170, 343)
+
+           // Группа No. 9 - обозначает вертикальные бревна
+           // Правое
+           9 Mix 0 0 0 (143, 205) (149, 232)
+           9 Mix 0 0 0 (144, 232) (149, 277)
+           9 Mix 0 0 0 (145, 278) (151, 302)
+           9 Mix 0 0 0 (146, 303) (151, 323)
+           9 Mix 0 0 0 (147, 324) (152, 331)
+           // Левое
+           9 Mix 0 0 0 (80, 206) (85, 271)
+           9 Mix 0 0 0 (79, 272) (84, 307)
+           9 Mix 0 0 0 (80, 308) (84, 314)
+           9 Mix 0 0 0 (81, 315) (86, 331)
+
+           // Группа No. 10 - обозначает горизонтальные бревна
+           10 Mix 0 0 0     (52,  226) (155, 232)
+           10 Mix 0 105 10   (61,  331) (167, 340)
+           10 Mix 0 0 132   (68,  340) (88,  347)
+           10 Mix 0 0 132   (137, 340) (157, 347)
+           
+           
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (27, 373)
+        ObjectEnd
+
+        Object: Monster
+           Coord (196, 425)
+           GlobalMemory [13] == 1 -> Init NoInit
+           GlobalMemory [13] == 2 -> Init NoInit
+           GlobalMemory [13] == 3 -> Init Simple
+           GlobalMemory [13] == 3 -> Cel 2 50
+           GlobalMemory [13] == 3 -> Coord (183, 425)
+           GlobalMemory [13] == 3 -> Mirror No
+        ObjectEnd
+
+        Object: Acro
+           GlobalMemory [13] == 1 -> Coord (182, 364)
+           GlobalMemory [13] == 1 -> Cel 16 9
+           GlobalMemory [13] == 1 -> Depth 1
+           GlobalMemory [13] == 2 -> Coord (118, 393)
+           GlobalMemory [13] == 2 -> Cel 16 40
+           GlobalMemory [13] == 2 -> Depth 1
+           GlobalMemory [13] == 3 -> LoadStatus [1]
+           GlobalMemory [13] == 3 -> Memory [10] 2 
+           GlobalMemory [13] >= 2 -> Init Put
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+
+           1 _02.scn
+           2 _04.scn
+
+        SceneEnd
+
+
+End

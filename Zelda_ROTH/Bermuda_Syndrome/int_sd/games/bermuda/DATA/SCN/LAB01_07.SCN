@@ -1,0 +1,88 @@
+
+        Screen ..\wgp\lab01_07.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\jack\extra.mov
+          ..\lab02\fly.mov
+          ..\lab01\mkr.mov
+        MoviesEnd
+
+        Box
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 109)  ( 108, 137)
+           1 Enable (    0, 224)  ( 134, 251)
+           1 Enable (  203, 224)  ( 440, 252)
+           1 Enable (    0, 338)  ( 133, 367)
+           1 Enable (  240, 338)  ( 640, 367)
+           1 Enable (    0, 450)  ( 240, 479)
+
+           // Группа No. 2 - обозначает препятствие
+           2 Enable (    0, 129)  (  80, 479)
+           2 Enable (  593, 109)  ( 640, 465)
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable ( 203, 223) ( 224, 251)
+           3 Enable ( 230, 339) ( 251, 366)
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+           4 Enable (  95, 109) ( 116, 136)
+           4 Enable ( 122, 226) ( 143, 254)
+           4 Enable ( 419, 223) ( 440, 252)
+           4 Enable ( 122, 335) ( 143, 363)
+           4 Enable ( 230, 453) ( 251, 479)
+
+           // Группа No. 10 - обозначает передний план
+           10 Mix -1 192 64 ( 23,120) ( 82,479)
+           10 Mix -1 192 64 ( 68,116) (118,137)
+           10 Mix -1 192 64 ( 75,231) (144,253)
+           10 Mix -1 192 64 (378,231) (439,251)
+           10 Mix -1 192 64 ( 82,345) (145,367)
+           10 Mix -1 192 64 (172,459) (254,479)
+
+        BoxEnd
+
+        IfNewObject: Jack
+
+	  Coord (270, 158)
+
+	ObjectEnd
+
+	Object: Fly_b
+	   Coord (460, 70)
+	   Move 2
+	ObjectEnd
+
+	Object: Fly_b_
+	   Coord (60, 70)
+	   Cel 2 70
+	   Mirror Y
+	ObjectEnd
+
+	Object: Fly_s
+	   Coord (280, 300)
+	ObjectEnd
+
+	Object: Fly_s_
+	   Coord (480, 270)
+	   Mirror Y
+	ObjectEnd
+
+	Object: Mkr
+	   Coord (330, 249)
+           Mirror No
+	ObjectEnd
+
+
+       Scene
+	  1 lab01_04.scn
+          4 lab01_06.scn
+       SceneEnd    
+       
+
+End

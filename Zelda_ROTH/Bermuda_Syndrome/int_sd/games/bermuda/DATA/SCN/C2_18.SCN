@@ -1,0 +1,87 @@
+        SceneNumber 177
+
+        Screen ..\wgp\c2_18.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\jack\extra.mov
+           ..\cave2\extras.mov
+           ..\cave2\stone.mov
+           ..\cave2\wr207.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,0) (453,22)
+           1 Enable (186,108) (623,130)
+           1 Enable (-1000,221) (412,244)
+           2 Enable (-1000,448) (1000,480)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (568,0) (640,137)
+           2 Enable (559,126) (640,480)
+           2 Enable (0,448) (640,480)
+           2 Enable (0,266) (222,310)
+           2 Enable (226,242) (328,298)
+           2 Enable (327,237) (403,276)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (176,103) (199,128)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (445,-20) (468,24)
+           4 Enable (391,218) (412,245)
+
+	   // Группа No. 5 - обозначает воду
+           5 Enable (413,219) (565,418)
+           5 Enable (0,250) (640,480)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (216,128) (408,157)
+           10 Mix -1 192 64 (238,142) (289,254)
+           10 Mix -1 192 64 (347,125) (416,261)
+           10 Mix -1 192 64 (235,217) (412,270)
+           10 Mix -1 192 64 (326,10) (427,122)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+;        Object: Girl
+;           Coord (-10, 162)
+;           Init Simple
+;        ObjectEnd
+
+        Object: Stone_
+           GlobalMemory [143] == 1 -> LoadStatus [72]
+           GlobalMemory [143] == 1 GlobalMemory [144] == 176 -> AddCoordX -648
+           GlobalMemory [143] != 1 -> Init NoInit 
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+;	Bag 16 17
+;
+;         Knife ..\01\knife.spr
+;
+;        BagEnd
+
+        Scene
+           1 c2_17.scn
+           3 c2_13.scn
+        SceneEnd
+
+End

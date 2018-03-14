@@ -1,0 +1,72 @@
+
+        Screen ..\WGP\_25.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\girl\girl.mov
+          ..\25\extra.mov
+          ..\25\raft.mov
+          ..\25\girl.mov
+          ..\25\liana.mov
+          ..\25\wav.mov
+          ..\25\view.mov
+        MoviesEnd
+
+        Box
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000,99) (80,126)
+           1 Enable (-1000,212) (106,241)
+           1 Enable (-1000,436) (183,469)
+           1 Enable (-1000,436) (183,469)           
+
+           // Группа No. 2 - обозначает препятствие
+           2 Enable (0,0) (27,116)
+           2 Enable (0,110) (52,233)
+           2 Enable (0,267) (55,480)
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+           4 Enable (41, -21)  ( 62, 2)
+           4 Enable (67,97) (89,125)
+           4 Enable (94,211) (116,240)
+
+           // Группа No. 5 - обозначает воду
+           5 Enable (183,436) (1000, 620)
+
+           // Группа No. 10 - обозначает перспективу
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (54, 145)
+        ObjectEnd
+
+        Object: Lian
+           GlobalMemory [35] >= 1 -> Coord (95, 420)
+           GlobalMemory [35] >= 1 -> Cel 2 10
+        ObjectEnd
+
+        Object: Girl_
+           GlobalMemory [35] >= 1 -> Init Simple
+           GlobalMemory [35] >= 1 -> Coord (139, 354)
+           GlobalMemory [35] >= 1 -> Cel 2 1
+        ObjectEnd
+        Object: Ptero
+           GlobalMemory [10] < 11 -> Init NoInit
+        ObjectEnd
+
+
+        Scene
+
+           2 _26.scn
+           3 _24.scn
+
+        SceneEnd
+
+End

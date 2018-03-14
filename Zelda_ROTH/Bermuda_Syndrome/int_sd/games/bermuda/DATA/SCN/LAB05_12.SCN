@@ -1,0 +1,93 @@
+
+	SceneNumber 72
+
+        Screen ..\wgp\lab05_12.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\lab05\block.mov
+          GlobalMemory [80] == 0 -> ..\lab05\door.mov
+          GlobalMemory [80] == 0 -> ..\lab05\lamp.mov
+          GlobalMemory [10] < 20 -> ..\lab05\irod.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (0,0) (0,0)
+           1 Enable (103,338) (203,368)
+           1 Enable (203,338) (1000,368)
+           1 Enable (103,0) (1000,25)
+           1 Enable (6,110) (134,141)
+           1 Enable (6,223) (299,253)
+           1 Enable (564,148) (1000,176)
+           1 Enable (0,452) (510,480)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,0) (53,480)
+//           2 Enable (621,178) (800,372)
+           2 Enable (594,0) (800,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (94,0) (118,27)
+           3 Disable (94,334) (118,361)
+           3 Enable (554,145) (576,174)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (121,110) (145,137)
+           4 Enable (282,222) (307,253)
+           4 Enable (499,450) (524,480)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (117,10) (609,26)
+           9 Mix -1 0 0 (50,122) (146,138)
+           9 Mix -1 0 0 (51,236) (308,253)
+           9 Mix -1 0 0 (588,159) (640,177)
+           9 Mix -1 0 0 (605,0) (640,45)
+           9 Mix -1 0 0 (118,350) (640,368)
+           9 Mix -1 0 0 (21,0) (51, 479)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (104,115) (147,138)
+           10 Mix -1 192 64 (267,229) (308,253)
+           10 Mix -1 192 64 (478,457) (524,480)
+
+        BoxEnd
+
+        IfNewObject: Jack
+	   Coord (270, 158)
+	ObjectEnd
+
+	Object: Button
+	   Coord (279, 338)
+	ObjectEnd
+	Object: Button_
+	   Init NoInit
+	ObjectEnd
+	Object: Door
+	   Coord (208, 253)
+	ObjectEnd
+
+	Object: Block
+	   GlobalMemory [10] >= 20 ->  Coord (53, 455)
+	   GlobalMemory [10] >= 20 ->  Cel 1 58
+	ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           3 lab05_08.scn
+           4 lab05_18.scn
+        SceneEnd
+
+End

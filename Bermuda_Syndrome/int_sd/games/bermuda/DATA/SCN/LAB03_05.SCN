@@ -1,0 +1,73 @@
+
+	Screen ..\wgp\lab03_05.wgp
+
+	Movies
+	   ..\jack\jack.mov
+	   ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+	   ..\jack\fire.mov
+	   ..\jack\extra.mov
+           ..\lab03\wat05.mov
+	   ..\lab02\fly.mov
+	MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,224) (133,255)
+           1 Enable (268,224) (436,255)
+           1 Enable (212,338) (1000,368)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,243) (69,480)
+           2 Enable (351,0) (640,235)
+           2 Enable (296,252) (495,347)
+           2 Enable (213,354) (550,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (257,223) (279,251)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (122,225) (144,252)
+
+	   // Группа No. 5 - обозначает перспективу
+	   5 Enable (67,343) (204,480)
+
+	   // Группа No. 10 - обозначает перспективу
+	   10 Mix -1 192 64 (125,231) (146,254)
+	   10 Mix -1 192 64 (25,245) (69,480)
+
+	BoxEnd
+
+	IfNewObject: Jack
+	   Coord (270, 158)
+	ObjectEnd
+
+	Object: Fly_b
+	   Coord (70, 90)
+	ObjectEnd
+
+	Object: Fly_b_
+	   Coord (230, 70)
+	ObjectEnd
+
+	Object: Fly_s
+           Init NoInit
+	ObjectEnd
+
+	Object: Fly_s_
+	   Coord (230, 150)
+	   Mirror Y
+	ObjectEnd
+
+
+        Scene
+           1 lab03_04.scn
+           2 lab03_08.scn
+           4 lab03_06.scn
+        SceneEnd
+
+End

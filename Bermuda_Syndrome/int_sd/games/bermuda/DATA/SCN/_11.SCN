@@ -1,0 +1,113 @@
+        SceneNumber 11
+
+        Screen ..\WGP\_11.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\girl\girl.mov
+          ..\11\tar.mov
+          ..\11\gal.mov
+        MoviesEnd
+
+        Box
+
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 436) (1000, 480)
+           1 Enable (  108, 327) ( 215, 343)
+
+           // Группа No. 2 - обозначает препятствие
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (95, 327) (119, 343)
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+           4 Enable (204, 327) (224, 343)
+
+           // Группа No. 8 - обозначает навес (Задние части)
+           8 Mix 3 0 228     (114, 253) (121, 321)
+           8 Mix 3 0 228     (183, 232) (193, 321)
+
+           8 Mix 3 0 0       (97, 322) (206, 330)
+
+           8 Mix 3 0 0       (101, 331) (115, 332)
+           8 Mix 3 0 0       (103, 333) (103, 333)
+           8 Mix 3 0 0       (105, 334) (105, 334)
+           8 Mix 3 0 0       (107, 335) (107, 335)
+           8 Mix 3 0 0       (109, 336) (109, 336)
+           8 Mix 3 0 0       (111, 337) (111, 337)
+           8 Mix 3 0 0       (113, 338) (113, 338)
+
+           // Группа No. 9 - обозначает навес (вертикальный)
+           9 Mix -1 0 238    (197, 205) (207, 323)
+           9 Mix -1 0 0      (203, 323) (207, 336)
+
+           9 Mix -1 0 238    (133, 208) (141, 285)
+           9 Mix -1 0 238    (133, 286) (140, 322)
+           9 Mix -1 0 0      (137, 323) (141, 334)
+           9 Mix -1 0 0      (138, 326) (136, 331)
+
+           9 Mix -1 0 0      (132, 223) (142, 232)
+           9 Mix -1 0 0      (199, 223) (204, 233)
+
+
+           // Группа No. 10 - обозначает навес (горизонтальный)
+           10 Mix -1 0 0      (116, 330) (220, 339)
+           10 Mix -1 0 0      (107, 225) (210, 231)
+
+           10 Mix -1 0 0      (132, 339) (143, 344)
+           10 Mix -1 0 0      (139, 345) (142, 346)
+
+           10 Mix -1 0 0      (201, 339) (212, 343)
+           10 Mix -1 0 0      (201, 344) (212, 344)
+           10 Mix -1 0 0      (208, 345) (211, 346)
+
+
+        BoxEnd
+
+        IfNewObject: Jack
+          Coord (27, 373)
+        ObjectEnd
+
+        Object: Gallimim1
+          GlobalMemory [22] != 0 -> Init NoInit
+        ObjectEnd
+        Object: Gallimim2
+          GlobalMemory [22] != 0 -> Init NoInit
+        ObjectEnd
+        Object: Gallimim3
+          GlobalMemory [22] != 0 -> Init NoInit
+        ObjectEnd
+
+        Object: Tarbosaur
+          GlobalMemory [22] == 0 -> Init Simple
+          GlobalMemory [22] == 1 -> LoadStatus [7]
+          GlobalMemory [22] == 1 -> Init Put
+          GlobalMemory [22] == 2 -> Init NoInit
+          GlobalMemory [22] == 3 -> Init NoInit
+	ObjectEnd
+
+	GlobalMemory [10] == 7 GlobalMemory [8] == 0 -> Object: Girl
+	GlobalMemory [10] == 7 GlobalMemory [8] == 0 ->   Init Simple
+	GlobalMemory [10] == 7 GlobalMemory [8] == 0 ->   Cel 1 1
+	GlobalMemory [10] == 7 GlobalMemory [8] == 0 ->   Coord (-27, 376)
+	GlobalMemory [10] == 7 GlobalMemory [8] == 0 -> ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+
+           1 _10.scn
+           2 _12.scn
+
+        SceneEnd
+
+
+End

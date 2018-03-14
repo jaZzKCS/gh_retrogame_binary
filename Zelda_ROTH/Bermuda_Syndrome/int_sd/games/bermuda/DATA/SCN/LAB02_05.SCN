@@ -1,0 +1,60 @@
+
+        Screen ..\wgp\lab02_05.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\lab01\ant.mov
+        MoviesEnd
+
+        Box
+           // Группа No. 1 - обозначает землю
+           1 Enable (  240,  225)  (1000,  250)
+           1 Enable (     0, 332)  (  481, 364)
+           1 Enable (   553, 341)  (  640, 366)
+           1 Enable (     0, 450)  ( 1000, 476)
+
+           // Группа No. 2 - обозначает препятствие
+           2 Enable (   38, 122)  ( 106, 344)
+           2 Enable ( 551 , 253)  ( 1000, 365)
+           2 Enable (   21, 368)  (  429, 479)
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable ( 231, 224) ( 250, 249)
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+           4 Enable ( 473, 338) ( 492, 363)
+
+           // Группа No. 10 - выделение переднего плана
+           
+           10 Mix -1 192 64 ( 84, 134) (109, 348)
+           10 Mix -1 192 64 (424, 345) (491, 367)
+           10 Mix -1 192 64 (406, 368) (430, 467)
+           
+
+        BoxEnd
+
+        IfNewObject: Jack
+
+          Coord (486, 386)
+
+        ObjectEnd
+
+        Object: Ant01
+          GlobalMemory [65] == 1 -> Cel 8 9
+          GlobalMemory [65] == 1 -> Coord (375, 209)
+          GlobalMemory [65] == 1 -> Mirror No
+        ObjectEnd
+
+        Object: Ant02
+          Init NoInit
+        ObjectEnd
+         
+       Scene
+         2 lab02_04.scn
+       SceneEnd
+End

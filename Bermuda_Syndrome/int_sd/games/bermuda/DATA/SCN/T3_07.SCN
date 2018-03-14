@@ -1,0 +1,58 @@
+
+        SceneNumber 427
+
+
+        Screen ..\wgp\t3_07.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\TOWN3\VIS.mov
+           ..\TOWN3\VIS_S.mov
+           ..\TOWN2\boom.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,204) (1000,263)
+
+           2 Enable (621,0) (1000,480)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+	ObjectEnd
+
+	Object: Vizard
+           Memory [1] 0
+	   GlobalMemory [200] != 0 GlobalMemory [200] < 3  -> LoadStatus [100]
+	   GlobalMemory [200] != 2  -> Init NoInit
+	   GlobalMemory [200] == 2  -> Init Simple
+	   GlobalMemory [200] == 2  -> Mirror No
+	   GlobalMemory [200] == 2  -> Move 3
+	   GlobalMemory [200] == 2  -> Coord (337, 146)
+	ObjectEnd
+
+	Object: Vizard_s
+           Memory [1] 0 
+	   GlobalMemory [200] == 3  -> LoadStatus [100]
+	   GlobalMemory [200] <  3  -> Init NoInit
+	   GlobalMemory [200] == 3  -> Init Simple
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 t3_06.scn
+        SceneEnd
+
+End

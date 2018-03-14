@@ -1,0 +1,58 @@
+
+        SceneNumber 104
+
+
+        Screen ..\wgp\lab06_05.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\lab06\bogen.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,440) (1000,480)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (236,309) (342,372)
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (250,329) (347,362)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (253,331) (343,475)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+	ObjectEnd
+
+	Object: Bogen1
+	   GlobalMemory [115] != 0 -> LoadStatus [60]
+	   GlobalMemory [114] == 105 -> AddCoordX 648
+	   GlobalMemory [114] == 103 -> AddCoordX -648
+	ObjectEnd
+	Object: Bogen2
+	   GlobalMemory [116] != 0 -> LoadStatus [61]
+	   GlobalMemory [114] == 105 -> AddCoordX 648
+	   GlobalMemory [114] == 103 -> AddCoordX -648
+	ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 lab06_04.scn
+           2 lab06_06.scn
+        SceneEnd
+
+End

@@ -1,0 +1,55 @@
+	//Dialogue with Natalia (at the crash site)
+
+J1 Goto N1 ..\ddd\j1.dad -> Fine jungle you got here. I knew I should've taken that left at Alberqueque.
+J1 Goto	N1 ..\ddd\j2.dad -> You wouldn't have a spare wrench would you?
+J1 Goto N2 ..\ddd\j3.dad -> Don't be scared - you're safe now.
+
+N1 Goto J2 ..\ddd\n1.dad -> Please, do not touch me. You have caused enough trouble already.
+N2 Goto J3 ..\ddd\n2.dad -> You have ruined my life!
+
+J2 Goto N3 ..\ddd\j4.dad -> I caused you trouble?  Really sorry about that. 
+J2 Goto N3 ..\ddd\j5.dad -> Lady, in a costume like that you're  bound to attract trouble.
+J3 Goto N4 ..\ddd\j6.dad -> From where I was standing there wasn't a lot of it left to ruin.
+J3 Goto N4 ..\ddd\j7.dad -> Ruined your life? How?
+
+N3 Goto J4 ..\ddd\n3.dad -> You do not understand. I have to be sacrificed. It is my duty.
+N4 Goto J5 ..\ddd\n4.dad -> You do not understand. I have to be sacrificed. It is my duty.
+
+J4 End   1 ..\ddd\j8.dad  ->  Hey look,  you've obviously got your reasons...
+J4 Goto N2 ..\ddd\j9.dad -> Seems to me you have an odd way of looking at the world. Sheesh - what a waste.
+J5 End 1 ..\ddd\j10.dad  -> Here's a thought. How about I tie you up back where I found you and we leave it at that?
+J5 End 1 ..\ddd\j11.dad  -> A social anthropologist could make sense of this, but I sure as hell can't.
+J5 Goto N5 ..\ddd\j12.dad -> I can understand you wanting be eaten, but frankly dinosaurs don't strike me as being your type.
+
+N5 Goto J6 ..\ddd\n5.dad -> You, by your interference have condemned our king to death. 
+
+J6 Goto N6 ..\ddd\j13.dad -> Haven't you people heard of witch doctors?
+J6 Goto N7 ..\ddd\j14.dad -> So let me get this straight: you die, big chief lives?
+J6 End 1 ..\ddd\j15.dad   -> Look, I've been shot down, crashed a plane, killed a dinosaur and saved your life and you're telling me that I screwed up.  Lady, did anyone tell you, you got a weird set of priorities - I got get back to my unit. Have a nice life...
+
+
+N6 Goto J7 ..\ddd\n6.dad -> Witch what?
+
+J7 Goto N7 ..\ddd\j17.dad -> So by dying you get to save the life of your king. Presumably some very clever people have worked all this out?
+//Es war j10 unten
+J7 End 1 ..\ddd\j15.dad -> Look, I've been shot down, crashed a plane, killed a dinosaur and saved your life and you're telling me that I screwed up.  Lady, did anyone tell you, you got a weird set of priorities - I gotta get back to my unit. Have a nice life...
+
+N7 Goto J8 ..\ddd\n7.dad -> Of course not any sacrifice can save the life of the king. But the gods might 	accept the life of Natalia, his daughter... Except that now you have made that 	impossible.
+
+J8 Goto N8 ..\ddd\j19.dad -> So you're a princess? I knew royalty were strange. How did you people get 	to be in charge if you slaughter each other at the first sign of trouble?
+
+J8 End 1 ..\ddd\j20.dad -> Look, I've been shot down, crashed a plane, killed a dinosaur and saved your life and you're telling me I screwed up.  Lady, did anyone tell you, you got a weird set of priorities - I gotta get back to my unit. Have a nice life...
+
+N8 Goto J9 ..\ddd\n8.dad -> My name is Natalia - I am a princess and the only daughter of the king. You by your manner, are quite common.
+
+J9 Goto N9 ..\ddd\j21.dad -> Uh huh - well princess, I'm not prince charming but if you want my help I 	guess I'm stuck here.
+
+N9 Goto J10 ..\ddd\n9.dad -> I am a princess -  I don't need your help. .. Or anyone else's.. But if you're going that way..
+
+J10 End 2 ..\ddd\j22.dad -> Jack Thompson at your service... Your highness.
+J11 Goto N2 ..\ddd\j23.dad -> Let's talk about getting out of here alive, shall we?
+
+J11 End 1 ..\ddd\j24.dad -> Look. You are one weird lady. Just answer one  question - how do I get out 	of here?
+J11 End 1 ..\ddd\j25.dad -> You have a serious need for therapy, lady and that's a business I'm not in at all. Have a nice life. I gotta get back to my unit.
+
+

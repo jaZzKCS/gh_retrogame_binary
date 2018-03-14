@@ -1,0 +1,11 @@
+//Ergänzungen zum Bermuda Syndrome Dialog 
+//---------------------------------------------------------
+//Dialogue beginns when J appears from the teleport
+
+N1 Goto J1 ..\ddd\n46.dad -> Be careful Jack Thompson. The jungle is full of dangers which are not immediately obvious.
+
+J1 End 1 ..\ddd\j97.dad -> Were you ever in the girl scouts? Not in that uniform, I guess.
+// End 1 nothing happend
+//------------------------------------------------------------
+
+

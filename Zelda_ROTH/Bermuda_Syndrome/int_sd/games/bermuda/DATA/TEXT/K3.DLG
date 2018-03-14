@@ -1,0 +1,17 @@
+K2 Goto J2 ..\ddd\k2.dad -> I owe you a debt which can never be repaid, Jack Thompson. 
+
+J2 Goto K3 ..\ddd\j99.dad -> Your highness, which is the right road out of here?
+
+K3 Goto J3 ..\ddd\k3.dad -> But why do you want to leave? There are many ways in which our gratitude may be expressed. I give you Natalia as your queen. And soon, one day, you will rule all of Ijagmar.
+
+J3 Goto K4 ..\ddd\j100.dad -> Yeah? And how do you expect me to keep up with the Baseball scores? I'm outta here - I gotta get back to my unit.
+
+J3 Goto K5 ..\ddd\j101.dad -> So on the one hand I get a Princess, a kingdom and all that goes with it and on the other... hey, that's a no brainer. Deal me in!
+
+K5 Goto J4 ..\ddd\k4.dad -> I am truly satisfied. You both have my blessing.
+
+K4 Goto J5 ..\ddd\k5.dad -> Jack, there is a word we use here in Ijagmar. It is magical and we do not quite understand it, but the word is sequel. Until we have our sequel Jack you must stay here with us.
+
+J5 Goto K5 ..\ddd\j101.dad -> So on the one hand I get a Princess, a kingdom and all that goes with it and on the other... hey, that's a no brainer. Deal me in!
+ 
+J4 End 1 ..\ddd\j93.dad -> Well I`m sure I could think of something. What do you say Princess?

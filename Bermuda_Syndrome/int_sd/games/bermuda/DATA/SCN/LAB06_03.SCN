@@ -1,0 +1,88 @@
+
+        SceneNumber 102
+
+
+        Screen ..\wgp\lab06_03.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\lab05\ird.mov
+           ..\lab06\ball.mov
+           ..\lab06\extra_.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,443) (1000,480)
+           1 Enable (-1000,335) (46,361)
+           1 Enable (292,334) (457,363)
+           1 Enable (151,105) (1000,134)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,237) (27,349)
+           2 Enable (324,227) (430,351)
+           2 Enable (0,0) (297,124)
+           2 Enable (0,0) (293,161)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (283,329) (307,359)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (445,330) (469,359)
+
+	   // Группа No. 8-9 - обозначает перспективу
+           8 Mix -1 0 0 (304,348) (470,364)
+           8 Mix -1 0 0 (0,348) (42,362)
+           8 Mix -1 0 0 (0,236) (31,349)
+           8 Mix -1 0 0 (351,208) (424,344)
+           8 Mix -1 0 0 (208,0) (293,123)
+           8 Mix -1 0 0 (15,363) (27,463)
+           8 Mix -1 0 0 (7,454) (32,468)
+           9 Mix -1 0 0 (15,360) (36,372)
+           9 Mix -1 0 0 (355,359) (367,458)
+           9 Mix -1 0 0 (356,453) (375,465)
+           9 Mix -1 0 0 (356,360) (376,372)
+           9 Mix -1 0 0 (418,361) (438,371)
+           9 Mix -1 0 0 (418,369) (429,462)
+           9 Mix -1 0 0 (418,455) (442,466)
+
+	   // Группа No. 9 - обозначает перспективу
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (458,343) (470,350)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+
+        Object: Irod
+           Memory [9] 10
+           Coord (366, 413)
+           GlobalMemory [210] != 0 -> LoadStatus [110]
+        ObjectEnd
+        Object: Ball
+           GlobalMemory [209] != 0 -> Init NoInit
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 lab06_02.scn
+           2 lab06_04.scn
+        SceneEnd
+
+End

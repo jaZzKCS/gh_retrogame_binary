@@ -1,0 +1,31 @@
+
+// Dialog 1:	In Situationen, in denen Natalia Jack hilft
+
+J1 Goto N1 ..\ddd\j74.dad -> Hey, look, is there any way you could stop just standing there and maybe make yourself useful? 
+
+N1 Goto J2 ..\ddd\n30.dad -> I have been thinking. Something you don't do much of, I've noticed.
+
+J2 Goto N2 ..\ddd\j75.dad -> I don't know if you've noticed, but I'm busting my ass trying to get us out of here. Maybe, just maybe, you'd like to help?
+
+N2 Goto J3 ..\ddd\n31.dad -> Some of the things you have said to me are quite rude. I'm really not sure about you, Jack Thompson.
+
+J3 Goto N3 ..\ddd\j76.dad -> I suffer from colloquial American. A lot of people do.
+
+N3 Goto J4 ..\ddd\n32.dad -> I'm so sorry Jack, what can I do to help?
+
+J4 Goto N6 ..\ddd\j77.dad -> When I pull on the rope you pull too, OK? 
+
+J4 Goto N5 ..\ddd\j78.dad -> Maybe it's time you took a swim, Princess!
+
+J4 Goto N4 ..\ddd\j79.dad -> Forget it... I can do it on my own.
+
+N4 End 1 ..\ddd\n35.dad -> I'm sure there are lots of things you can do on your own, Jack.
+
+N5 End 1 ..\ddd\n34.dad -> I will happily swim in any water that are safe, Jack!
+
+N6 End 2 ..\ddd\n33.dad   -> I will pull as hard as I am able Jack Thompson. But I cannot forget some of the things you have said.
+
+
+// end 1 Nothing happend
+// end 2 girl is jumping up
+//AFTER Jack falling down new dialoque

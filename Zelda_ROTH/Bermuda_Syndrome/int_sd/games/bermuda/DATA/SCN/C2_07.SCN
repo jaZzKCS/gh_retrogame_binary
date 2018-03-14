@@ -1,0 +1,124 @@
+        SceneNumber 166
+
+        Screen ..\wgp\c2_07.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+//------------------------
+           ..\alx\aegg7.mov
+           ..\alx\alean3.mov
+           ..\alx\ball_.mov
+           ..\cave1\ext.mov
+
+
+
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (480,338) (1000,364)
+           1 Enable (-1000,447) (1000,475)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (484,356) (640,455)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (473,336) (496,364)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+//----------------------------
+        Object: Aln01
+           Init Simple
+           Coord (201,435)
+           Move 1
+           Depth -1
+           Mirror No
+           GlobalMemory [256] != 0 -> LoadStatus [156]           
+        ObjectEnd
+
+        Object: Aln02
+           Coord (163,425)
+           Mirror No
+           GlobalMemory [257] != 0 -> LoadStatus [157]           
+        ObjectEnd
+
+        Object: Aln03
+           Coord (125,425)
+           Mirror No
+           GlobalMemory [258] != 0 -> LoadStatus [158]           
+        ObjectEnd
+
+        Object: Aln04
+           Coord (80,425)
+           Mirror No
+           GlobalMemory [259] != 0 -> LoadStatus [159]           
+        ObjectEnd
+
+        Object: Aln05
+           Coord (40,425)
+           Mirror No
+           GlobalMemory [260] != 0 -> LoadStatus [160]           
+        ObjectEnd
+
+        Object: Aegg1
+           Coord (193,413)
+           Mirror No
+           GlobalMemory [266] != 0 -> LoadStatus [166]           
+        ObjectEnd
+
+        Object: Aegg2
+           Coord (157,415)
+           Mirror No
+           GlobalMemory [267] != 0 -> LoadStatus [167]           
+        ObjectEnd
+
+        Object: Aegg3
+           Coord (118,414)
+           Mirror No
+           GlobalMemory [268] != 0 -> LoadStatus [168]           
+        ObjectEnd
+
+        Object: Aegg4
+           Coord (74,412)
+           Mirror No
+           GlobalMemory [269] != 0 -> LoadStatus [169]           
+        ObjectEnd
+
+        Object: Aegg5
+           Coord (36,420)
+           Mirror No
+           GlobalMemory [270] != 0 -> LoadStatus [170]           
+        ObjectEnd
+
+        Object: Ball1
+           Init NoInit
+        ObjectEnd
+
+        Object: Ball2
+           Coord (36,390)
+           Mirror No
+           GlobalMemory [272] == 1 -> Init Simple 
+        ObjectEnd
+
+        Scene
+           1 c2_08.scn
+           2 c2_06.scn
+        SceneEnd
+
+End

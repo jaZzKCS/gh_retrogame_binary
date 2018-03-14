@@ -1,0 +1,100 @@
+
+        SceneNumber 117
+
+
+        Screen ..\wgp\lab07_08.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+	   ..\lab07\door.mov
+           ..\lab07\extrak.mov
+           ..\lab07\ioda.mov
+           ..\lab07\extra_.mov
+	   ..\lab06\AXT.mov
+	MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,445) (1000,480)
+           1 Enable (-1000,219) (150,254)
+           1 Enable (-1000,331) (108,377)
+           1 Enable (238,331) (1000,366)
+           1 Enable (267,216) (1000,253)
+           1 Enable (297,102) (1000,138)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (296,255) (640,348)
+           2 Enable (0,256) (27,480)
+           2 Enable (0,374) (107,480)
+           2 Enable (295,364) (640,480)
+           2 Enable (564,0) (640,480)
+           2 Enable (377,0) (640,136)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (230,333) (253,367)
+           3 Enable (256,214) (280,252)
+	   3 Enable (283,104) (307,139)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (148,221) (172,260)
+           4 Enable (94,331) (117,369)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (0,259) (28,353)
+           9 Mix -1 0 0 (59,374) (107,480)
+           9 Mix -1 0 0 (251,348) (381,367)
+           9 Mix -1 0 0 (281,234) (628,251)
+           9 Mix -1 0 0 (310,121) (640,135)
+
+	   10 Mix -1 192 64 (342, 138) (590, 232)
+           10 Mix -1 192 64 (317, 254) (587, 352)
+           10 Mix -1 192 64 (19, 228) (171, 261)
+           10 Mix -1 192 64 (10, 346) (118, 374)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+	ObjectEnd
+
+	Object: Door
+	   Coord (296, 271)
+	   Memory [9] 2
+	   GlobalMemory [203] != 0 -> Cel 1 14
+	   GlobalMemory [203] != 0 -> Coord (296,272)
+	ObjectEnd
+
+	Object: Axt01
+	   Memory [9] 6
+	   Init NoInit
+	   GlobalMemory [226] != 0 -> LoadStatus [126]
+	   GlobalMemory [226] != 0 -> AddCoordX -648
+	   GlobalMemory [226] != 0 -> Init Simple
+	ObjectEnd
+	Object: Axt02
+	   Memory [9] 7
+	   Init NoInit
+	   GlobalMemory [227] != 0 -> LoadStatus [127]
+	   GlobalMemory [227] != 0 -> AddCoordX -648
+	   GlobalMemory [227] != 0 -> Init Simple
+	ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 lab07_07.scn
+           5 tele11.scn
+        SceneEnd
+
+End

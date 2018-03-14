@@ -1,0 +1,82 @@
+
+        SceneNumber 190
+
+        Screen ..\WGP\__1.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\_1\velo.mov
+          ..\_1\near.mov
+        MoviesEnd
+
+        Box
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 436) (1000, 480)
+
+           // Группа No. 2 - обозначает препятствие
+           2 Enable (648, 0) (1000, 480)
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+
+           // Группа No. 10 - затирание т.к. находится впереди
+           
+           
+
+        BoxEnd
+
+        IfNewObject: Jack
+          Coord (589, 373)
+          Mirror Y
+        ObjectEnd
+
+        Object: Velo01
+          Init Simple
+          GlobalMemory [52] == 1  -> LoadStatus [16]
+          GlobalMemory [52] == 1  -> Init Simple
+          GlobalMemory [31] == -1 -> AddCoordX -640
+        ObjectEnd
+
+        Object: Velo02
+          Init NoInit 
+          GlobalMemory [53] == 1  -> LoadStatus [17]
+          GlobalMemory [53] == 1  -> Init Simple
+          GlobalMemory [31] == -1 -> AddCoordX -640
+        ObjectEnd
+
+        Object: Velo03
+          Init NoInit
+          GlobalMemory [54] == 1  -> LoadStatus [18]
+          GlobalMemory [54] == 1  -> Init Simple
+          GlobalMemory [31] == -1 -> AddCoordX -640
+        ObjectEnd
+
+        Object: Velo04
+          Init NoInit
+          GlobalMemory [55] == 1  -> LoadStatus [19]
+          GlobalMemory [55] == 1  -> Init Simple
+          GlobalMemory [31] == -1 -> AddCoordX -640
+        ObjectEnd
+
+        Object: Velo05
+          Init Simple
+          GlobalMemory [56] == 1  -> LoadStatus [20]
+          GlobalMemory [56] == 1  -> Init Simple
+          GlobalMemory [31] == -1 -> AddCoordX -640
+        ObjectEnd
+
+
+        Scene
+
+           1 __2.scn
+   ;        2 _01.scn
+
+        SceneEnd
+
+End

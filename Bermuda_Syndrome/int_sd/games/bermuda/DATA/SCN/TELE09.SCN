@@ -1,0 +1,118 @@
+
+        SceneNumber 193
+
+	Screen ..\WGP\__4.wgp
+
+	Movies
+	  ..\jack\jack.mov
+	  ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+	  ..\jack\fire.mov
+	   ..\girl\girl.mov
+	   ..\jack\extra.mov
+	   ..\cave2\raft2.mov
+           ..\cave2\stn.mov
+           ..\cave2\swim.mov
+	  ..\__4\eup.mov
+	  ..\__4\scr.mov
+	  ..\__4\stone.mov
+	MoviesEnd
+
+        Midi ..\midi\jungle1.mid 0
+
+	Box
+	   // Группа No. 1 - обозначает землю
+	   1 Enable (-1000,-1000) (-1000,-1000)
+	   2 Enable (-1000,-1000) (-1000,-1000)
+	   1 Enable (-1000, 436) (1000, 480)
+	   1 Enable (158,316) (213,342)
+
+	   // Группа No. 2 - обозначает препятствие
+	   2 Enable (157,343) (214,449)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+	   //                выводится без зеркального отображения
+	   3 Enable (148,314) (172,340)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+	   //                выводится c зеркальным отображением по оси Y
+	   4 Enable (202,312) (226,343)
+
+	BoxEnd
+
+	Object: Jack
+	  Coord (92, 443)
+	  Move 49
+	ObjectEnd
+
+	Object: Girl
+        Init NoInit
+	GlobalMemory [10] == 100 ->   Init Simple
+        GlobalMemory [10] == 100 ->   Coord (27,376)
+	ObjectEnd
+
+	Object: Eup
+	  GlobalMemory [58] == 1 -> LoadStatus [21]
+	ObjectEnd
+
+	Object: Stone1
+	  GlobalMemory [59] >= 1 -> Coord (71, 430)
+	  GlobalMemory [59] >= 1 -> Cel 1 21
+	  GlobalMemory [59] >= 1 -> Depth 6
+	ObjectEnd
+
+	Object: Stone2
+	  GlobalMemory [59] >= 2 -> Coord (77, 420)
+	  GlobalMemory [59] >= 2 -> Cel 2 26
+	  GlobalMemory [59] >= 2 -> Depth 6
+	ObjectEnd
+
+	Object: Stone_0
+	   GlobalMemory [151] == 1 -> LoadStatus [75]
+	   GlobalMemory [151] == 1 GlobalMemory [153] == 194 -> AddCoordX -648
+	   GlobalMemory [151] == 1 GlobalMemory [153] == 180 -> AddCoordY 456
+	   GlobalMemory [151] != 1 -> Init NoInit
+	   GlobalMemory [151] == 1 -> Init Simple
+	ObjectEnd
+
+	Object: Stone_1
+	   GlobalMemory [152] == 1 -> LoadStatus [76]
+	   GlobalMemory [152] == 1 GlobalMemory [154] == 194 -> AddCoordX -648
+	   GlobalMemory [152] == 1 GlobalMemory [154] == 180 -> AddCoordX -648
+	   GlobalMemory [152] == 1 GlobalMemory [154] == 180 -> AddCoordY 456
+	   GlobalMemory [152] != 1 -> Init NoInit
+	   GlobalMemory [152] == 1 -> Init Simple
+	ObjectEnd
+
+	Object: Raft__
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line1
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line2
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line3
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line4
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line5
+	   Init NoInit
+	ObjectEnd
+
+	Scene
+
+           1 __5.scn
+           2 __3.scn
+
+        SceneEnd
+
+End

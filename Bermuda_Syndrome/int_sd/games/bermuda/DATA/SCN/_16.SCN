@@ -1,0 +1,63 @@
+
+        SceneNumber 16
+
+        Screen ..\WGP\_16.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\16\bird.mov
+          ..\16\extra.mov
+          ..\16\bridge.mov
+        MoviesEnd
+
+        Box
+
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 436) (1000, 480)
+;           1 Enable (-1000, 209) (212, 232)
+
+           // Группа No. 2 - обозначает препятствие
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+;           4 Enable (202, 208) (224, 233)
+
+           // Группа No. 9 - обозначает перспективу
+            9 Mix -10 16 240 (0,380) (639,457)
+
+
+
+        BoxEnd
+
+        IfNewObject: Jack
+          Coord (27, 373)
+        ObjectEnd
+
+        Object: Bird1
+          GlobalMemory [26] >= 1 -> Init NoInit
+        ObjectEnd
+
+        Object: Bird2
+          GlobalMemory [26] >= 2 -> Init NoInit
+        ObjectEnd
+
+        Object: Bird3
+          GlobalMemory [26] >= 3 -> Init NoInit
+        ObjectEnd
+
+
+        Scene
+
+           1 _15.scn
+           2 _17.scn
+
+        SceneEnd
+
+
+End

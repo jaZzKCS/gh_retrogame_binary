@@ -1,0 +1,14 @@
+//Jack trifft Telquad zum letzten Duell
+
+J1 Goto E1 ..\ddd\j86.dad -> Telquad, in person no less. 
+
+E1 Goto J2 ..\ddd\te1.dad -> Be silent, be still in these your last few moments of life. I am Telquad, 	Lord of the Korial Sea, King of Ijagmar and Conqueror of all that you behold.  	Your death is inevitable. Your quest has been foolish. Before you die in agony do you have any final words, mortal fool?
+
+J2 Goto E2 ..\ddd\j87.dad -> You know something, pal?  I've been looking forward to this. Do I have any final words. How about eat shit and die?
+
+//E2 End 2 ..\ddd\te2.dad -> Brave words at the very last. Make your peace with whatever Gods you believe in.
+
+E2 Goto J3 ..\ddd\te2.dad  -> Brave words at the very last. Make your peace with whatever Gods you believe in.
+J3 End 2 ..\ddd\j88.dad -> And you make yours , peckerhead.
+//End 2 Vizir tirn into dino
+//(T. verwandelt sich in einen Dinosaurier ,es kommt zum Kampf , Jack siegt und T. verwandelt sich zurck)

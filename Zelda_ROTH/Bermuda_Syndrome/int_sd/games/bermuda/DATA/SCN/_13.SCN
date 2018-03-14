@@ -1,0 +1,64 @@
+       
+        SceneNumber 13
+
+        Screen ..\WGP\_13.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\girl\girl.mov
+          ..\13\far.mov
+          ..\13\lift.mov
+          ..\13\scr.mov
+          ..\13\view.mov
+        MoviesEnd
+
+        Box
+
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 436) (1000, 480)
+           1 Enable (  161, 327) ( 291, 343)
+
+           // Группа No. 2 - обозначает препятствие
+           2 Enable (160, 343) (268, 440)
+
+           // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable ( 148, 327) ( 170, 343)
+
+           // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится с зеркальным отображением по оcи Y
+           4 Enable ( 283, 327) (305, 343)
+
+           // Группа No. 10 - обозначает прямоугольники перспективы
+           10 Mix 0 0 0 (214, 343) (268, 455)
+//           10 Mix 5 0 0 (417, 294) (551, 391)
+
+        BoxEnd
+
+        IfNewObject: Jack
+          Coord (27, 373)
+        ObjectEnd
+
+        Object: Lift
+          Coord (142, 341)
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+
+        Scene
+
+           1 _12.scn
+           2 _14.scn
+           5 tele03.scn
+
+        SceneEnd
+
+
+End

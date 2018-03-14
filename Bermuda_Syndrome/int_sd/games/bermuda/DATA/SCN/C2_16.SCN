@@ -1,0 +1,108 @@
+        SceneNumber 175
+
+        Screen ..\wgp\c2_16.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+//------------------------
+	   ..\alx\aegg8.mov
+	   ..\alx\alean4.mov
+	MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,449) (1000,480)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (303,259) (537,341)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (462,328) (574,476)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+//----------------------------
+	Object: Aln01
+	   Init Simple
+	   Coord (201,435)
+	   Move 1
+	   Depth -1
+	   Mirror No
+	   GlobalMemory [286] != 0 -> LoadStatus [186]
+	ObjectEnd
+
+	Object: Aln02
+	   Coord (163,425)
+	   Mirror No
+	   GlobalMemory [287] != 0 -> LoadStatus [187]
+	ObjectEnd
+
+	Object: Aln03
+	   Coord (125,425)
+	   Mirror No
+	   GlobalMemory [288] != 0 -> LoadStatus [188]
+	ObjectEnd
+
+	Object: Aln04
+	   Coord (80,425)
+	   Mirror No
+	   GlobalMemory [289] != 0 -> LoadStatus [189]
+	ObjectEnd
+
+	Object: Aln05
+	   Coord (40,425)
+	   Mirror No
+	   GlobalMemory [290] != 0 -> LoadStatus [190]
+	ObjectEnd
+
+	Object: Aegg1
+	   Coord (193,413)
+	   Mirror No
+	   GlobalMemory [296] != 0 -> LoadStatus [196]
+	ObjectEnd
+
+	Object: Aegg2
+	   Coord (157,415)
+	   Mirror No
+	   GlobalMemory [297] != 0 -> LoadStatus [197]
+	ObjectEnd
+
+	Object: Aegg3
+	   Coord (118,414)
+	   Mirror No
+	   GlobalMemory [298] != 0 -> LoadStatus [198]
+	ObjectEnd
+
+	Object: Aegg4
+	   Coord (74,412)
+	   Mirror No
+	   GlobalMemory [299] != 0 -> LoadStatus [199]
+	ObjectEnd
+
+	Object: Aegg5
+	   Coord (36,420)
+	   Mirror No
+	   GlobalMemory [300] != 0 -> LoadStatus [200]
+	ObjectEnd
+
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 c2_15.scn
+           2 c2_19.scn
+        SceneEnd
+
+End

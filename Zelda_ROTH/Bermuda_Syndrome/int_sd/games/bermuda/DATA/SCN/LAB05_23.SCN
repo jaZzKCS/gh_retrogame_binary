@@ -1,0 +1,67 @@
+
+	SceneNumber 83
+
+        Screen ..\wgp\lab05_23.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+	   ..\lab05\varan.mov
+       GlobalMemory [81] == 0 -> ..\lab05\door.mov
+       GlobalMemory [81] == 0 -> ..\lab05\refl.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,336) (1000,381)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (66,213) (100,340)
+           10 Mix -1 192 64 (68,339) (98,369)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        Object: Door
+           Coord (285, 256)
+        ObjectEnd
+        Object: Button
+           Coord (171, 340)
+	ObjectEnd
+
+	Object: Varan01
+	   GlobalMemory [88] != 0  -> LoadStatus [30]
+	   GlobalMemory [91] == 84 -> AddCoordX 648
+	   GlobalMemory [91] == 82 -> AddCoordX -648
+	ObjectEnd
+	Object: Varan02
+	   GlobalMemory [89] != 0 -> LoadStatus [31]
+	   GlobalMemory [91] == 84 -> AddCoordX 648
+	   GlobalMemory [91] == 82 -> AddCoordX -648
+	ObjectEnd
+	Object: Varan03
+	   GlobalMemory [90] != 0 -> LoadStatus [32]
+	   GlobalMemory [91] == 84 -> AddCoordX 648
+	   GlobalMemory [91] == 82 -> AddCoordX -648
+	ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 lab05_22.scn
+           2 lab05_24.scn
+           3 lab05_18.scn
+        SceneEnd
+
+End

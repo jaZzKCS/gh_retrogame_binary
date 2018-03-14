@@ -1,0 +1,83 @@
+
+        SceneNumber 103
+
+
+        Screen ..\wgp\lab06_04.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\lab06\bogen.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,443) (1000,480)
+           1 Enable (-1000,102) (162,152)
+           1 Enable (117,221) (214,250)
+           1 Enable (51,330) (240,367)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (106,136) (159,345)
+           2 Enable (512,253) (640,304)
+           2 Enable (512,299) (580,378)
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (511,331) (579,358)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (41,335) (64,364)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (149,108) (172,133)
+           4 Enable (202,219) (226,248)
+           4 Enable (229,332) (253,366)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (121,133) (158,345)
+           9 Mix -1 0 0 (0,121) (155,159)
+           9 Mix -1 0 0 (151,234) (225,249)
+           9 Mix -1 0 0 (64,348) (252,368)
+           9 Mix -1 0 0 (144,373) (157,459)
+           9 Mix -1 0 0 (137,455) (166,465)
+           9 Mix -1 0 0 (144,365) (163,374)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (242,345) (254,353)
+           10 Mix -1 192 64 (213,229) (226,240)
+           10 Mix -1 192 64 (156,115) (175,135)
+           10 Mix -1 192 64 (523,333) (579,465)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        Object: Bogen1
+           GlobalMemory [115] != 0 -> LoadStatus [60]
+           GlobalMemory [114] == 104 -> AddCoordX 648
+        ObjectEnd
+        Object: Bogen2
+           GlobalMemory [116] != 0 -> LoadStatus [61]
+           GlobalMemory [114] == 104 -> AddCoordX 648
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 lab06_03.scn
+           2 lab06_05.scn
+        SceneEnd
+
+End

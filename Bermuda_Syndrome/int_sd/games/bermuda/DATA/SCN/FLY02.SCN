@@ -1,0 +1,130 @@
+
+        SceneNumber 202
+
+
+        Screen ..\wgp\fly02.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\cave2\raft2.mov
+           ..\cave2\stn.mov
+//----------------
+           ..\alx\pter2.mov
+           ..\alx\pter3.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+	   1 Enable (-1000,-1000) (-1000,-1000)
+           1 Enable (-1000,209) (322,250)
+           1 Enable (-1000,327) (432,360)
+
+	   // Группа No. 2 - обозначает препятствие
+	   2 Enable (-1000,-1000) (-1000,-1000)
+           2 Enable (0,259) (293,480)
+           2 Enable (278,359) (429,480)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (311,209) (334,246)
+           4 Enable (418,325) (442,361)
+
+	   // Группа No. 6 - обозначает направление ветра налево
+           6 Enable (560,358) (640,480)
+
+	   // Группа No. 8 - обозначает препятствие для плота
+           8 Enable (0,0) (640,322)
+           // Группа No. 9 - обозначает вто ой план
+           9 Mix 20 0 0 (320, 97) (368, 144)
+           9 Mix 20 0 0 (340, 144) (369, 156)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+	Object: Raft__
+	   LoadStatus [73]
+	   Init Simple
+	   GlobalMemory [7] == 1 -> AddCoordX 648
+	   GlobalMemory [7] == 2 -> AddCoordX -648
+	   GlobalMemory [7] == 3 -> AddCoordY 456
+	   GlobalMemory [7] == 4 -> AddCoordY -456
+	ObjectEnd
+
+	Object: Line1
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line2
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line3
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line4
+	   Init NoInit
+	ObjectEnd
+	Object: Line5
+	   Init NoInit
+	ObjectEnd
+
+	Object: Stone_0
+	   LoadStatus [75]
+	   Init Simple
+	   GlobalMemory [7] == 1 -> AddCoordX 648
+	   GlobalMemory [7] == 2 -> AddCoordX -648
+	   GlobalMemory [7] == 3 -> AddCoordY 456
+	   GlobalMemory [7] == 4 -> AddCoordY -456
+	ObjectEnd
+
+	Object: Stone_1
+	   LoadStatus [76]
+	   Init Simple
+	   GlobalMemory [7] == 1 -> AddCoordX 648
+	   GlobalMemory [7] == 2 -> AddCoordX -648
+	   GlobalMemory [7] == 3 -> AddCoordY 456
+	   GlobalMemory [7] == 4 -> AddCoordY -456
+        ObjectEnd
+
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+//---------------------------        
+        Object: Pter2
+           Coord (660, -40)
+           Init Random 100
+        ObjectEnd
+
+        Object: Pter2_
+           Init NoInit
+        ObjectEnd
+
+        Object: Pter3
+           Init Random 100
+           Coord (320, 120)
+        ObjectEnd
+
+        Object: Pter3_
+           Init NoInit
+        ObjectEnd
+
+//---------------------
+        Scene
+           1 fly01.scn
+           2 fly03.scn
+           4 fly05.scn
+        SceneEnd
+
+End

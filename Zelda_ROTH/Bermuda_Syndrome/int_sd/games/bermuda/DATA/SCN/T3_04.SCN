@@ -1,0 +1,56 @@
+
+        SceneNumber 424
+
+
+        Screen ..\wgp\t3_04.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+	   ..\town2\guard.mov
+	   ..\town2\sneack.mov
+	   ..\town2\boom.mov
+	MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,434) (1000,480)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+	ObjectEnd
+
+	Object: Guard
+           Cel 1 1
+	   Memory [9] 6
+	   Coord (323,378)
+	   GlobalMemory [189] <= 1 -> Init Simple
+	   GlobalMemory [189] > 1  -> Init NoInit
+	ObjectEnd
+	Object: Sneack
+           Cel 3 1
+	   Memory [9] 6
+	   Coord (323,385)
+	   GlobalMemory [189] <= 1 -> Init NoInit
+	   GlobalMemory [189] > 1  -> Init Simple
+	   GlobalMemory [189] == 3 -> LoadStatus [89]
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 t3_03.scn
+           2 t3_05.scn
+        SceneEnd
+
+End

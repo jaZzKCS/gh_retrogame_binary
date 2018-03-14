@@ -1,0 +1,80 @@
+
+        SceneNumber 307
+
+
+        Screen ..\wgp\c3_07.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\cave3\door.mov
+           ..\lab07\extrak.mov
+        MoviesEnd
+
+        Midi ..\midi\caves.mid 0
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,447) (1000,480)
+           1 Enable (54,335) (202,363)
+           1 Enable (109,220) (337,248)
+           1 Enable (187,103) (350,138)
+           1 Enable (-1000,103) (109,135)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (216,385) (270,448)
+           2 Enable (111,250) (200,347)
+           2 Enable (199,246) (346,331)
+           2 Enable (217,135) (346,264)
+           2 Enable (0,133) (79,189)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+           3 Enable (40,331) (64,361)
+           3 Enable (93,213) (119,247)
+           3 Enable (174,98) (199,134)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (94,106) (118,134)
+           4 Enable (337,103) (361,135)
+
+	   // Группа No. 10 - обозначает перспективу
+           8 Mix -1 192 64 (78,116) (122,135)
+           8 Mix -1 192 64 (0,130) (81,191)
+           8 Mix -1 192 64 (138,247) (343,352)
+           10 Mix -1 192 64 (248,133) (351,252)
+           10 Mix -1 192 64 (318,116) (360,135)
+           10 Mix -1 192 64 (113,353) (137,475)
+           10 Mix -1 192 64 (111,459) (121,480)
+           10 Mix -1 192 64 (249,325) (268,480)
+           10 Mix -1 192 64 (245,457) (273,479)
+           10 Mix -1 192 64 (294,324) (315,480)
+           10 Mix -1 192 64 (285,461) (329,480)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        Object: Door
+           GlobalMemory [160] == 1 -> Coord (238,385)
+           GlobalMemory [160] == 1 -> Cel 1 14
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 c3_06.scn
+           2 fly14.scn
+        SceneEnd
+
+End

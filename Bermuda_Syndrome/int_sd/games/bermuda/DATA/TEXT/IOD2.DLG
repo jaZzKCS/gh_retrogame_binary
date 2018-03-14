@@ -1,0 +1,6 @@
+// After coming back the wall disappear and ADDITION phrase of Joda
+// End 1 nothing happend if J speck again dialogue begins from J2
+
+// ADDITION phrase of Joda when J teleport back
+T0 End 1 ..\ddd\t19.dad -> Thank you Jack Thompson, you have done me a great service. I will now reveal the path to the chamber where the sword lies. 
+

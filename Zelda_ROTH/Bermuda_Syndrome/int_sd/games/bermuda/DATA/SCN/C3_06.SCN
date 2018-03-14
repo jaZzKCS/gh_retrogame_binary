@@ -1,0 +1,78 @@
+
+        SceneNumber 306
+
+
+        Screen ..\wgp\c3_06.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+	MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (342,102) (1000,134)
+           1 Enable (4,442) (1000,480)
+           1 Enable (28,332) (431,358)
+           1 Enable (-1000,217) (242,248)
+           1 Enable (312,158) (1000,191)
+           1 Enable (158,77) (353,111)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,248) (159,480)
+           2 Enable (297,131) (640,190)
+           2 Enable (142,0) (268,113)
+           2 Enable (255,17) (403,116)
+           2 Enable (0,0) (15,128)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (229,222) (253,248)
+           4 Enable (419,332) (442,364)
+           4 Enable (418,0) (442,23)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (311,127) (640,190)
+           9 Mix -1 0 0 (156,14) (409,110)
+           9 Mix -1 0 0 (0,244) (159,480)
+           9 Mix -1 0 0 (0,0) (14,130)
+           9 Mix -1 0 0 (146,344) (433,356)
+           9 Mix -1 0 0 (59,230) (245,243)
+           9 Mix -1 0 0 (207,338) (231,351)
+           9 Mix -1 0 0 (286,454) (309,468)
+           9 Mix -1 0 0 (394,452) (416,476)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (208,244) (231,337)
+           10 Mix -1 192 64 (289,357) (308,458)
+           10 Mix -1 192 64 (398,357) (417,458)
+           10 Mix -1 192 64 (407,344) (444,358)
+           10 Mix -1 192 64 (216,230) (256,245)
+           10 Mix -1 192 64 (394,2) (444,18)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+	ObjectEnd
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 c3_05.scn
+           2 c3_07.scn
+           3 c3_02.scn
+        SceneEnd
+
+End

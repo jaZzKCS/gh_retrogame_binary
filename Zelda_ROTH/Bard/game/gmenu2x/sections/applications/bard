@@ -1,0 +1,9 @@
+title=Bard
+description=Comic Viewer
+icon=skin:icons/bard.png
+exec=/mnt/int_sd/apps/bard/run.dge
+clock=600
+volume=1
+wrapper=true
+selectorbrowser=true
+selectordir=/mnt/

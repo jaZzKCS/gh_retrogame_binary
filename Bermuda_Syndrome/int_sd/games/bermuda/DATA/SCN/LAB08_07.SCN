@@ -1,0 +1,121 @@
+
+        SceneNumber 126
+
+
+        Screen ..\wgp\lab08_07.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\lab08\handle.mov
+           ..\lab08\cage.mov
+           ..\lab05\extra.mov
+           ..\lab08\irod.mov
+           ..\lab08\vhand.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 1 - обозначает землю
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (109,332) (186,368)
+           1 Enable (-1000,444) (189,480)
+           1 Enable (-1000,335) (109,370)
+           1 Enable (186,332) (1000,368)
+           1 Enable (334,224) (458,251)
+           1 Enable (-1000,96) (1000,137)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (158,238) (351,366)
+           2 Enable (322,157) (403,252)
+           2 Enable (292,367) (640,480)
+           2 Enable (0,366) (81,480)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+           //                выводится без зеркального отображения
+     //      3 Enable (175,333) (199,368)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (94,333) (119,365)
+           4 Enable (174,445) (199,480)
+           4 Enable (445,219) (470,252)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (0,112) (393,156)
+           9 Mix -1 0 0 (483,112) (640,156)
+           9 Mix -1 0 0 (393,92) (483,129)
+           9 Mix -1 0 0 (346,155) (393,252)
+           9 Mix -1 0 0 (383,235) (471,252)
+           9 Mix -1 0 0 (204,348) (335,367)
+           9 Mix -1 0 0 (11,365) (77,480)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (88,343) (121,369)
+           10 Mix -1 192 64 (165,457) (201,480)
+           10 Mix -1 192 64 (441,229) (472,252)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 386)
+        ObjectEnd
+
+        Object: Bridge
+           Cel 1 1
+           Coord (115, 145)
+           GlobalMemory [131] != 0 -> Coord (100, 145)
+           GlobalMemory [131] != 0 -> Cel 1 16
+        ObjectEnd
+        Object: Cage
+           Cel 2 1
+           Coord (325, 245)
+           GlobalMemory [131] != 0 -> Coord (326, 245)
+           GlobalMemory [131] != 0 -> Cel 2 16
+        ObjectEnd
+
+        Object: VaranH
+           Cel 1 1
+           Coord (82, 380) 
+           GlobalMemory [133] != 0 -> Coord (87, 397)
+           GlobalMemory [133] != 0 -> Cel 1 14
+        ObjectEnd
+
+        Object: Handle
+           Cel 1 1
+           Memory [9] 0
+           Coord (406, 152) 
+           GlobalMemory [131] != 0 -> Coord (411, 169)
+           GlobalMemory [131] != 0 -> Cel 1 14
+        ObjectEnd
+
+        Object: Irod
+           GlobalMemory [133] == 0 GlobalMemory [10] == 21 GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+           GlobalMemory [133] == 0 GlobalMemory [10] == 21 GlobalMemory [8] == 1 GlobalMemory [9] == 125          -> Init Simple
+           GlobalMemory [134] == 2 GlobalMemory [10] == 21 GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+           GlobalMemory [134] == 2 GlobalMemory [10] == 21 GlobalMemory [8] == 1 GlobalMemory [9] == 125          -> Init Simple
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [133] == 0 GlobalMemory [10] == 21 GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init NoInit
+        GlobalMemory [133] == 0 GlobalMemory [10] == 21 GlobalMemory [8] == 1 GlobalMemory [9] == 125          -> Init NoInit
+        GlobalMemory [134] == 2 GlobalMemory [10] == 21 GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init NoInit
+        GlobalMemory [134] == 2 GlobalMemory [10] == 21 GlobalMemory [8] == 1 GlobalMemory [9] == 125          -> Init NoInit
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+       
+
+        Scene
+           1 lab08_06.scn
+           2 lab08_08.scn
+           4 lab08_11.scn
+        SceneEnd
+
+End

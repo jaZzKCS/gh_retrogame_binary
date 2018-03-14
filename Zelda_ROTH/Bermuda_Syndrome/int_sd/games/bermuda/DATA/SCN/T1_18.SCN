@@ -1,0 +1,54 @@
+
+        SceneNumber 92
+
+
+        Screen ..\wgp\t1_18.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+	   ..\lab06\axt.mov
+	MoviesEnd
+
+        Midi ..\midi\merian1.mid 0
+ 
+        Box
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,319) (1000,355)
+           1 Enable (-1000,437) (1000,480)
+
+	   // Группа No. 9-10 - обозначает перспективу
+           9 Mix -100 0 0 (633,212) (640,341)
+           10 Mix -100 0 0 (258,200) (292,358)
+
+
+        BoxEnd
+
+        IfNewObject: Jack
+	   Coord (270, 150)
+	ObjectEnd
+
+	Object: Axt01
+	   Memory [9] 5
+	   Coord (238,258)
+	   GlobalMemory [225] != 0 -> LoadStatus [125]
+	ObjectEnd
+	Object: Axt02
+	   Init NoInit
+	ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 t1_17.scn
+           12 lab09_05.scn
+        SceneEnd
+
+End

@@ -1,0 +1,87 @@
+
+        SceneNumber 20      
+
+        Screen ..\WGP\_20.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+	  ..\girl\girl.mov
+          ..\20\den.mov
+          ..\20\far.mov
+	MoviesEnd
+
+	Midi ..\midi\jungle2.mid 0
+
+        Box
+
+           // Группа No. 1 - обозначает землю
+           1 Enable (-1000, 436) (1000, 480)
+;           1 Enable (-1000, 209) (212, 232)
+
+	   // Группа No. 2 - обозначает препятствие
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+	   //                выводится без зеркального отображения
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+	   //                выводится с зеркальным отображением по оcи Y
+;           4 Enable (202, 208) (224, 233)
+
+	BoxEnd
+
+	Object: Jack
+	  Coord (146, 443)
+	  Move 49
+	ObjectEnd
+
+	Object: Den01
+
+	  GlobalMemory [29] >= 1 -> LoadStatus [12]
+	  GlobalMemory [29] >= 1 -> Init Simple
+	  GlobalMemory [31] == 20 GlobalMemory [29] >= 1 -> AddCoordX 640
+
+	ObjectEnd
+
+	Object: Den02
+
+	  GlobalMemory [29] >= 1 -> LoadStatus [13]
+	  GlobalMemory [29] >= 1 -> Init Simple
+	  GlobalMemory [31] == 20 GlobalMemory [29] >= 1 -> AddCoordX 640
+
+	ObjectEnd
+
+	Object: Den03
+          Init NoInit
+	  GlobalMemory [30] >= 1 -> LoadStatus [14]
+	  GlobalMemory [30] >= 1 -> Init Simple
+	  GlobalMemory [31] == 20 GlobalMemory [30] >= 1 -> AddCoordX 640
+	ObjectEnd
+
+	Object: Den04
+          Init NoInit
+	  GlobalMemory [30] >= 1 -> LoadStatus [15]
+	  GlobalMemory [30] >= 1 -> Init Simple
+	  GlobalMemory [31] == 20 GlobalMemory [30] >= 1 -> AddCoordX 640
+	ObjectEnd
+
+
+
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+	GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+
+        Scene
+
+           1 _19.scn
+           2 _21.scn
+
+        SceneEnd
+
+
+
+End

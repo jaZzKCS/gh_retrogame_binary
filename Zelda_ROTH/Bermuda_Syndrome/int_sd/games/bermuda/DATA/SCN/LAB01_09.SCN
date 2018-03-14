@@ -1,0 +1,55 @@
+
+        Screen ..\wgp\lab01_09.wgp
+
+        Movies
+          ..\jack\jack.mov
+          ..\jack\jack_g.mov
+          ..\jack\jack_s.mov
+          ..\jack\fire.mov
+          ..\jack\extra.mov
+          ..\lab02\worm.mov
+        MoviesEnd
+
+
+        Box
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (0,0) (341,36)
+           2 Enable (0,148) (396,480)
+           2 Enable (386,241) (544,479)
+           2 Enable (539,0) (640,480)
+
+	   // Группа No. 5 - обозначает воду
+           5 Enable (-1000,-1000) (1000,1000)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 0 0  (316,158) (396,261)
+           10 Mix -1 0 0  (0,0) (341,34)
+
+	BoxEnd
+
+	IfNewObject: Jack
+
+	  Coord (270, 158)
+
+	ObjectEnd
+
+	Object: Worm1
+	  Coord (250, 100)
+	ObjectEnd
+	Object: Worm2
+	  Coord (200, 50)
+	ObjectEnd
+	Object: Worm3
+	  Coord (350, 70)
+	ObjectEnd
+	Object: Worm4
+	  Coord (150, 60)
+	ObjectEnd
+
+       Scene
+	  1 lab01_10.scn
+	  3 lab01_08.scn
+       SceneEnd
+       
+End

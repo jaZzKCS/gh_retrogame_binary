@@ -1,0 +1,16 @@
+//Jack ksst die Prinzessin
+//Dialoque after kissing princesse
+
+N1 Goto J1 ..\ddd\n38.dad -> I think I like some of your customs Jack. What was that?
+
+J1 Goto N2 ..\ddd\j83.dad -> One of the oldest. Still fashionable, though.
+
+N2 Goto J2 ..\ddd\n39.dad -> I enjoyed helping you, Jack Thompson. I want to help you again.
+
+J2 Goto N3 ..\ddd\j84.dad -> We have to go and we have to go now.
+
+N3 Goto J3 ..\ddd\n40.dad -> All work and no play makes Jack a very dull boy indeed.
+
+J3 End 100 ..\ddd\j85.dad -> Come here. 
+
+//End Kissin princesse again und after that standart dialoques

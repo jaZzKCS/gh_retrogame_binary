@@ -1,0 +1,87 @@
+
+        SceneNumber 411
+
+
+        Screen ..\wgp\t2_11.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\town2\brid2.mov
+           ..\cave3\lava.mov
+        MoviesEnd
+
+
+	Box
+
+	   // Группа No. 1 - обозначает землю
+	   GlobalMemory [163] != 0 -> 1 Enable (235,222) (319,251)
+	   1 Enable (-1000,0) (1000,26)
+	   1 Enable (48,104) (164,131)
+	   1 Enable (-1000,222) (235,251)
+	   1 Enable (319,222) (1000,251)
+	   1 Enable (317,331) (582,364)
+	   1 Enable (-1000,332) (190,371)
+
+	   // Группа No. 2 - обозначает препятствие
+	   GlobalMemory [163] == 0 -> 2 Enable (133,137) (268,248)
+	   2 Enable (0,363) (161,480)
+	   2 Enable (348,363) (640,480)
+	   2 Enable (458,251) (640,480)
+	   2 Enable (80,13) (164,143)
+
+	   // Группа No. 3 - обозначает запрыгивание, если персонаж
+	   //                выводится без зеркального отображения
+	   GlobalMemory [163] == 0 -> 3 Enable (310,214) (333,245)
+	   3 Enable (311,332) (333,360)
+	   3 Enable (41,99) (65,131)
+
+	   // Группа No. 4 - обозначает запрыгивание, если персонаж
+           //                выводится c зеркальным отображением по оси Y
+           4 Enable (230,221) (253,251)
+           4 Enable (174,332) (199,366)
+
+	   // Группа No. 5 - обозначает перспективу
+           5 Enable (85,447) (394,500)
+
+	   // Группа No. 9 - обозначает перспективу
+           9 Mix -1 0 0 (0,363) (160,480)
+           9 Mix -1 0 0 (0,230) (239,250)
+           9 Mix -1 0 0 (381,232) (640,249)
+           9 Mix -1 0 0 (0,0) (640,24)
+           9 Mix -1 0 0 (104,25) (164,144)
+
+	   // Группа No. 10 - обозначает перспективу
+           10 Mix -1 192 64 (208,230) (247,251)
+           10 Mix -1 192 64 (159,344) (201,366)
+           10 Mix -1 192 64 (380,239) (397,350)
+           10 Mix -1 192 64 (380,341) (402,351)
+
+	BoxEnd
+
+	Object: Bridge
+	   GlobalMemory [163] == 0 -> Cel 1 2
+        ObjectEnd
+	Object: CageB
+	   GlobalMemory [163] != 0 -> Cel 2 2
+        ObjectEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 t2_10.scn
+           2 t2_12.scn
+           2 t2_07.scn
+        SceneEnd
+
+End

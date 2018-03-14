@@ -1,0 +1,93 @@
+
+        SceneNumber 217
+
+
+        Screen ..\wgp\fly17.wgp
+
+        Movies
+           ..\jack\jack.mov
+           ..\jack\jack_g.mov
+           ..\jack\jack_s.mov
+           ..\jack\fire.mov
+           ..\girl\girl.mov
+           ..\cave2\raft2.mov
+           ..\cave2\stn.mov
+        MoviesEnd
+
+
+        Box
+	   // Группа No. 1-2 - обозначает землю & препятствие для плота
+	   1 Enable (-1000,-1000) (-1000,-1000)
+	   2 Enable (-1000,-1000) (-1000,-1000)
+
+	   // Группа No. 1 - обозначает землю
+           1 Enable (-1000,437) (1000,480)
+
+	   // Группа No. 2 - обозначает препятствие
+           2 Enable (618,0) (740,480)
+
+        BoxEnd
+
+        IfNewObject: Jack
+           Coord (270, 158)
+        ObjectEnd
+
+	Object: Raft__
+	   LoadStatus [73]
+	   Init Simple
+	   GlobalMemory [7] == 1 -> AddCoordX 648
+	   GlobalMemory [7] == 2 -> AddCoordX -648
+	   GlobalMemory [7] == 3 -> AddCoordY 456
+	   GlobalMemory [7] == 4 -> AddCoordY -456
+	ObjectEnd
+
+	Object: Line1
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line2
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line3
+	   Init NoInit
+	ObjectEnd
+
+	Object: Line4
+	   Init NoInit
+	ObjectEnd
+	Object: Line5
+	   Init NoInit
+	ObjectEnd
+
+	Object: Stone_0
+	   LoadStatus [75]
+	   Init Simple
+	   GlobalMemory [7] == 1 -> AddCoordX 648
+	   GlobalMemory [7] == 2 -> AddCoordX -648
+	   GlobalMemory [7] == 3 -> AddCoordY 456
+	   GlobalMemory [7] == 4 -> AddCoordY -456
+	ObjectEnd
+
+	Object: Stone_1
+	   LoadStatus [76]
+	   Init Simple
+	   GlobalMemory [7] == 1 -> AddCoordX 648
+	   GlobalMemory [7] == 2 -> AddCoordX -648
+	   GlobalMemory [7] == 3 -> AddCoordY 456
+	   GlobalMemory [7] == 4 -> AddCoordY -456
+        ObjectEnd
+
+
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Object: Girl
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> LoadStatus [50]
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> Init Simple
+        GlobalMemory [8] == 1 GlobalMemory [9] == SceneNumber  -> ObjectEnd
+
+        Scene
+           1 fly16.scn
+           2 fly18.scn
+           3 fly08.scn
+        SceneEnd
+
+End

@@ -1,0 +1,18 @@
+//4. VARIANTE
+
+J1 Goto N1 ..\ddd\j62.dad -> You know, of all the places in the world I'd really like to be this has to be bottom of the list.
+
+N1 Goto J2 ..\ddd\n20.dad -> You have something against the scenery? 
+
+J2 Goto N2 ..\ddd\j63.dad -> I want to know what to do next.
+
+N2 Goto J3 ..\ddd\n21.dad -> Sometimes it is better to think about what you have seen than to rush blindly forward.
+
+J3 Goto N3 ..\ddd\j64.dad -> I've seen enough to know that trick you do sure baffles me.
+
+N3 Goto J4 ..\ddd\n22.dad -> I am as you see me, Jack.
+
+J4 End 100 ..\ddd\j65.dad -> You should come with me to Pismo beach sometime.
+// End J kisses princesse
+
+

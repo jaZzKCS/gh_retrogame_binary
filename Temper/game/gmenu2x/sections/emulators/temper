@@ -6,3 +6,4 @@ volume=1
 selectorbrowser=true
 selectordir=/mnt/
 wrapper=true
+clock=600

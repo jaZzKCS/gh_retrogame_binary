@@ -7,3 +7,4 @@ selectorbrowser=true
 selectordir=/mnt/
 params=-jar $f
 wrapper=true
+clock=600

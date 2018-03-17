@@ -1,0 +1,7 @@
+title=REmini
+description=REminiscence Game
+icon=skin:icons/reminiscence.png
+exec=/mnt/int_sd/games/reminiscence/run.dge
+clock=600
+volume=1
+wrapper=true

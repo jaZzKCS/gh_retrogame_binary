@@ -1,0 +1,7 @@
+title=ST
+description=Atari ST Emulator
+icon=skin:icons/dcastaway.png
+exec=/mnt/int_sd/emus/dcastaway/run.dge
+clock=600
+volume=1
+wrapper=true

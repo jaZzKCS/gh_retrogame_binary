@@ -1,4 +1,4 @@
 #!/bin/sh
 dir=`dirname $0`
 cd $dir
-./handy320 $1
+./handy320 "$1"
